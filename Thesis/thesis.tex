@@ -1,0 +1,93 @@
+\documentclass[12pt,a4paper,twoside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[inner=3.00cm, outer=2.50cm, top=3.00cm, bottom=3.00cm]{geometry}
+\usepackage[slovene]{babel}
+\author{Luka Horvat}
+\title{Dobre prakse pri razvoju računalniških iger}
+\begin{document}
+	
+%First page
+\thispagestyle{empty} 
+
+\begin{center}
+{\large 
+	UNIVERZA V MARIBORU\\
+	FAKULTETA ZA ELEKTROTEHNIKO,\\
+	RAČUNALNIŠTVO IN INFORMATIKO\\
+}
+
+\vspace{8cm}
+{\LARGE Luka Horvat}\\
+
+\vspace{1cm}
+\textsc{\textbf{\LARGE
+		Dobre prakse pri razvoju računalniških iger}}
+
+\vspace{1cm}
+{\LARGE Magistrsko delo}
+
+\vfill
+{\Large Maribor, februar 2018}
+\newpage
+\end{center}
+
+%Second page
+\begin{center}	
+\vspace*{\fill}
+\textsc{\textbf{\LARGE
+		Dobre prakse pri razvoju računalniških iger\\
+		Magistrsko delo\\
+	}}
+
+\vspace{\fill}
+\begin{tabbing}
+\hspace*{4cm}\=\hspace*{3cm}\= \kill
+Študent: \> Luka Horvat\\
+Študijski program: \> Študijski program 2. stopnje\\
+\>Računalništvo in informacijske tehnologije\\
+Mentor: \> doc. dr. Matej Črepinšek
+\end{tabbing}
+\newpage
+
+%Kazalo
+\end{center}
+
+\tableofcontents
+\newpage
+
+%Content
+\chapter{Uvod}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae nunc vel ex consectetur rutrum. Aliquam fermentum elementum urna sit amet luctus. Cras semper nec eros ut congue. Duis bibendum semper turpis et accumsan. Proin facilisis, ante at pretium consequat, ipsum eros maximus lectus, euismod ullamcorper libero metus et enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis fringilla pulvinar volutpat. Praesent justo velit, bibendum et suscipit id, iaculis et massa. Suspendisse in nisl enim. Aliquam volutpat odio non elit dapibus, quis tristique turpis finibus. Aliquam erat volutpat. Morbi libero velit, commodo a convallis eu, consectetur sit amet leo. Ut sit amet risus rhoncus, posuere mauris in, vulputate ligula.
+
+Aliquam facilisis, magna ac posuere lacinia, justo nulla viverra ligula, quis dictum magna purus sit amet sapien. Suspendisse potenti. Morbi in diam nisi. Fusce ut ornare nisi. Suspendisse turpis ante, accumsan a ligula quis, dapibus suscipit sapien. Phasellus at nunc purus. Vestibulum fringilla eros eget enim interdum ornare. Nunc semper purus mi, at fermentum tellus hendrerit a. Donec molestie et nisl in hendrerit. Phasellus fringilla lacus nec maximus gravida. Aliquam sed nunc orci. Donec non imperdiet arcu, ac vehicula sem.
+
+Duis facilisis accumsan urna pulvinar semper. Integer sagittis eleifend mi, mollis elementum metus elementum consequat. Sed id luctus est. Sed nec leo sem. Maecenas gravida interdum mollis. Mauris sed nulla tortor. Praesent nisl erat, fermentum at eros finibus, finibus bibendum augue.
+
+Nunc est diam, porttitor facilisis mauris id, consectetur tincidunt elit. Phasellus blandit ante fermentum, aliquet dolor sit amet, fringilla velit. Aenean nisl dolor, vulputate at lacus in, venenatis lacinia nibh. Vestibulum efficitur mollis nibh, ac consectetur nisl bibendum eu. Vivamus tincidunt risus a nisi cursus, ac aliquam enim fermentum. Nullam in faucibus sapien. Suspendisse laoreet non justo ac vehicula. Nullam rutrum eu erat sagittis sodales. Duis vitae sapien quis sapien commodo ullamcorper ac ut dolor. In efficitur bibendum porttitor.
+
+Vivamus a luctus elit. Ut justo felis, semper eget mattis sed, ornare vitae est. Nullam at neque tincidunt, varius nisl tempor, porttitor odio. Pellentesque cursus massa lacus, id pharetra massa rhoncus sit amet. Vivamus gravida tellus vitae nisi sagittis, in vulputate eros elementum. Suspendisse ornare ultrices augue, eget semper velit tempus ac. Suspendisse at massa et lorem pharetra suscipit at non sapien. Phasellus posuere sollicitudin consequat. In in sapien maximus, mattis mi ut, efficitur purus. Vivamus at porta metus, ac scelerisque tellus. Sed porta suscipit fermentum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae nunc vel ex consectetur rutrum. Aliquam fermentum elementum urna sit amet luctus. Cras semper nec eros ut congue. Duis bibendum semper turpis et accumsan. Proin facilisis, ante at pretium consequat, ipsum eros maximus lectus, euismod ullamcorper libero metus et enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis fringilla pulvinar volutpat. Praesent justo velit, bibendum et suscipit id, iaculis et massa. Suspendisse in nisl enim. Aliquam volutpat odio non elit dapibus, quis tristique turpis finibus. Aliquam erat volutpat. Morbi libero velit, commodo a convallis eu, consectetur sit amet leo. Ut sit amet risus rhoncus, posuere mauris in, vulputate ligula.
+
+Aliquam facilisis, magna ac posuere lacinia, justo nulla viverra ligula, quis dictum magna purus sit amet sapien. Suspendisse potenti. Morbi in diam nisi. Fusce ut ornare nisi. Suspendisse turpis ante, accumsan a ligula quis, dapibus suscipit sapien. Phasellus at nunc purus. Vestibulum fringilla eros eget enim interdum ornare. Nunc semper purus mi, at fermentum tellus hendrerit a. Donec molestie et nisl in hendrerit. Phasellus fringilla lacus nec maximus gravida. Aliquam sed nunc orci. Donec non imperdiet arcu, ac vehicula sem.
+
+Duis facilisis accumsan urna pulvinar semper. Integer sagittis eleifend mi, mollis elementum metus elementum consequat. Sed id luctus est. Sed nec leo sem. Maecenas gravida interdum mollis. Mauris sed nulla tortor. Praesent nisl erat, fermentum at eros finibus, finibus bibendum augue.
+
+Nunc est diam, porttitor facilisis mauris id, consectetur tincidunt elit. Phasellus blandit ante fermentum, aliquet dolor sit amet, fringilla velit. Aenean nisl dolor, vulputate at lacus in, venenatis lacinia nibh. Vestibulum efficitur mollis nibh, ac consectetur nisl bibendum eu. Vivamus tincidunt risus a nisi cursus, ac aliquam enim fermentum. Nullam in faucibus sapien. Suspendisse laoreet non justo ac vehicula. Nullam rutrum eu erat sagittis sodales. Duis vitae sapien quis sapien commodo ullamcorper ac ut dolor. In efficitur bibendum porttitor.
+
+Vivamus a luctus elit. Ut justo felis, semper eget mattis sed, ornare vitae est. Nullam at neque tincidunt, varius nisl tempor, porttitor odio. Pellentesque cursus massa lacus, id pharetra massa rhoncus sit amet. Vivamus gravida tellus vitae nisi sagittis, in vulputate eros elementum. Suspendisse ornare ultrices augue, eget semper velit tempus ac. Suspendisse at massa et lorem pharetra suscipit at non sapien. Phasellus posuere sollicitudin consequat. In in sapien maximus, mattis mi ut, efficitur purus. Vivamus at porta metus, ac scelerisque tellus. Sed porta suscipit fermentum.
+\section{Test}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae nunc vel ex consectetur rutrum. Aliquam fermentum elementum urna sit amet luctus. Cras semper nec eros ut congue. Duis bibendum semper turpis et accumsan. Proin facilisis, ante at pretium consequat, ipsum eros maximus lectus, euismod ullamcorper libero metus et enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis fringilla pulvinar volutpat. Praesent justo velit, bibendum et suscipit id, iaculis et massa. Suspendisse in nisl enim. Aliquam volutpat odio non elit dapibus, quis tristique turpis finibus. Aliquam erat volutpat. Morbi libero velit, commodo a convallis eu, consectetur sit amet leo. Ut sit amet risus rhoncus, posuere mauris in, vulputate ligula.
+
+Aliquam facilisis, magna ac posuere lacinia, justo nulla viverra ligula, quis dictum magna purus sit amet sapien. Suspendisse potenti. Morbi in diam nisi. Fusce ut ornare nisi. Suspendisse turpis ante, accumsan a ligula quis, dapibus suscipit sapien. Phasellus at nunc purus. Vestibulum fringilla eros eget enim interdum ornare. Nunc semper purus mi, at fermentum tellus hendrerit a. Donec molestie et nisl in hendrerit. Phasellus fringilla lacus nec maximus gravida. Aliquam sed nunc orci. Donec non imperdiet arcu, ac vehicula sem.
+
+Duis facilisis accumsan urna pulvinar semper. Integer sagittis eleifend mi, mollis elementum metus elementum consequat. Sed id luctus est. Sed nec leo sem. Maecenas gravida interdum mollis. Mauris sed nulla tortor. Praesent nisl erat, fermentum at eros finibus, finibus bibendum augue.
+
+Nunc est diam, porttitor facilisis mauris id, consectetur tincidunt elit. Phasellus blandit ante fermentum, aliquet dolor sit amet, fringilla velit. Aenean nisl dolor, vulputate at lacus in, venenatis lacinia nibh. Vestibulum efficitur mollis nibh, ac consectetur nisl bibendum eu. Vivamus tincidunt risus a nisi cursus, ac aliquam enim fermentum. Nullam in faucibus sapien. Suspendisse laoreet non justo ac vehicula. Nullam rutrum eu erat sagittis sodales. Duis vitae sapien quis sapien commodo ullamcorper ac ut dolor. In efficitur bibendum porttitor.
+
+Vivamus a luctus elit. Ut justo felis, semper eget mattis sed, ornare vitae est. Nullam at neque tincidunt, varius nisl tempor, porttitor odio. Pellentesque cursus massa lacus, id pharetra massa rhoncus sit amet. Vivamus gravida tellus vitae nisi sagittis, in vulputate eros elementum. Suspendisse ornare ultrices augue, eget semper velit tempus ac. Suspendisse at massa et lorem pharetra suscipit at non sapien. Phasellus posuere sollicitudin consequat. In in sapien maximus, mattis mi ut, efficitur purus. Vivamus at porta metus, ac scelerisque tellus. Sed porta suscipit fermentum.
+\end{document}
