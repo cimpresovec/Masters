@@ -6,18 +6,34 @@
 \usepackage{graphicx}
 \usepackage[inner=3.00cm, outer=2.50cm, top=3.00cm, bottom=3.00cm]{geometry}
 \usepackage[slovene]{babel}
+\usepackage{babelbib}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{url}
 \author{Luka Horvat}
 \title{Dobre prakse pri razvoju računalniških iger}
 
+%Paragraph indenting, title spacing and line spacing
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 \renewcommand{\baselinestretch}{1.5}
 
+% Remove big chapter text
+\titleformat{\chapter}{\normalfont\huge}{\thechapter}{1em}{\huge}
+
+%Header/footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%Initial pages are in Roman numbering
+\pagenumbering{Roman}
 \begin{document}
 	
 %First page
 \thispagestyle{empty} 
-
 \begin{center}
 {\large 
 UNIVERZA V MARIBORU\\
@@ -30,8 +46,7 @@ RAČUNALNIŠTVO IN INFORMATIKO\\
 
 \vspace{1cm}
 \textsc{\textbf{\LARGE
-		DOBRE PRAKSE PRI RAZVOJU RAČUNALNIŠKIH IGER\\
-	}}
+		DOBRE PRAKSE PRI RAZVOJU RAČUNALNIŠKIH IGER\\}}
 
 \vspace{1cm}
 {\LARGE Magistrsko delo}
@@ -41,7 +56,12 @@ RAČUNALNIŠTVO IN INFORMATIKO\\
 \newpage
 \end{center}
 
+%Empty page
+\ \thispagestyle{empty}
+\newpage
+
 %Second page
+\thispagestyle{empty} 
 \begin{center}	
 \vspace*{\fill}
 \textsc{\textbf{\LARGE
@@ -61,15 +81,71 @@ Mentor: \> doc. dr. Matej Črepinšek
 \end{center}
 \newpage
 
+%Empty page
+\ \thispagestyle{empty}
+\newpage
+
+%Sklep
+\thispagestyle{empty}
+Tukaj pride sklep o potrjeni temi.
+\newpage
+
+%Empty page
+\ \thispagestyle{empty}
+\newpage
+
+%Povzetek v slovenskem jeziku
+\chapter*{Dobre prakse pri razvoju računalniških iger}
+\thispagestyle{fancy}
+\setcounter{page}{1}
+\textbf{Ključne besede:} beseda1
+
+\textbf{UDK:} 123
+
+\textbf{Povzetek}\newline
+\textit{Povzetek do maksimalne dolžine 100 besed}
+\cleardoublepage
+
+%Povzetek v angleškem jeziku
+\chapter*{Dobre prakse pri razvoju računalniških iger}
+\thispagestyle{fancy}
+\textbf{Key words:} word 1
+
+\textbf{UDK:} 123
+
+\textbf{Abstract:}\newline
+\textit{Povzetek do maksimalne dolžine 100 besed}
+\cleardoublepage
+
 %Kazalo
 \tableofcontents
+\thispagestyle{fancy}
 
 %Content
 %Uvod
 \chapter{Uvod}
+%Page numbering and style changes here
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\thispagestyle{fancy}
+
 Računalniške igre so ena izmed največjih panog v zabaviščni industriji. Skozi leta pa se njihov delež samo povečuje. Dandanes se je že skoraj vsak posameznik srečal z računalniškimi igrami, ali jih neposredno igra v svojem prostem času, ali pa so se posredno vključile v kulturo okoli posameznika. Računalniške igre in še posebej like iz njih velikokrat vidimo v drugih medijih kot so filmi, serije, reklame ter tiskano gradivo. Kdo pa si danes pod imenom Mario ne predstavlja vodovodarja v rdečem kombinezonu ter velikimi brki?
 
 Računalniške igre privabljajo vedno več podjetij in individualnih razvijalcev, ki poskušajo zavzet svoj prostor v tej industriji. Samo izdelovanje računalniških iger pa uvrstimo pod razvoj programske opreme, ki je izredno kompleksen in zahteva potrebna znanja iz več različnih panog. Napredek tehnologije pa je že skoraj vsakemu posamezniku omogočil preprost vstop v ta proces. Dandanes je na voljo toliko različnih orodij, knjig, procesov in ustaljenih praks, ki so na voljo posamezniku, vendar se v oceanu podatkov hitro izgubijo. Tako smo si kot cilj tega magistrskega dela zadali poiskati, opisati in preizkusit dobre ter priporočene prakse pri razvoju računalniških iger. Zajeli smo celoten spekter procesa, od same začetne ideje do izdaje igre na trg. Večji del magistrskega dela smo posvetili bolj tehnološko usmerjenim procesom pri izdelavi računalniške igre, pri čemer smo prikazali različna orodja in prakse, ki so dandanes na voljo.
+
+TODO Povzetek poglavij.
+%Main content
+\chapter{Opis in pregled glavnih korakov razvoja}
+\thispagestyle{fancy}
+Test navedbe \cite{nekej}\cite{rogers2014level}.
+
+\cleardoublepage
+
+\bibliographystyle{plain}
+\bibliography{thesis}
+\addcontentsline{toc}{chapter}{Literatura}
+\thispagestyle{fancy}
+
 \end{document}
 
 
