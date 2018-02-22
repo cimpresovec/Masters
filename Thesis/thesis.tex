@@ -19,7 +19,7 @@
 \renewcommand{\baselinestretch}{1.5}
 
 % Remove big chapter text
-\titleformat{\chapter}{\normalfont\huge}{\thechapter}{1em}{\huge}
+\titleformat{\chapter}{\bfseries\LARGE}{\thechapter}{1em}{\LARGE\textbf}
 
 %Header/footer
 \pagestyle{fancy}
@@ -134,10 +134,27 @@ Računalniške igre so ena izmed največjih panog v zabaviščni industriji. Sko
 Računalniške igre privabljajo vedno več podjetij in individualnih razvijalcev, ki poskušajo zavzet svoj prostor v tej industriji. Samo izdelovanje računalniških iger pa uvrstimo pod razvoj programske opreme, ki je izredno kompleksen in zahteva potrebna znanja iz več različnih panog. Napredek tehnologije pa je že skoraj vsakemu posamezniku omogočil preprost vstop v ta proces. Dandanes je na voljo toliko različnih orodij, knjig, procesov in ustaljenih praks, ki so na voljo posamezniku, vendar se v oceanu podatkov hitro izgubijo. Tako smo si kot cilj tega magistrskega dela zadali poiskati, opisati in preizkusit dobre ter priporočene prakse pri razvoju računalniških iger. Zajeli smo celoten spekter procesa, od same začetne ideje do izdaje igre na trg. Večji del magistrskega dela smo posvetili bolj tehnološko usmerjenim procesom pri izdelavi računalniške igre, pri čemer smo prikazali različna orodja in prakse, ki so dandanes na voljo.
 
 TODO Povzetek poglavij.
+
 %Main content
-\chapter{Opis in pregled glavnih korakov razvoja}
+\chapter{Pregled in opis glavnih korakov razvoja}
 \thispagestyle{fancy}
-Test navedbe \cite{nekej}\cite{rogers2014level}.
+\section{Opis problema}
+
+Razvoj računalniških iger je proces razvoja programske opreme. Obenem je kreativen proces v katerem sodeluje širok spekter ljudi iz različnih panog. Glavne vloge v tem procesu so \cite{rogers2014level}:
+\begin{itemize}
+	\item \textbf{Programer:} je odgovoren za tehnično implementacijo računalniške igre. Odvisno od velikosti projekta in končnega cilja uporablja obstoječe namenske pogone za razvoj računalniških iger (npr. Unity ali Unreal Engine) ali implementira \textit{"in-house"} pogon za to specifično igro. Tukaj pridejo v poštev različna znanja iz 2D in 3D grafike, fizike, umetne inteligence, uporabniških vmesnikov, računalniških mrež, ipd. Obenem je še potreben ves spekter računalniškega znanja, ki se navezuje na principe specifične za računalniške igre.
+	\item \textbf{Umetnik:} je odgovoren za izdelavo vseh grafičnih gradnikov. Določeni umetniki izrisujejo samo konceptne slike in s oblikovalcem poskusijo definirat končni cilj igre, kako bo igra izgledala, kaki bodo glavni liki, ipd. Preostali umetniki pripravljajo gradnike, ki se nato uporabijo v sami računalniški igri. To so lahko grafični gradniki za menije, 3D modeli objektov, teksture za le-te modele, vizualni efekti, animacije, ipd.
+	\item \textbf{Oblikovalec:} je odgovoren za koncipiranje in definiranje računalniške igre. Išče in definira ideje, ki bodo in so pomembne za igro. Pomembna vrlina je, da je zmožen te ideje dobro komunicirati preostali ekipi, da jo le-ti potem uresničijo. Določeni oblikovalci se lahko osredotočijo na specifične aspekte igre, kot so stopnje v igri in določeni sistemi (npr. sistem bojevanja).
+	Specifična panoga oblikovalca je tudi pisatelj. On je odgovoren in napiše zgodbo za igro. Včasih je sama zgodba rdeča nit in je glavna gonilna sila za nastanek igre, drugič pa se zgodba komaj oblikuje skozi nastanek končnega produkta.
+	\item \textbf{Skladatelj in oblikovalec zvoka:} je odgovoren za vse zvočne gradnike igre. Skladatelji pripravljajo glasbo v igri. Dandanes pri večjih projektih sodelujejo tukaj celotni orkestri. Oblikovalec zvoka pa je odgovoren za različne krajše zvoke, ki se prožijo ob določenih akcijah (npr. streli orožij).
+	\item \textbf{Tester:} testira produkt skozi vse faze razvoja in daje povratne informacije drugim razvijalcem za izboljšanje produkta. Zagotavlja kakovost igre, da bo ta izšla brez hujših napak.
+\end{itemize}
+Poleg naštetih vlog je še veliko drugih na področju izdajanja igre, vodenje ekipe, marketinga ipd. vendar so zgornje najbolj pomembne pri samem razvoju igre. Znanja, ki jih te vloge premorejo so pomembne za razvoj vsake igre. Če gre za večji projekt, potem je potrebnih več ljudi v vsaki vlogi. Dandanes pri velikih podjetjih sodeluje preko sto ljudi pri razvoju iger. Na trgu pa obstaja tudi velika scena individualnih razvijalcev, ki sami premorejo vsa potrebna znanja za razvoj in tako uresničijo razvoj svoje igre. 
+
+V tem magistrskem delu smo se posvetili individualnemu razvoju računalniške igre, in prakse, ki temu pristopu najbolj ustrezajo. Kot posamezni razvijalec je potrebno uporabiti znanja iz različnih panog, zato smo s tem delom poskusili zaobjeti prakse, ki bi olajšale le ta proces. V delu smo našteli in opisali različna orodja in procese za vsak korak v razvoju. Glavni koraki razvoja so sledeči: koncipiranje in definiranje igre, planiranje in vodenje dela, tehnični razvoj igre (tukaj pride v poštev razvoj grafičnih in zvočnih gradnikov ter implementacija), oglaševanje in viri občinstva ter na konci izdaja igre.
+
+\section{Koncipiranje igre}
+Ideje tu, ideje tam.
 
 \cleardoublepage
 
