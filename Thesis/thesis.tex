@@ -139,7 +139,7 @@ TODO Povzetek poglavij.
 \chapter{Pregled in opis glavnih korakov razvoja}
 \thispagestyle{fancy}
 \section{Opis problema}
-
+\label{sec:opis_problema}
 Razvoj računalniških iger je proces razvoja programske opreme. Obenem je kreativen proces v katerem sodeluje širok spekter ljudi iz različnih panog. Glavne vloge v tem procesu so \cite{rogers2014level}:
 \begin{itemize}
 	\item \textbf{Programer:} je odgovoren za tehnično implementacijo računalniške igre. Odvisno od velikosti projekta in končnega cilja uporablja obstoječe namenske pogone za razvoj računalniških iger (npr. Unity ali Unreal Engine) ali implementira \textit{"in-house"} pogon za to specifično igro. Tukaj pridejo v poštev različna znanja iz 2D in 3D grafike, fizike, umetne inteligence, uporabniških vmesnikov, računalniških mrež, ipd. Obenem je še potreben ves spekter računalniškega znanja, ki se navezuje na principe specifične za računalniške igre.
@@ -159,11 +159,21 @@ Prvi korak razvoja igre je definirat, kaj hočemo ustvarit. Lahko, da ima nekdo 
 	\item \textbf{Igranje obstoječe (slabe) igre.} Igre konstantno gradijo na idejah in mehanikah obstoječih iger. Dodajajo se novi koncepti in pravila, ki iz starih idej zgradijo nove izkušnje. Za vsako komercialno igro se lahko našteje ducat drugih, ki so služile kot navdih in podlaga za njo. Tako je dober način za iskanje idej igranje že obstoječih. Še boljše je igranje slabih iger in razmislit, kaj bi spremenili, da bi izkušnjo izboljšali. Tako iteriramo na obstoječih rešitvah, da definiramo nekaj boljšega.
 	\item \textbf{Branje tematike izven osebnega zanimanja.} Razširjanje osebnega obzorja znanja in izkušenj je vedno dober vir novih idej. Velikokrat je problem pri igrah, da so si preveč podobne. Dandanes se zelo pogosto dogaja, da vsi poskusijo kopirat idejo z nove uspešne igre. Zato je pomembno, da raziščemo tematike, ki jih ne poznamo najbolje in poskusimo tam najti nove ideje.
 	\item \textbf{Udeleževanje konferenc in predavanj.} Konference so vedno polne različnih ljudi z novimi idejami. V takem okolju hitro najdemo inspiracijo, ki jo potem izkoristimo za razvoj nove ideje.
-	\item \textbf{Brainstorming}. Uveljavljena praksa iskanja novih idej. Pomembno je, da zberemo ljudi iz različnih področij in se držimo glavnega pravila \cite{osborn1953applied}: poudarek je na količini idej, ki se ne obsojajo. Tako poskusimo raziskat čim več idej, ki so lahko prvotno napačne, na katerih nato gradimo vedno boljše rešitve.
+	\item \textbf{Brainstorming}. Uveljavljena praksa iskanja novih idej. Pomembno je, da zberemo ljudi iz različnih področij in se držimo glavnega pravila: poudarek je na količini idej, ki se ne obsojajo \cite{osborn1953applied}. Tako poskusimo raziskat čim več idej, ki so lahko prvotno napačne, na katerih nato gradimo vedno boljše rešitve.
 \end{itemize}
+Pri iskanju ideje je pomembno, da se zavedamo svojih omejitev. Če smo posameznik, ki hoče uresničiti svojo prvo igro, potem je priporočljivo, da začnemo z preprostimi idejami. Take igre lahko potem uresničimo in postopoma povečujemo obsežnost naslednjih iger. Veliko posameznikov namreč začne z preveč ambicioznimi idejami, ko pa je potrebno projekt dejansko uresničit pa pride do komplikacij in večinoma do zaključitve projekta.
+\section{Potek razvoja igre}
+Razvoj igre skoraj vedno poteka po določenih korakih, neodvisno od ideje. Glavni mejniki procesa so:
+\begin{enumerate}
+	\item \textbf{Projektni dokument}. Tukaj preide ideja iz glave na fizični medij. Proces je zelo odvisen od velikosti projekta in studia. Pri večjih projektih nastane dejanski dokument, v katerem se definira ideja, kake bodo mehanike igre, zgodba, liki, razporeditev sredstev, predviden čas izdelave, ipd. Dokument je velikokrat tudi opremljen z konceptnimi slikami, ki jih pripravijo umetniki. S tem dokumentom je potem najlaže komunicirat vizijo preostalim ljudem v ekipi. Pri manjših idejah in posameznikih je ta korak bolj direkten. Ustvarijo se kake skice in krajši opisi, ampak večinoma pa se ta korak preskoči in je večji poudarek na prototipu.
+	\item \textbf{Prototip}. Je najpomembnejši korak v procesu razvoja igre. Sama definicija pomeni razvoj osnovnega produkta, ki je ustvarjen z namenom testiranja koncepta \cite{blackwell2015prototype}. Glavni namen je preizkusit, ali je glavna ideja igre dovolj dobra, da iz nje nastane končni produkt. Prototipiranje je zelo povezano z samim koncipiranjem in projektnim dokumentom. Tukaj se identificirajo pomanjkljivosti, ki jih je potrebno razčistiti in mogoče znova koncipirati, ter prednosti, ki jih je potrebno poudariti v končnem produktu. Dober prototip je odličen mejnik v razvoju, ki se uporablja kot izhodiščna točka za začetek pravega projekta. Obenem služi kot prikaz koncepta možnim investitorjem, ki bi hoteli vložiti v projekt. 
+	\item \textbf{Produkcija}. Je glavni del razvoja projekta. Sodelujejo vsi člani ekipe opisani v poglavju \ref{sec:opis_problema}. Konstantna komunikacija med razvijalci, preizkuševalci in oblikovalci pelje projekt skozi faze razvoja programske opreme: \textit{pre-alpha, alpha, beta, release candidate, live release (gold)}. Odvisno od projekta, se lahko studio odloči, da izdajo produkt končnim uporabnikom še v fazi razvoja. Tako postanejo uporabniki del preizkuševalcev, ki pomagajo pri razvoju projekta.
+	\item \textbf{Izid}. Pomeni konec glavnega procesa razvoja. Igra se zapakira in distribuira do končnih uporabnik preko posrednikov. Ker mine kar nekaj časa od verzije, ki jo razvijalci dajo distribuiran na fizičnih medijih, do dejanskega izida, je danes ustaljena praksa prenos popravkov preko spleta na dan izida. Nekoč se je tukaj razvoj igre zaključil, razvijalci pa so prehajali na naslednji projekt. Dandanes pa izid pomeni le še en mejnik v samem življenjskem ciklu igre.
+	\item \textbf{Podpora po izidu} . Tako imenovan \textit{post production} v angleščini postaja danes vedno večji faktor. Razvoj igre je veliki finančni podvig, ki največ sredstev terja do izida igre. Zato se veliki studii raje posvetijo izdani igri z nadaljnjo podporo. Začel se je uporabljati termin igre kot storitev (angl. \textit{games as a service}). Studii podpirajo igro še vrsto let z novimi vsebinami, popravki ter včasih korenitimi spremembami s ciljem maksimirati dobiček. Konstantna komunikacija z ciljno publiko je pomembna, saj tako identificirajo, kaj si igralci želijo novega v igri.
+\end{enumerate}
+Tukaj ena lepa slikica procesa. $:)$
 
 \cleardoublepage
-
 \bibliographystyle{plain}
 \bibliography{thesis}
 \addcontentsline{toc}{chapter}{Literatura}
