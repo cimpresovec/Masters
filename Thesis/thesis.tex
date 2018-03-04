@@ -9,10 +9,12 @@
 \usepackage{babelbib}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
+\usepackage{eurosym}
 \usepackage{url}
 \author{Luka Horvat}
 \title{Dobre prakse pri razvoju računalniških iger}
 
+\graphicspath{{images/}}
 %Paragraph indenting, title spacing and line spacing
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
@@ -121,6 +123,10 @@ Tukaj pride sklep o potrjeni temi.
 \tableofcontents
 \thispagestyle{fancy}
 
+%Kazalo vsebine
+\listoffigures
+\thispagestyle{fancy}
+
 %Content
 %Uvod
 \chapter{Uvod}
@@ -163,7 +169,13 @@ Prvi korak razvoja igre je definirat, kaj hočemo ustvarit. Lahko, da ima nekdo 
 \end{itemize}
 Pri iskanju ideje je pomembno, da se zavedamo svojih omejitev. Če smo posameznik, ki hoče uresničiti svojo prvo igro, potem je priporočljivo, da začnemo z preprostimi idejami. Take igre lahko potem uresničimo in postopoma povečujemo obsežnost naslednjih iger. Veliko posameznikov namreč začne z preveč ambicioznimi idejami, ko pa je potrebno projekt dejansko uresničit pa pride do komplikacij in večinoma do zaključitve projekta.
 \section{Potek razvoja igre}
-Razvoj igre skoraj vedno poteka po določenih korakih, neodvisno od ideje. Glavni mejniki procesa so:
+Razvoj igre skoraj vedno poteka po določenih korakih, neodvisno od ideje. Glavni mejniki procesa so \cite{jainGameDevelopmentCycle}:
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm]{LifeCycle}
+	\caption{Koraki razvoja igre}
+	\label{slika:lifeCycle}
+\end{figure}
 \begin{enumerate}
 	\item \textbf{Projektni dokument}. Tukaj preide ideja iz glave na fizični medij. Proces je zelo odvisen od velikosti projekta in studia. Pri večjih projektih nastane dejanski dokument, v katerem se definira ideja, kake bodo mehanike igre, zgodba, liki, razporeditev sredstev, predviden čas izdelave, ipd. Dokument je velikokrat tudi opremljen z konceptnimi slikami, ki jih pripravijo umetniki. S tem dokumentom je potem najlaže komunicirat vizijo preostalim ljudem v ekipi. Pri manjših idejah in posameznikih je ta korak bolj direkten. Ustvarijo se kake skice in krajši opisi, ampak večinoma pa se ta korak preskoči in je večji poudarek na prototipu.
 	\item \textbf{Prototip}. Je najpomembnejši korak v procesu razvoja igre. Sama definicija pomeni razvoj osnovnega produkta, ki je ustvarjen z namenom testiranja koncepta \cite{blackwell2015prototype}. Glavni namen je preizkusit, ali je glavna ideja igre dovolj dobra, da iz nje nastane končni produkt. Prototipiranje je zelo povezano z samim koncipiranjem in projektnim dokumentom. Tukaj se identificirajo pomanjkljivosti, ki jih je potrebno razčistiti in mogoče znova koncipirati, ter prednosti, ki jih je potrebno poudariti v končnem produktu. Dober prototip je odličen mejnik v razvoju, ki se uporablja kot izhodiščna točka za začetek pravega projekta. Obenem služi kot prikaz koncepta možnim investitorjem, ki bi hoteli vložiti v projekt. 
@@ -171,8 +183,26 @@ Razvoj igre skoraj vedno poteka po določenih korakih, neodvisno od ideje. Glavn
 	\item \textbf{Izid}. Pomeni konec glavnega procesa razvoja. Igra se zapakira in distribuira do končnih uporabnik preko posrednikov. Ker mine kar nekaj časa od verzije, ki jo razvijalci dajo distribuiran na fizičnih medijih, do dejanskega izida, je danes ustaljena praksa prenos popravkov preko spleta na dan izida. Nekoč se je tukaj razvoj igre zaključil, razvijalci pa so prehajali na naslednji projekt. Dandanes pa izid pomeni le še en mejnik v samem življenjskem ciklu igre.
 	\item \textbf{Podpora po izidu} . Tako imenovan \textit{post production} v angleščini postaja danes vedno večji faktor. Razvoj igre je veliki finančni podvig, ki največ sredstev terja do izida igre. Zato se veliki studii raje posvetijo izdani igri z nadaljnjo podporo. Začel se je uporabljati termin igre kot storitev (angl. \textit{games as a service}). Studii podpirajo igro še vrsto let z novimi vsebinami, popravki ter včasih korenitimi spremembami s ciljem maksimirati dobiček. Konstantna komunikacija z ciljno publiko je pomembna, saj tako identificirajo, kaj si igralci želijo novega v igri.
 \end{enumerate}
-Tukaj ena lepa slikica procesa. $:)$
+Zgornji koraki so vidni v sliki \ref{slika:lifeCycle}. Kot vidno je proces razvoja, testiranja in koncipiranja zelo povezan, saj se igra konstantno izboljšuje.
 
+\section{Marketing in viri občinstva}
+Uspešna izdaja računalniške igre je zelo odvisna od marketinga pred izidom. Brez marketinga je zelo težko, da bo kdo našo igro opazil, kaj šele kupil. Samo na igralni platformi Steam letno izide več kot 6000 iger \cite{james6000Games}. V tej množici je pomembno, da naša igra izstopa in prav tukaj je zelo pomemben marketing že v zgodnjih fazah razvoja. Dober začetek marketinga je, ko lahko pokažemo glavne koncepte igre. Velikokrat so to slike ali videi igre v gibanju, ki pritegnejo končnega uporabnika \cite{robertMarketing}.
+
+Obstaja veliko različnih načinov marketinga. Spodaj našteti so dandanes že skoraj obvezni, če hočemo uspeti na trgu \cite{robertMarketing}:
+\begin{itemize}
+	\item \textbf{Spletna stran.} Vsaka igra potrebuje svojo spletno stran. Brez le-te bo težko končna publika našla dodatne informacije o igri. Pomembno je, da stran vestno posodabljamo z opisom koncepta igre, slikami, videi, ipd. Ena možnost za hitro postavitev strani je \textit{presskit()} \footnote{http://dopresskit.com/}, prosto dostopen paket za enostavno stran za računalniško igro.
+	\item \textbf{Blog.} Dober vir marketinga in občinstva je blog, kjer opisujemo potek razvoja igre. Veliko igralcev zanima, kako poteka razvoj in v katerem stanju se igra trenutno nahaja. Je tudi dober vir povezovanja z drugimi razvijalci, ki bi jih mogoče zanimalo sodelovanje na projektu. Paziti moramo le, da ne pretiravamo z objavami, saj ni vsak napredek v razvoju vreden omembe.
+	\item \textbf{Socialni mediji.} Dandanes skoraj največja možnost pridobitve ciljnega občinstva so socialni mediji. Dobra stran igre na Facebook-u in kratke objave zanimive na Twitter-ju doprinesejo veliko. Socialna omrežja ponujajo tudi svoj plačljiv marketing s katerim lahko ciljamo specifično publiko, ki bi se zanimala za našo igro.
+	\item \textbf{Konference.} Vsako leto poteka več konferenc, kjer se razvijalci predstavijo s svojimi igrami. Na konferenci se obrne veliko igralcev in različnih medijev, ki zelo pripomorejo k marketingu igre. Tri izmed večjih takih konferenc so Pax\footnote{http://www.paxsite.com/}, IndieCade\footnote{http://www.indiecade.com/} in Indie Mega Booth\footnote{http://indiemegabooth.com/}. V Sloveniji je največja konferenca SGC\footnote{http://sgc.si/}.
+	\item \textbf{Množično financiranje (angl. crowdfunding).} Danes vedno bolj popularen način zbiranja sredstev in občinstva za razvoj igre. Preko strani kot je Kickstarter predstavimo svojo vizijo in načrt razvoja, ter tako poskusimo doseči igralce, ki bi jih zanimala naša igra. Ti pa lahko nato financirajo razvoj.
+	\item \textbf{Napovednik (angl. trailer).} Ko se igra začne bližati zaključnim fazam razvoja je dobro izdelati napovednik, ki se bo potem uporabil na platformah, kjer bomo igro izdali. V napovedniku je pomembno, da prikažemo glavni koncept igre in da smo iskreni. Zavajajoči napovedniki lahko ustvarijo večjo začetno zanimanje vendar po izidu hitro pritegne slabo kritiko.
+\end{itemize}
+
+\section{Možnosti izdaje igre}
+Opisali smo nekaj možnosti, ki so nam na voljo za izdajo igre kot individualnemu razvijalcu. Večina teh možnosti predvideva, da nimamo svojega distributerja in so zato najbolj primerne za manjše projekte:
+\begin{itemize}
+	\item \textbf{Steam.} Največja platforma za digitalno distribucijo računalniških iger. Omogoča izgradnje svoje strani za našo igro z vsemi potrebnimi informacijami. Sama platforma poskrbi za distribucijo, namestitev, posodobitve, varnostno kopijo shranjenih iger, glasovno komunikacijo v igri ipd. Na voljo je na vseh večjih operacijskih sistemih kot so Windows, OSX in Linux. Če se odločimo, da bomo našo igro izdali na Steam platformi, nam Steam ponudi implementacijo njihovega SDK, ki nudi proti-piratsko rešitev, mikro transakcije, oblačne storitve, dosežke ipd. Cena za izdajo igre je 100 evrov, provizija za vsako prodano kopijo igre pa je 30\% \cite{steam}.
+\end{itemize} 
 \cleardoublepage
 \bibliographystyle{plain}
 \bibliography{thesis}

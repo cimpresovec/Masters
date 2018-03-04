@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="924px"
+   height="362px"
+   version="1.1"
+   content="&lt;mxfile userAgent=&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36&quot; version=&quot;8.3.5&quot; editor=&quot;www.draw.io&quot; type=&quot;device&quot;&gt;&lt;diagram id=&quot;68bd4f1d-301a-d966-1cae-f03e49045ff5&quot; name=&quot;Page-1&quot;&gt;3VrbctowEP0aHpNBvueRkKTttJ3JTDLT9lHYwgiM5cpygHx9JVu+G0LBF0heIq1WsnRWe3bXeKRO19svFAaLn8RB3kgZO9uR+jBSFKApBv8nJLtEYhrjROBS7EilXPCC35EUpmoRdlBYUmSEeAwHZaFNfB/ZrCSDlJJNWW1OvPJTA+iimuDFhl5d+gs7bJFILX2cy78i7C7SJ4OxHJlBe+VSEvnyeSNFncd/yfAapmtJ/XABHbIpiNTHkTqlhLCktd5OkSewTWFL5j3tGc32TZHPjpmgJRPeoBehdMfxvtguxQI5HBrZJZQtiEt86D3m0vv4vEisOOa9BVt7vAl4c4kY20nrwogRLspX+EFIIPWSZ4oH7T2GFIUkorbUkltlkLpIaqkZhPxqIrJGjO64CkUeZPitvDqUd8TN9HKceENC1Qxbar6BcZsTn0k1YLSJI7g7E8h46oRSuCsoBAT7LCys/CwEXCHlDVXCKlkjpYOnPfoZXTTr80ayg9yk2VGOs3LNyM+ULNGK+VhwG1lFa4Fr1fC5WYWNNgvM0EsAY7Q3nC7Lpp5jz5sSj9B4riALxba5PGSUrFBhxDFmhp4b+Q1RhraHzVy3n5xgVnBLcd/kXAfSK74o8FzK4me5DqgBdoanoC1mv6VYtP+I9q0uej7fWDx0q2T9P1K1XwdLvKnsYUpfTKV2AvetqRcQB5ePd2+RQe8Cb3DgepewjseGRxsYPcGdPrzA0d+Jb+MAU+gv0RVyM7DK5Az6JGfjItKa0+6hWr+Gel9O3ypMOckWOXZcdHpQdnqzf69vQPvspPFYuNWmvIwRXh1eob8PmoxZV+zvev0Gmn1FHfMicGvHkxtwPDt8n1T+6UYl8lmHy78P9M8u//QmmnGilY2XsFWicSCy5o1EY9gWms3bIRptSKIBVjcRUrnkMsQYMCPROsG7VIYopTqkkpIoAxQiDXj3lpOAeur8ikLWQRkyDFv0WoaAy3i9eto1NOu3sK9LWE9Lvr3zMcXw+EbuZ5S3XJYd7KruozFk9Kq/ZHgmTkAoFEcgQpHDHHWMMwKOjswmnO8MU4UtlSPWoFkCOMLvfWcifuHjPZ/4qAzZsR5bP37heHrD6VLZ/2XAtZRVU8roaloFtYRI5KwDuW91IauyTsI+tXVOyIKB8sltYrVlk+pCHdqk6Q0IcoL95QknBFY2C0UhfoezWEHER1mdcW39fqQ/cIkIjaHMykTXw67P2x6ai6UEy2AbehMpZiJs3oeczbDvvsYx9EZryO3ivtxY6u5tvi9VzQbCGjdcH6UNwqr/fn6gRhzYCBno+xLus+ygmx/bwezKDA2lOil6Qx6YC/Yw/kbiM4sYjJsE4wlXAEawjSFJx/dG809tT+vuY3ta7diTd/MvXhI6zD8rUh//AQ==&lt;/diagram&gt;&lt;/mxfile&gt;"
+   style="background-color: rgb(255, 255, 255);"
+   id="svg4022"
+   sodipodi:docname="LifeCycle.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+  <metadata
+     id="metadata4026">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     id="namedview4024"
+     showgrid="false"
+     showborder="false"
+     inkscape:pagecheckerboard="true"
+     inkscape:zoom="1.320851"
+     inkscape:cx="451.25889"
+     inkscape:cy="103.09838"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4022" />
+  <defs
+     id="defs3892" />
+  <rect
+     id="rect4101"
+     width="998.59863"
+     height="385.35764"
+     x="-37.854385"
+     y="-8.9729614"
+     rx="0"
+     ry="0"
+     style="fill:#ffffff;stroke-width:0.99609369"
+     inkscape:export-xdpi="200"
+     inkscape:export-ydpi="200" />
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3894"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 120.5,180.5 h 73.63" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3896"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 199.38,180.5 -7,3.5 1.75,-3.5 -1.75,-3.5 z" />
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3898"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 60.5,150.5 v -20 h 80 v -13.63" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3900"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 140.5,111.62 3.5,7 -3.5,-1.75 -3.5,1.75 z" />
+  <rect
+     style="fill:#fff2cc;stroke:#d6b656"
+     id="rect3902"
+     pointer-events="none"
+     ry="9"
+     rx="9"
+     height="60"
+     width="120"
+     y="150.5"
+     x="0.5" />
+  <g
+     id="g3908"
+     transform="translate(9,174)">
+    <switch
+       id="switch3906">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="12"
+         width="102"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 104px; white-space: nowrap; word-wrap: normal; text-align: center;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Projektni dokument</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text3904"
+         font-size="12px"
+         y="12"
+         x="51">Projektni dokument</text>
+    </switch>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3910"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 110.5,80.5 h -80 v 63.63" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3912"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 30.5,149.38 -3.5,-7 3.5,1.75 3.5,-1.75 z" />
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3914"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 200.5,110.5 v 20 h 30 v 13.63" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3916"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 230.5,149.38 -3.5,-7 3.5,1.75 3.5,-1.75 z" />
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3918"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="M 230.5,80.5 H 394.13" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3920"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 399.38,80.5 -7,3.5 1.75,-3.5 -1.75,-3.5 z" />
+  <rect
+     style="fill:#fff2cc;stroke:#d6b656"
+     id="rect3922"
+     pointer-events="none"
+     ry="9"
+     rx="9"
+     height="60"
+     width="120"
+     y="50.5"
+     x="110.5" />
+  <g
+     id="g3928"
+     transform="translate(137,74)">
+    <switch
+       id="switch3926">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="12"
+         width="66"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 68px; white-space: nowrap; word-wrap: normal; text-align: center;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Koncipiranje</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text3924"
+         font-size="12px"
+         y="12"
+         x="33">Koncipiranje</text>
+    </switch>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3930"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 320.5,180.5 h 73.63" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3932"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 399.38,180.5 -7,3.5 1.75,-3.5 -1.75,-3.5 z" />
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3934"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 260.5,150.5 v -55 h -23.63" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3936"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 231.62,95.5 7,-3.5 -1.75,3.5 1.75,3.5 z" />
+  <rect
+     style="fill:#fff2cc;stroke:#d6b656"
+     id="rect3938"
+     pointer-events="none"
+     ry="9"
+     rx="9"
+     height="60"
+     width="120"
+     y="150.5"
+     x="200.5" />
+  <g
+     id="g3944"
+     transform="translate(239,174)">
+    <switch
+       id="switch3942">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="12"
+         width="42"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 42px; white-space: nowrap; word-wrap: normal; text-align: center;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Prototip</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text3940"
+         font-size="12px"
+         y="12"
+         x="21">Prototip</text>
+    </switch>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3946"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 520.5,180.5 h 73.63" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3948"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 599.38,180.5 -7,3.5 1.75,-3.5 -1.75,-3.5 z" />
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3950"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="M 460.5,150.5 V 116.87" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3952"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 460.5,111.62 3.5,7 -3.5,-1.75 -3.5,1.75 z" />
+  <rect
+     style="fill:#dae8fc;stroke:#6c8ebf"
+     id="rect3954"
+     pointer-events="none"
+     ry="9"
+     rx="9"
+     height="60"
+     width="120"
+     y="150.5"
+     x="400.5" />
+  <g
+     id="g3960"
+     transform="translate(432,174)">
+    <switch
+       id="switch3958">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="12"
+         width="56"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 58px; white-space: nowrap; word-wrap: normal; text-align: center;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Produkcija</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text3956"
+         font-size="12px"
+         y="12"
+         x="28">Produkcija</text>
+    </switch>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3962"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 430.5,110.5 v 33.63" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3964"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 430.5,149.38 -3.5,-7 3.5,1.75 3.5,-1.75 z" />
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3966"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="M 400.5,65.5 H 236.87" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3968"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 231.62,65.5 7,-3.5 -1.75,3.5 1.75,3.5 z" />
+  <rect
+     style="fill:#dae8fc;stroke:#6c8ebf"
+     id="rect3970"
+     pointer-events="none"
+     ry="9"
+     rx="9"
+     height="60"
+     width="120"
+     y="50.5"
+     x="400.5" />
+  <g
+     id="g3976"
+     transform="translate(434,74)">
+    <switch
+       id="switch3974">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="12"
+         width="52"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 52px; white-space: nowrap; word-wrap: normal; text-align: center;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Testiranje</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text3972"
+         font-size="12px"
+         y="12"
+         x="26">Testiranje</text>
+    </switch>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3978"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 720.5,180.5 h 73.63" />
+  <path
+     style="fill:#000000;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3980"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="m 799.38,180.5 -7,3.5 1.75,-3.5 -1.75,-3.5 z" />
+  <rect
+     style="fill:#dae8fc;stroke:#6c8ebf"
+     id="rect3982"
+     pointer-events="none"
+     ry="9"
+     rx="9"
+     height="60"
+     width="120"
+     y="150.5"
+     x="600.5" />
+  <g
+     id="g3988"
+     transform="translate(651,174)">
+    <switch
+       id="switch3986">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="12"
+         width="18"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 20px; white-space: nowrap; word-wrap: normal; text-align: center;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Izid<xhtml:br />
+</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+    </switch>
+  </g>
+  <rect
+     style="fill:#e1d5e7;stroke:#9673a6"
+     id="rect3990"
+     pointer-events="none"
+     ry="9"
+     rx="9"
+     height="60"
+     width="120"
+     y="150.5"
+     x="800.5" />
+  <g
+     id="g3996"
+     transform="translate(815.40184,171.566)">
+    <switch
+       id="switch3994">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="12"
+         width="90"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 92px; white-space: nowrap; word-wrap: normal; text-align: center;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Podpora po izidu<xhtml:br />
+</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text3992"
+         font-size="12px"
+         y="12"
+         x="45">Podpora po izidu</text>
+    </switch>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path3998"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="M 350.5,360.5 V 0.5" />
+  <path
+     style="fill:none;stroke:#000000;stroke-miterlimit:10"
+     inkscape:connector-curvature="0"
+     id="path4000"
+     pointer-events="none"
+     stroke-miterlimit="10"
+     d="M 750.5,360.5 V 0.5" />
+  <g
+     id="g4006"
+     transform="translate(112,293)">
+    <switch
+       id="switch4004">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="17"
+         width="116"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; font-weight: bold;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Predprodukcija</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-weight:bold;font-size:16px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text4002"
+         font-weight="bold"
+         font-size="16px"
+         y="17"
+         x="58">Predprodukcija</text>
+    </switch>
+  </g>
+  <g
+     id="g4012"
+     transform="translate(502,293)">
+    <switch
+       id="switch4010">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="17"
+         width="82"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; font-weight: bold;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Produkcija</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-weight:bold;font-size:16px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text4008"
+         font-weight="bold"
+         font-size="16px"
+         y="17"
+         x="41">Produkcija</text>
+    </switch>
+  </g>
+  <g
+     id="g4018"
+     transform="translate(809.15313,293)">
+    <switch
+       id="switch4016">
+      <foreignObject
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+         height="17"
+         width="101"
+         pointer-events="all"
+         style="overflow:visible;">
+        <xhtml:div
+           style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; font-weight: bold;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Poprodukcija<xhtml:br
+   style="font-size: 16px" />
+</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         style="font-weight:bold;font-size:16px;font-family:Helvetica;text-anchor:middle;fill:#000000"
+         id="text4014"
+         font-weight="bold"
+         font-size="16px"
+         y="17"
+         x="51">Poprodukcija</text>
+    </switch>
+  </g>
+  <g
+     transform="translate(632.26984,172.736)"
+     id="g4099">
+    <switch
+       id="switch4097">
+      <foreignObject
+         style="overflow:visible;"
+         pointer-events="all"
+         width="56"
+         height="12"
+         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+        <xhtml:div
+           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 58px; white-space: nowrap; word-wrap: normal; text-align: center;">
+          <xhtml:div
+             style="display:inline-block;text-align:inherit;text-decoration:inherit;">Produkcija</xhtml:div>
+        </xhtml:div>
+      </foreignObject>
+      <text
+         x="28"
+         y="12"
+         font-size="12px"
+         id="text4095"
+         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000">Izid</text>
+    </switch>
+  </g>
+</svg>
