@@ -175,6 +175,7 @@ Razvoj igre skoraj vedno poteka po določenih korakih, neodvisno od ideje. Glavn
 	\includegraphics[width=15cm]{LifeCycle}
 	\caption{Koraki razvoja igre}
 	\label{slika:lifeCycle}
+	\vspace*{-2em}
 \end{figure}
 \begin{enumerate}
 	\item \textbf{Projektni dokument}. Tukaj preide ideja iz glave na fizični medij. Proces je zelo odvisen od velikosti projekta in studia. Pri večjih projektih nastane dejanski dokument, v katerem se definira ideja, kake bodo mehanike igre, zgodba, liki, razporeditev sredstev, predviden čas izdelave, ipd. Dokument je velikokrat tudi opremljen z konceptnimi slikami, ki jih pripravijo umetniki. S tem dokumentom je potem najlaže komunicirat vizijo preostalim ljudem v ekipi. Pri manjših idejah in posameznikih je ta korak bolj direkten. Ustvarijo se kake skice in krajši opisi, ampak večinoma pa se ta korak preskoči in je večji poudarek na prototipu.
@@ -207,6 +208,47 @@ Opisali smo nekaj možnosti, ki so nam na voljo za izdajo igre kot individualnem
 	\item \textbf{GameJolt.} Podobno kot itch.io je zelo popularna platforma za neodvisne razvijalce. Nudijo svojo aplikacijo za prenose in posodobitve. Objava igre v njihovo trgovino ne stane nič, provizija pa je 10\% ali manj saj ponujajo možnost znižanja provizije. Promovirajo skupnost neodvisnih razvijalcev, zato vse dobičke dobimo na njihov račun, ki jih lahko nato porabimo za nakup iger drugih razvijalcev, brez dodatne provizije. Seveda je možno denar si vedno izplačati \cite{gamejolt}.
 	\item \textbf{Apple store in Google Play.} Če je naša igra namenjena za mobilne naprave, potem moramo obvezno uporabiti ti dve trgovini. Obe nudita izgradnjo svoje strani za igro na trgovini, prenose, posodobitve in dodatne transakcije. Kot mobilna platforma ponujata tudi dodatni SDK, s katerimi lahko v našo igro vgradimo lestvice, nagrade, oblačne storitve ipd. Provizija je 30\% od nakupa, je pa potrebno tudi plačati za objavo aplikacije v trgovini. Pri Google Play je to enkratna cena 25 evrov, nakar lahko izdajamo koliko hočemo aplikacij \cite{googleplay}. Pri Apple store je cena 99 evrov na leto \cite{applestore}.
 \end{itemize} 
+
+\chapter{Orodja za izdelavo iger}
+\thispagestyle{fancy}
+\section{Načrtovanje in vodenje razvoja}
+Dobra organizacija veliko prispeva za tekoč razvoj računalniške igre. Obstaja veliko različnih orodij, nekatere so usmerjene za organizacijo ljudi in opravil, druge za organizacijo projekta in kode. Tudi, če samostojno razvijamo igro nam ta orodja veliko pomagajo, zato smo poiskali dobre rešitve in jih tudi opisali.
+
+\subsection{Organizacija ljudi in opravil}
+Delo je priporočljivo razdeliti na manjša opravila, ki jih lahko opišemo, razdelimo med skupino in vodimo njihov napredek. Dve izmed boljših orodij za to sta Trello in HackNPlan. Obe pa uporabljata principe kanban razvojnega sistema.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{kanban_guide_print_KPO_bleed_board2}
+	\caption{Kanban tabla. Vir \cite{kanbanBoard}}.
+	\label{slika:kanbanBoard}
+	\vspace*{-2em}
+\end{figure}
+
+Kanban sistem je način organizacije dela, katerega cilj je izboljšati ravnovesje med povpraševanjem in kapaciteto človeškega dela, ki je na voljo. Delo je razdeljeno na manjše kose in vizualizirano na kanban tabli kot primer na sliki \ref{slika:kanbanBoard}. Opravila so večinoma vizualizirana na listkih, ki hranijo potrebne podatke kot so naslov, opis, ocenjen čas potrebnega dela, trenutni upravitelji ipd. Ta opravila so uvrščena na pripadajoč del table, odvisno v kakem stanju je opravilo (npr. čaka na dela, v razvoju, v testiranju, potrebno ocene, končano, ipd.). Glavni cilj take organizacije je vizualizirati in kategorizirati opravila, ki jih nato razvijalci prevzamejo in opravijo \cite{kanbanBoard}.
+
+Trello je produkt pod okriljem podjetja Atlassian, ki med drugim nudijo storitve kot so Jira in BitBucket. Ponuja nam izgradnjo tabel, na katera dodajamo opravila v obliki kartic z vsemi potrebnimi informacijami. Razvijalce lahko razvrstimo v skupine in tabele, nakar se lahko dodelijo na opravilo. Primer demo table je viden na sliki \ref{slika:trelloDemo}. Storitev je na voljo preko spletne strani, ponujajo pa tudi mobilno aplikacijo. Vsa funkcionalnost je na voljo zastonj, z možnostjo nadgradnje za 9.99 dolarjev za vsakega člana na mesec. Nadgradnja nam omogoči nalaganje večjih datotek, dodatne varnostne funkcionalnosti, prvo ročno pomoč od podjetja ter več integracij za vsako tablo. Integracije so na voljo z njihovimi in drugimi produkti za lažjo organizacijo. Zastonjska verzija je za individualni razvoj več kot dovolj, saj so nadgradnje namenjene za večje projekte in skupine.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{trelloBoardDemo}
+	\caption{Primer Trello table.}.
+	\label{slika:trelloDemo}
+	\vspace*{-2em}
+\end{figure}
+
+HackNPlan je v osnovi podoben kot Trello, vendar je zgrajen specifično za razvoj računalniških iger. Poleg kanban table in organizacije ljudi ponuja še preglede statistik, vodenje sprintov ter funkcionalnost za skupno koncipiranje in dokumentiranje idej. Primer table vidimo na sliki \ref{slika:hacknplanDemo}. Vso našteto funkcionalnost dobimo v zastonjski verziji ponujajo pa tudi nadgradnjo za dodatne storitve. Cena nadgradnje je 4 evre na mesec in glavna dodatna funkcionalnost so integracije z drugimi storitvami kot so GitHub, Slack, ipd. Zastonjskih integracij ni, zato je na tem področju slabši produkt kot Trello, vendar pa specifične funkcionalnost za namen razvoja iger veliko pripomorejo.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13cm]{hacknplanDemo}
+	\caption{Primer HackNPlan table.}.
+	\label{slika:hacknplanDemo}
+	\vspace*{-2em}
+\end{figure}
+
+\subsection{Organizacija projekta in kode}
+
 \cleardoublepage
 \bibliographystyle{plain}
 \bibliography{thesis}
