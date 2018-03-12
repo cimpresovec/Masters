@@ -248,6 +248,23 @@ HackNPlan je v osnovi podoben kot Trello, vendar je zgrajen specifično za razvo
 \end{figure}
 
 \subsection{Organizacija projekta in kode}
+Enako pomembno kot organizacija opravil je organizacija samega projekta med razvojem. Za te potrebe obstaja več rešitev verzioniranja projektov kot so SVN, Mercurial, GIT, Perforce, itd. Te programske rešitve ponujajo način hranjenja trenutnega stanja projekte kode na centralnem mestu, obenem pa sledijo vsem spremembam vsake datoteke. Mogoče je tudi hraniti več različnih aktualnih verzij iste datoteke v različnih vejah, in jih nato združiti v končno obliko. Vsak razvijalec ima lokalno svojo kopijo projekta in svoje spremembe pošilja v centralni repozitorij. Tako v ozadju nastaja drevesna struktura sprememb projekta skozi čas. Primer takega grafa vidimo na sliki \ref{slika:gitGraph}. Vsaka sprememba je komentirana s strani razvijalca in tako je možno hitro poiskati in preiti na starejšo verzijo v primeru težav \cite{versionControl}.
+	
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13cm]{gitGraph}
+	\caption{Primer grafa sprememb Raylib projekta na GitHub-u.}.
+	\label{slika:gitGraph}
+	\vspace*{-2em}
+\end{figure}
+
+V industriji razvoja računalniških iger je najbolj uporabljen sistem verzioniranja Perforce, saj deluje najboljše za večje projekte in kot komercialna plačljiva programska rešitve ponuja zelo močna orodja za delo z binarnimi datoteka (umetniški in zvočni gradniki so velikokrat v binarnem formatu in obenem največje datoteke v projektu). Za večje projekte je Perforce plačljiv, ponujajo pa zastonjsko različico za projekte do 5 ljudi.
+
+Najbolj preprost za uporabo in najbolj razširjen pri razvoju programske opreme pa je sistem Git. Popularnost je v veliki meri povezana s storitvijo GitHub, ki ponuja oblačno hranjenje repozitorija z našim projektom, obenem pa nudi funkcionalnost za lažje skupno delo na projektu. Alternativa GitHub-u je BitBucket, obe rešitvi pa smo analizirali za potrebe razvoja igre.
+
+GitHub TODO.
+
+BitBucket TODO.
 
 \cleardoublepage
 \bibliographystyle{plain}
