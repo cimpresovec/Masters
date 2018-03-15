@@ -270,9 +270,21 @@ Alternativa Github-u je storitev BitBucket. Ponuja enako funkcionalnost vendar v
 Grafični gradniki so pri razvoju računalniške igre uporabljeni od samega koncipiranja do končnega izida igre. Mi smo se osredotočili na gradnike, ki se uporabijo v sami računalniški igri. Ti gradniki so odvisno od tipa igra 2D slike ali 3D modeli. Na trgu obstaja veliko rešitev za izdelavo teh gradnikov, mi pa smo analizirali zastonjsko programsko opremo, ki ima več kot dovolj funkcionalnosti za izdelavo potrebnih gradnikov za individualne projekte.
 
 \subsection{2D grafični gradniki}
-Individualni projekti večinoma uporabljajo dva stila 2D grafičnih gradnikov. Angleško imenovana \textit{pixel art} in \textit{vector art} (slovensko vektorska umetnost). Končni rezultat je kljub imen vedno rastrska slika, razlika je kako so gradniki ustvarjeni in kaj je v stilu pomembno. Pixel art izhaja iz navdiha iz starih igralnih sistemov, kjer so bile omejitve v smislu resolucije gradnikov in razpoložljivosti barv. Pomembno je izkoristiti vsak piksel, ki je na voljo. Vektorski gradniki pa v nasprotju ciljajo na gradnike višje resolucije. Poskušajo uporabiti preproste oblike in združevanje le-teh za pridobitev končnih slik.
+Individualni projekti večinoma uporabljajo dva stila 2D grafičnih gradnikov. Angleško imenovana \textit{pixel art} in \textit{vector art} (slovensko vektorska umetnost). Končni rezultat je kljub imen vedno rastrska slika, razlika je kako so gradniki ustvarjeni in kaj je v stilu pomembno. Pixel art izhaja iz navdiha iz starih igralnih sistemov, kjer so bile omejitve v smislu resolucije gradnikov in razpoložljivosti barv. Pomembno je izkoristiti vsak piksel, ki je na voljo. Vektorski gradniki pa v nasprotju ciljajo na gradnike višje resolucije. Poskušajo uporabiti preproste oblike in združevanje le-teh za pridobitev končnih slik. Razliko v stilih vidimo na sliki \ref{slika:pixelVsVector}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=6cm]{pixelVsVector}
+	\caption{Razlika v stilih 2d grafičnih gradnikov. Vir \cite{pixelVsVector}}
+	\label{slika:pixelVsVector}
+\end{figure}
+
+Program, ki ga priporočamo za izdelavo 2D pixel art gradnikov je Aseprite\footnote{https://www.aseprite.org/}. Vsa potrebna funkcionalnost za delo z slikami iz profesionalnih programov je na voljo, vendar so vse prilagojene za delo s slikami nižjih resolucij. Zelo močna so tudi orodja za delo z animacijami, plastmi, ipd. Za namen razvoja računalniških iger nam ponuja tudi posebne izvoze v teksturne atlase in nize slik za animacijo. Program je na voljo za 15 evrov, vendar je vsa izvorna koda javna. Uradno da si lahko sami zgradimo program in ga uporabljamo v komercialne namene. Prednost plačljive različice so samodejne posodobitve, ni potrebno prevajati izvorne kode ter seveda podpora nadaljnjega razvoja.
+
+Za razvoj vektorske grafike pa predlagamo program Inkscape. Po funkcionalnost je podoben Adobe Illustrator-ju, le da je na voljo kot zastonjska odprtokodna rešitev. Manjkajo napredne funkcionalnosti koz je zvijanje združenih objektov za potrebe animacije, vendar na trgu ni boljše zastonjske alternative. V Inkscape delamo z vsemi liki kot z objekti, in nad njimi lahko izvajamo booleanove transformacije (presek, unija, odštevanje, ipd.) ter tako ustvarimo željene like. Ker delamo z objekti je naš končni izdelek neodvisen on resolucije in ga lahko izvozimo v željeni velikosti za našo igro. 
 
 \subsection{3D grafični gradniki}
+Izdelava 3D modelov je bolj zahtevna od 2D gradnikov saj je potrebnih več korakov (modeliranje, teksture, animiranje). V industriji se uporabljajo različni programski paketi kot so Maya, Houdini, ZBrush in Blender. Od teh je Blender edini zastonjski in odprtokodni program. V zadnjih letih je vedno bolj uporabljen v industriji, saj se s svojo funkcionalnostjo lahko kosa z drugimi plačljivimi programi in jih na določenih mestih celo preseže. 
 
 \section{Orodja za izdelavo zvočnih gradnikov in glasbe}
 
