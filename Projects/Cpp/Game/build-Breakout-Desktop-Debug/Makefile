@@ -55,13 +55,17 @@ SOURCES       = ../Breakout/Main.cpp \
 		../Breakout/LevelState.cpp \
 		../Breakout/BreakoutPad.cpp \
 		../Breakout/BreakoutBall.cpp \
-		../Breakout/BreakoutWall.cpp 
+		../Breakout/BreakoutWall.cpp \
+		../Breakout/BreakoutBrick.cpp \
+		../Breakout/Utility.cpp 
 OBJECTS       = Main.o \
 		GameState.o \
 		LevelState.o \
 		BreakoutPad.o \
 		BreakoutBall.o \
-		BreakoutWall.o
+		BreakoutWall.o \
+		BreakoutBrick.o \
+		Utility.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -185,12 +189,16 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		LevelState.hpp \
 		BreakoutPad.hpp \
 		BreakoutBall.hpp \
-		BreakoutWall.hpp ../Breakout/Main.cpp \
+		BreakoutWall.hpp \
+		Utility.hpp \
+		BreakoutBrick.hpp ../Breakout/Main.cpp \
 		../Breakout/GameState.cpp \
 		../Breakout/LevelState.cpp \
 		../Breakout/BreakoutPad.cpp \
 		../Breakout/BreakoutBall.cpp \
-		../Breakout/BreakoutWall.cpp
+		../Breakout/BreakoutWall.cpp \
+		../Breakout/BreakoutBrick.cpp \
+		../Breakout/Utility.cpp
 QMAKE_TARGET  = Breakout
 DESTDIR       = 
 TARGET        = Breakout
@@ -489,7 +497,9 @@ compiler_clean:
 Main.o: ../Breakout/Main.cpp ../Breakout/LevelState.hpp \
 		../Breakout/GameState.hpp \
 		../Breakout/BreakoutPad.hpp \
-		../Breakout/BreakoutBall.hpp
+		../Breakout/BreakoutBall.hpp \
+		../Breakout/BreakoutWall.hpp \
+		../Breakout/BreakoutBrick.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Main.o ../Breakout/Main.cpp
 
 GameState.o: ../Breakout/GameState.cpp ../Breakout/GameState.hpp
@@ -498,17 +508,30 @@ GameState.o: ../Breakout/GameState.cpp ../Breakout/GameState.hpp
 LevelState.o: ../Breakout/LevelState.cpp ../Breakout/LevelState.hpp \
 		../Breakout/GameState.hpp \
 		../Breakout/BreakoutPad.hpp \
-		../Breakout/BreakoutBall.hpp
+		../Breakout/BreakoutBall.hpp \
+		../Breakout/BreakoutWall.hpp \
+		../Breakout/BreakoutBrick.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LevelState.o ../Breakout/LevelState.cpp
 
 BreakoutPad.o: ../Breakout/BreakoutPad.cpp ../Breakout/BreakoutPad.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutPad.o ../Breakout/BreakoutPad.cpp
 
-BreakoutBall.o: ../Breakout/BreakoutBall.cpp ../Breakout/BreakoutBall.hpp
+BreakoutBall.o: ../Breakout/BreakoutBall.cpp ../Breakout/BreakoutBall.hpp \
+		../Breakout/BreakoutWall.hpp \
+		../Breakout/BreakoutPad.hpp \
+		../Breakout/BreakoutBrick.hpp \
+		../Breakout/Utility.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutBall.o ../Breakout/BreakoutBall.cpp
 
-BreakoutWall.o: ../Breakout/BreakoutWall.cpp ../Breakout/BreakoutWall.hpp
+BreakoutWall.o: ../Breakout/BreakoutWall.cpp ../Breakout/BreakoutWall.hpp \
+		../Breakout/Utility.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutWall.o ../Breakout/BreakoutWall.cpp
+
+BreakoutBrick.o: ../Breakout/BreakoutBrick.cpp ../Breakout/BreakoutBrick.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutBrick.o ../Breakout/BreakoutBrick.cpp
+
+Utility.o: ../Breakout/Utility.cpp ../Breakout/Utility.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Utility.o ../Breakout/Utility.cpp
 
 ####### Install
 

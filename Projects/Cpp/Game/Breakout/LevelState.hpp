@@ -6,12 +6,14 @@
 #include "BreakoutPad.hpp"
 #include "BreakoutBall.hpp"
 #include "BreakoutWall.hpp"
+#include "BreakoutBrick.hpp"
 
 class LevelState : public GameState
 {
     BreakoutPad playerPad{};
     BreakoutBall ball{};
     std::vector<BreakoutWall> walls{};
+    std::vector<BreakoutBrick> bricks{};
 
 public:
     LevelState();

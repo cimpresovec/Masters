@@ -9,7 +9,7 @@ class BreakoutPad
     Vector2 size{100, 10};
     Vector2 origin{50, 5};
     Vector2 velocity{0,0};
-    float horizontalSpeed = 200;
+    float horizontalSpeed = 500;
     bool keyLeft = false, keyRight = false;
 public:
     BreakoutPad();

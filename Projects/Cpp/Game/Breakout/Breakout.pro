@@ -11,11 +11,15 @@ SOURCES += \
     LevelState.cpp \
     BreakoutPad.cpp \
     BreakoutBall.cpp \
-    BreakoutWall.cpp
+    BreakoutWall.cpp \
+    BreakoutBrick.cpp \
+    Utility.cpp
 
 HEADERS += \
     GameState.hpp \
     LevelState.hpp \
     BreakoutPad.hpp \
     BreakoutBall.hpp \
-    BreakoutWall.hpp
+    BreakoutWall.hpp \
+    Utility.hpp \
+    BreakoutBrick.hpp
