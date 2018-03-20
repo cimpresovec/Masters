@@ -281,12 +281,38 @@ Individualni projekti večinoma uporabljajo dva stila 2D grafičnih gradnikov. A
 
 Program, ki ga priporočamo za izdelavo 2D pixel art gradnikov je Aseprite\footnote{https://www.aseprite.org/}. Vsa potrebna funkcionalnost za delo z slikami iz profesionalnih programov je na voljo, vendar so vse prilagojene za delo s slikami nižjih resolucij. Zelo močna so tudi orodja za delo z animacijami, plastmi, ipd. Za namen razvoja računalniških iger nam ponuja tudi posebne izvoze v teksturne atlase in nize slik za animacijo. Program je na voljo za 15 evrov, vendar je vsa izvorna koda javna. Uradno da si lahko sami zgradimo program in ga uporabljamo v komercialne namene. Prednost plačljive različice so samodejne posodobitve, ni potrebno prevajati izvorne kode ter seveda podpora nadaljnjega razvoja.
 
-Za razvoj vektorske grafike pa predlagamo program Inkscape. Po funkcionalnost je podoben Adobe Illustrator-ju, le da je na voljo kot zastonjska odprtokodna rešitev. Manjkajo napredne funkcionalnosti koz je zvijanje združenih objektov za potrebe animacije, vendar na trgu ni boljše zastonjske alternative. V Inkscape delamo z vsemi liki kot z objekti, in nad njimi lahko izvajamo booleanove transformacije (presek, unija, odštevanje, ipd.) ter tako ustvarimo željene like. Ker delamo z objekti je naš končni izdelek neodvisen on resolucije in ga lahko izvozimo v željeni velikosti za našo igro. 
+Za razvoj vektorske grafike pa predlagamo program Inkscape\footnote{https://inkscape.org/en/}. Po funkcionalnost je podoben Adobe Illustrator-ju, le da je na voljo kot zastonjska odprtokodna rešitev. Manjkajo napredne funkcionalnosti koz je zvijanje združenih objektov za potrebe animacije, vendar na trgu ni boljše zastonjske alternative. V Inkscape delamo z vsemi liki kot z objekti, in nad njimi lahko izvajamo booleanove transformacije (presek, unija, odštevanje, ipd.) ter tako ustvarimo željene like. Ker delamo z objekti je naš končni izdelek neodvisen on resolucije in ga lahko izvozimo v željeni velikosti za našo igro. 
 
 \subsection{3D grafični gradniki}
-Izdelava 3D modelov je bolj zahtevna od 2D gradnikov saj je potrebnih več korakov (modeliranje, teksture, animiranje). V industriji se uporabljajo različni programski paketi kot so Maya, Houdini, ZBrush in Blender. Od teh je Blender edini zastonjski in odprtokodni program. V zadnjih letih je vedno bolj uporabljen v industriji, saj se s svojo funkcionalnostjo lahko kosa z drugimi plačljivimi programi in jih na določenih mestih celo preseže. 
+Izdelava 3D modelov je bolj zahtevna od 2D gradnikov saj je potrebnih več korakov (modeliranje, teksture, animiranje). V industriji se uporabljajo različni programski paketi kot so Maya, Houdini, ZBrush in Blender\footnote{https://www.blender.org/}. Od teh je Blender edini zastonjski in odprtokodni program, ki je na voljo na vseh operacijskih sistemih. V zadnjih letih je vedno bolj uporabljen v industriji, saj se s svojo funkcionalnostjo lahko kosa z drugimi plačljivimi programi in jih na določenih mestih celo preseže. Primer programa vidimo v sliki \ref{slika:blenderDemo}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13cm]{blenderDemo}
+	\caption{Blender programski paket}
+	\label{slika:blenderDemo}
+\end{figure}
 
 \section{Orodja za izdelavo zvočnih gradnikov in glasbe}
+Za izdelavo zvočnih gradnikov (oziroma efektov v nadaljevanju) smo podobno kot pri izdelavi grafičnih gradnikov analizirali zastonjske rešitve, ki ponujajo potrebne funkcionalnosti za razvoj. Glavna ločitev med zvočnimi efekti in glasbo je, da se efekti uporabljajo za različne akcije v igri (npr. streli orožij, skok, šumenje, ipd.), nakar primerna glasba pa igra v ozadju glede na trenutno splošno dogajanje. Velikokrat se uporabljajo namenski programi za izdelavo glasbe tudi za izdelavo efektov, vendar obstaja nekaj orodij, ki so namenjene specifično za to.
+
+Izdelava zvočnih efektov ima dva pristopa. Za bolj kvalitetne efekte se v studijo posnamejo dejanski zvoki, ki bi bili primerni za igro. Recimo za strele orožij se posnamejo streli avtentičnih orožij, šumenje se simulira z listjem ipd. Ti zvoki se potem obdelajo in prilagodijo v programski opremi za delo z zvokom/glasbo. Drugi način je generiranje zvokov iz računalniško ustvarjenih zvokov in šumov. Z uporabo različnih valovnih oblik (sinusoida, trikotni val, rampa, kvadrat, ipd.), filtrov in različnih modulacij ustvarimo željene efekte. Namenski programi za ta proces so Bfxr, Labchirp, DSP Retro/Anime, ipd. Labchirp in DSP delujeta le na platformi Windows, obenem je DSP plačljiv, zato smo za analizo izbrali Bfxr\footnote{https://www.bfxr.net/}, ki je prosto dostopen in obenem uporaben kar s spleta. Program vidimo na sliki \ref{slika:bfxr}. Kot je z slike razvidno, imamo možnost izbire različnih valovnih funkcij, ki jo nato spreminjamo s ponujenimi drsniki. Ustvarjene efekte lahko tudi združimo skupaj in na koncu izvozimo v Wav formatu za uporabo v igri.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{bfxr}
+	\caption{Program Bfxr}
+	\label{slika:bfxr}
+\end{figure}
+
+Izdelava glasbe je bolj pokrita z programskimi paketi kot izdelava efektov. Med bolj znane sodijo FL Studio, Reaper, Logic Pro X, itd. Vsi našteti so plačljivi z minimalno vstopno ceno vsaj 100 evrov. Obstaja tudi nekaj prosto dostopnih rešitev kot so Ardour in LMMS\footnote{https://lmms.io/}, ki smo ga bolj podrobno analizirali. Je odprto kodni program in je na voljo na vseh operacijskih sistemih (Windows, Linux, OS X). Na sliki \ref{slika:lmms} vidimo primer izdelave skladbe. Izberemo si različne inštrumente (na voljo so godala, tolkala, pihala, klaviature, možno si je tudi ustvariti sintetično glasbilo) in z njimi ustvarimo vse potrebne dele skladbe s postavljanjem posameznih not. S tem ustvarimo sekcije, ki jih nato sestavljamo v končni produkt.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm]{lmms}
+	\caption{Program LMMS med izdelavo skladbe}
+	\label{slika:lmms}
+\end{figure}
 
 \section{Računalniške knjižnice, ogrodja in pogoni}
 
