@@ -26,9 +26,15 @@
 %Header/footer
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LE, RO]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{%
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyfoot[LE, RO]{\thepage}
+}
 
 %Initial pages are in Roman numbering
 \pagenumbering{Roman}
@@ -37,25 +43,24 @@
 %First page
 \thispagestyle{empty} 
 \begin{center}
-{\large 
-UNIVERZA V MARIBORU\\
-FAKULTETA ZA ELEKTROTEHNIKO,\\
-RAČUNALNIŠTVO IN INFORMATIKO\\
-}
-
-\vspace{\fill}
-{\LARGE Luka Horvat}\\
-
-\vspace{1cm}
-\textsc{\textbf{\LARGE
-		DOBRE PRAKSE PRI RAZVOJU RAČUNALNIŠKIH IGER\\}}
-
-\vspace{1cm}
-{\LARGE Magistrsko delo}
-
-\vfill
-{\Large Maribor, februar 2018}
-\newpage
+	{\large 
+		UNIVERZA V MARIBORU\\
+		FAKULTETA ZA ELEKTROTEHNIKO,\\
+		RAČUNALNIŠTVO IN INFORMATIKO\\
+	}
+	
+	\vspace{\fill}
+	{\LARGE Luka Horvat}\\
+	
+	\vspace{1cm}
+	\textsc{\textbf{\LARGE DOBRE PRAKSE PRI RAZVOJU RAČUNALNIŠKIH IGER\\}}
+	
+	\vspace{1cm}
+	{\LARGE Magistrsko delo}
+	
+	\vfill
+	{\Large Maribor, februar 2018}
+	\newpage
 \end{center}
 
 %Empty page
@@ -65,21 +70,21 @@ RAČUNALNIŠTVO IN INFORMATIKO\\
 %Second page
 \thispagestyle{empty} 
 \begin{center}	
-\vspace*{\fill}
-\textsc{\textbf{\LARGE
-		Dobre prakse pri razvoju računalniških iger\\
+	\vspace*{\fill}
+	\textsc{\textbf{\LARGE
+			Dobre prakse pri razvoju računalniških iger\\
 	}}
-{\large\textbf{Magistrsko delo\\}
-	
-}
-\vspace{\fill}
-\begin{tabbing}
-\hspace*{4cm}\=\hspace*{3cm}\= \kill
-Študent: \> Luka Horvat\\
-Študijski program: \> Študijski program 2. stopnje\\
-\>Računalništvo in informacijske tehnologije\\
-Mentor: \> doc. dr. Matej Črepinšek
-\end{tabbing}
+	{\large\textbf{Magistrsko delo\\}
+		
+	}
+	\vspace{\fill}
+	\begin{tabbing}
+		\hspace*{4cm}\=\hspace*{3cm}\= \kill
+		Študent: \> Luka Horvat\\
+		Študijski program: \> Študijski program 2. stopnje\\
+		\>Računalništvo in informacijske tehnologije\\
+		Mentor: \> doc. dr. Matej Črepinšek
+	\end{tabbing}
 \end{center}
 \newpage
 
@@ -97,8 +102,7 @@ Tukaj pride sklep o potrjeni temi.
 \newpage
 
 %Povzetek v slovenskem jeziku
-\chapter*{Dobre prakse pri razvoju računalniških iger}
-\thispagestyle{fancy}
+\chapter*{Dobre prakse pri razvoju računalniških iger}\thispagestyle{fancy}
 \setcounter{page}{1}
 \textbf{Ključne besede:} beseda1
 
@@ -109,8 +113,7 @@ Tukaj pride sklep o potrjeni temi.
 \cleardoublepage
 
 %Povzetek v angleškem jeziku
-\chapter*{Dobre prakse pri razvoju računalniških iger}
-\thispagestyle{fancy}
+\chapter*{Dobre prakse pri razvoju računalniških iger}\thispagestyle{fancy}
 \textbf{Key words:} word 1
 
 \textbf{UDK:} 123
@@ -121,19 +124,16 @@ Tukaj pride sklep o potrjeni temi.
 
 %Kazalo
 \tableofcontents
-\thispagestyle{fancy}
 
 %Kazalo vsebine
 \listoffigures
-\thispagestyle{fancy}
 
 %Content
 %Uvod
-\chapter{Uvod}
+\chapter{Uvod}\thispagestyle{fancy}
 %Page numbering and style changes here
 \setcounter{page}{1}
 \pagenumbering{arabic}
-\thispagestyle{fancy}
 
 Računalniške igre so ena izmed največjih panog v zabaviščni industriji. Skozi leta pa se njihov delež samo povečuje. Dandanes se je že skoraj vsak posameznik srečal z računalniškimi igrami, ali jih neposredno igra v svojem prostem času, ali pa so se posredno vključile v kulturo okoli posameznika. Računalniške igre in še posebej like iz njih velikokrat vidimo v drugih medijih kot so filmi, serije, reklame ter tiskano gradivo. Kdo pa si danes pod imenom Mario ne predstavlja vodovodarja v rdečem kombinezonu ter velikimi brki?
 
@@ -142,8 +142,7 @@ Računalniške igre privabljajo vedno več podjetij in individualnih razvijalcev
 TODO Povzetek poglavij.
 
 %Main content
-\chapter{Pregled in opis glavnih korakov razvoja}
-\thispagestyle{fancy}
+\chapter{Pregled in opis glavnih korakov razvoja}\thispagestyle{fancy}
 \section{Opis problema}
 \label{sec:opis_problema}
 Razvoj računalniških iger je proces razvoja programske opreme. Obenem je kreativen proces v katerem sodeluje širok spekter ljudi iz različnih panog. Glavne vloge v tem procesu so \cite{rogers2014level}:
@@ -209,8 +208,7 @@ Opisali smo nekaj možnosti, ki so nam na voljo za izdajo igre kot individualnem
 	\item \textbf{Apple store in Google Play.} Če je naša igra namenjena za mobilne naprave, potem moramo obvezno uporabiti ti dve trgovini. Obe nudita izgradnjo svoje strani za igro na trgovini, prenose, posodobitve in dodatne transakcije. Kot mobilna platforma ponujata tudi dodatni SDK, s katerimi lahko v našo igro vgradimo lestvice, nagrade, oblačne storitve ipd. Provizija je 30\% od nakupa, je pa potrebno tudi plačati za objavo aplikacije v trgovini. Pri Google Play je to enkratna cena 25 evrov, nakar lahko izdajamo koliko hočemo aplikacij \cite{googleplay}. Pri Apple store je cena 99 evrov na leto \cite{applestore}.
 \end{itemize} 
 
-\chapter{Orodja za izdelavo iger}
-\thispagestyle{fancy}
+\chapter{Orodja za izdelavo iger}\thispagestyle{fancy}
 \section{Načrtovanje in vodenje razvoja}
 Dobra organizacija veliko prispeva za tekoč razvoj računalniške igre. Obstaja veliko različnih orodij, nekatere so usmerjene za organizacijo ljudi in opravil, druge za organizacijo projekta in kode. Tudi, če samostojno razvijamo igro nam ta orodja veliko pomagajo, zato smo poiskali dobre rešitve in jih tudi opisali.
 
@@ -315,18 +313,28 @@ Izdelava glasbe je bolj pokrita z programskimi paketi kot izdelava efektov. Med 
 \end{figure}
 
 \section{Računalniške knjižnice, ogrodja in pogoni}
+Glavni cilj magistrske naloge je uporabiti in opisati orodja za tehnično implementacijo računalniške igre. Tehnično implementacijo mislimo kot samo programiranje oziroma razvoj igre. Zato smo raziskali in opisali različna orodja, ki so nam na voljo v tem poglavju, njihovo uporabo in prakse pa sledijo v poglavju \ref{chapter:razvojIger}. Omejili smo se na orodja, ki so na voljo na vseh večji operacijskih sistemih (Windows, Linux in OS X) in je z njimi možno izdelati računalniško igro za vse tri sisteme (po možnosti tudi več npr. mobilne in spletne platforme).
 
-\chapter{Razvoj računalniške iger}
-\thispagestyle{fancy}
+Tehnično implementacijo računalniške igre smo v našem delu kategorizirali v tri različne smernice: nizkonivojske knjižnice, visokonivojske knjižnice in ogrodja ter namenske pogone.
 
-\chapter{Sklep}
-\thispagestyle{fancy}
+\subsection{Nizkonivojske knjižnice}
+V to kategorijo smo uvrstili knjižnice, ki nudijo specifičen nabor funkcionalnosti potrebne za razvoj računalniške igre. Omejili smo se na programski jezik C++, saj je najbolj razširjen v industriji razvoja iger. Te knjižnice pokrivajo eno ali več izmed naslednji funkcionalnosti: upravljanja z okni, vhodni sistemi (tipkovnica, miška, igralni ploščki, ipd.), računalniška grafika, predvajanje zvoka, medmrežna komunikacija, matematične funkcije, fizikalni pogoni, itd. Težko je definirati mejo med knjižnico in ogrodjem (angleško \textit{framework}), vendar v splošnem knjižnice v tej kategoriji ne pokrivajo vse potrebne funkcionalnosti za razvoj. Potrebno je uporabiti kombinacijo le-teh, da uresničimo končni projekt.
+
+Najprej je potrebna osnovna knjižnica, ki ponuja osnovno funkcionalnost za vzpostavitev programa. Sem spadata knjižnici SDL\footnote{https://www.libsdl.org/} in GLFW\footnote{http://www.glfw.org/}. Obe ponujata abstrakcijo za potrebno delo z okni na namizju, dostop do vhodnih naprav, kontekst za upravljanje z grafičnim cevovodom kot je OpenGL, DirectX ali Vulkan, ipd. Sta temelj večini iger, ki se razvijajo z nizkonivojskimi knjižnicami obenem pa sta tudi izhodiščna točka za namenske pogone kot je Source Engine\cite{sourceEngineSDL} in Cryengine\cite{cryengineSDL}.
+
+SDL ponuja še razširitve v obliki dodatnih knjižnic za dostop do dodatne funkcionalnosti. SDL\_Image 
+\subsection{Visokonivojske knjižnice in ogrodja}
+\subsection{Namenski pogoni}
+
+\chapter{Razvoj računalniške iger}\thispagestyle{fancy}
+\label{chapter:razvojIger}
+
+\chapter{Sklep}\thispagestyle{fancy}
 
 \cleardoublepage
 \bibliographystyle{plain}
 \bibliography{thesis}
 \addcontentsline{toc}{chapter}{Literatura}
-\thispagestyle{fancy}
 
 \end{document}
 
