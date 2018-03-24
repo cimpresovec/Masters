@@ -12,8 +12,7 @@ SOURCES += \
     BreakoutPad.cpp \
     BreakoutBall.cpp \
     BreakoutWall.cpp \
-    BreakoutBrick.cpp \
-    Utility.cpp
+    BreakoutBrick.cpp
 
 HEADERS += \
     GameState.hpp \
@@ -21,5 +20,5 @@ HEADERS += \
     BreakoutPad.hpp \
     BreakoutBall.hpp \
     BreakoutWall.hpp \
-    Utility.hpp \
-    BreakoutBrick.hpp
+    BreakoutBrick.hpp \
+    raymath.h

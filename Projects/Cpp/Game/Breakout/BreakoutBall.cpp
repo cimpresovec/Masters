@@ -1,9 +1,9 @@
+#include "raymath.h"
 #include "BreakoutBall.hpp"
-#include "Utility.hpp"
 
 BreakoutBall::BreakoutBall()
 {
-    velocity = normalizeVector2(velocity) * maxSpeed;
+    velocity = Vector2Scale(Vector2Normalize(velocity), maxSpeed);
 }
 
 void BreakoutBall::finishMoving()
@@ -80,7 +80,7 @@ void BreakoutBall::checkCollisionAgainstPlayer(const BreakoutPad pad)
 
         velocity.x = horizontalDifference * maxSpeed * 2; //Prefer horizontal over vertical movement
         velocity.y = -velocity.y;
-        velocity = normalizeVector2(velocity) * maxSpeed;
+        velocity = Vector2Scale(Vector2Normalize(velocity), maxSpeed);
     }
 
     //TODO Handle side bumps?

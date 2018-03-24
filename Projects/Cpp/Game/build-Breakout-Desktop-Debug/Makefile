@@ -56,16 +56,14 @@ SOURCES       = ../Breakout/Main.cpp \
 		../Breakout/BreakoutPad.cpp \
 		../Breakout/BreakoutBall.cpp \
 		../Breakout/BreakoutWall.cpp \
-		../Breakout/BreakoutBrick.cpp \
-		../Breakout/Utility.cpp 
+		../Breakout/BreakoutBrick.cpp 
 OBJECTS       = Main.o \
 		GameState.o \
 		LevelState.o \
 		BreakoutPad.o \
 		BreakoutBall.o \
 		BreakoutWall.o \
-		BreakoutBrick.o \
-		Utility.o
+		BreakoutBrick.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -190,15 +188,14 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		BreakoutPad.hpp \
 		BreakoutBall.hpp \
 		BreakoutWall.hpp \
-		Utility.hpp \
-		BreakoutBrick.hpp ../Breakout/Main.cpp \
+		BreakoutBrick.hpp \
+		raymath.h ../Breakout/Main.cpp \
 		../Breakout/GameState.cpp \
 		../Breakout/LevelState.cpp \
 		../Breakout/BreakoutPad.cpp \
 		../Breakout/BreakoutBall.cpp \
 		../Breakout/BreakoutWall.cpp \
-		../Breakout/BreakoutBrick.cpp \
-		../Breakout/Utility.cpp
+		../Breakout/BreakoutBrick.cpp
 QMAKE_TARGET  = Breakout
 DESTDIR       = 
 TARGET        = Breakout
@@ -516,22 +513,19 @@ LevelState.o: ../Breakout/LevelState.cpp ../Breakout/LevelState.hpp \
 BreakoutPad.o: ../Breakout/BreakoutPad.cpp ../Breakout/BreakoutPad.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutPad.o ../Breakout/BreakoutPad.cpp
 
-BreakoutBall.o: ../Breakout/BreakoutBall.cpp ../Breakout/BreakoutBall.hpp \
+BreakoutBall.o: ../Breakout/BreakoutBall.cpp ../Breakout/raymath.h \
+		../Breakout/BreakoutBall.hpp \
 		../Breakout/BreakoutWall.hpp \
 		../Breakout/BreakoutPad.hpp \
-		../Breakout/BreakoutBrick.hpp \
-		../Breakout/Utility.hpp
+		../Breakout/BreakoutBrick.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutBall.o ../Breakout/BreakoutBall.cpp
 
 BreakoutWall.o: ../Breakout/BreakoutWall.cpp ../Breakout/BreakoutWall.hpp \
-		../Breakout/Utility.hpp
+		../Breakout/raymath.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutWall.o ../Breakout/BreakoutWall.cpp
 
 BreakoutBrick.o: ../Breakout/BreakoutBrick.cpp ../Breakout/BreakoutBrick.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutBrick.o ../Breakout/BreakoutBrick.cpp
-
-Utility.o: ../Breakout/Utility.cpp ../Breakout/Utility.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Utility.o ../Breakout/Utility.cpp
 
 ####### Install
 
