@@ -322,7 +322,20 @@ V to kategorijo smo uvrstili knjižnice, ki nudijo specifičen nabor funkcionaln
 
 Najprej je potrebna osnovna knjižnica, ki ponuja osnovno funkcionalnost za vzpostavitev programa. Sem spadata knjižnici SDL\footnote{https://www.libsdl.org/} in GLFW\footnote{http://www.glfw.org/}. Obe ponujata abstrakcijo za potrebno delo z okni na namizju, dostop do vhodnih naprav, kontekst za upravljanje z grafičnim cevovodom kot je OpenGL, DirectX ali Vulkan, ipd. Sta temelj večini iger, ki se razvijajo z nizkonivojskimi knjižnicami obenem pa sta tudi izhodiščna točka za namenske pogone kot je Source Engine\cite{sourceEngineSDL} in Cryengine\cite{cryengineSDL}.
 
-SDL ponuja še razširitve v obliki dodatnih knjižnic za dostop do dodatne funkcionalnosti. SDL\_Image 
+SDL ponuja še razširitve v obliki dodatnih knjižnic za dostop do specifične funkcionalnosti:
+\begin{itemize}
+	\item \textbf{SDL\_Image}. SDL v osnovi ponuja podporo za omejeno število slikovnih formatov. Če hočemo prebrati druge formate potrebujemo dodatno knjižnico. SDL\_Image ponuja podporo za popularne formate BMP, GIF, JPEG, PNG, SVG in še druge. Obenem so funkcije pripravljene tako, da je lažje uporabljati te slike v kontekstu SDL knjižnice, kot pa če bi uporabljali katero bolj splošno knjižnico za slike kot je SOIL.
+	\item \textbf{SDL\_Mixer}. Osnovna SDL knjižnica podpira nalaganje glasbenih datotek v formatu WAV. Obenem je možno predvajati zvoke po samo enem kanalu naenkrat kar pomeni, da ne moremo predvajati več različnih efektov naenkrat, brez da bi sami spisali algoritem za mešanje efektov. Zato ponujajo razširitveno knjižnico SDL\_Mixer, ki odpravi te omejitve. Doda podporo za branje datotek formata FLAC, OGG, MP3, MOD in MIDI. Obenem ponuja prevajanje zvokov po več različnih kanali. Tako lahko predvajamo glasbo v ozadju, v ospredju pa predvajamo več različnih zvočnih efektov naenkrat.
+	\item \textbf{SDL\_TTF}. SDL ne podpira delo z računalniškimi pisavami (angleško \textit{font}). Če hočemo izpisovati tekst na zaslonu, moramo naredit slike črk, in potem sestaviti besedilo iz posameznih slik črk. Tak postopek je zakompliciran in časovno potraten, obenem je za prehod med različnimi stili pisav potrebno znova ustvarit slike črk. SDL\_TTF doda podporo za branje standardnega formata računalniških pisav TTF. Nakar lahko enostavno izpišemo tekste v poljubnem stilu na zaslon.
+	\item \textbf{SDL\_Net}. Osnovna knjižnica ne ponuja nobene funkcionalnosti za komunikacijo preko mreže. SDL\_Net nam ponuja funkcionalnost za vzpostavitev strežnika in povezave na druge strežnike preko TCP ali UDP protokola. Razširitev deluje med različnimi platformami, tako da ni potrebno programirati specifične funkcionalnosti za vsako posebej.
+	\item \textbf{SDL\_Rtf}. Ta razširitev ni najbolj uporabna za namene izdelave iger, ampak ker je še zadnja od uradno ponujenih smo jo vseeno opisali. Ponuja funkcionalnost za delo z RTF datotekami. To so tekstovne datoteke z obogateno vsebino. Omogoča nam prikaz obogatene vsebine v naši SDL aplikaciji.
+\end{itemize}
+
+Seveda ni potrebno, da uporabljamo SDL razširitve, če uporabljamo SDL kot osnovo za našo igro. Razširitve ponujajo osnovno pomoč za delo z delo z specifično funkcionalnostjo (zvok, računalniški tekst, slike, ipd.), vendar pa velikokrat nimajo naprednih funkcionalnosti, ki bi jih potrebovali za našo igro. Obenem razširitev ne moremo uporabljat, če za osnovo vzamemo knjižnico kot je GLFW. Zato smo opisali še nekaj izbranih drugih knjižnic, ki ponujajo večji nabor funkcionalnosti za razvoj igre.
+
+Irrklang?
+ipd ipd.
+
 \subsection{Visokonivojske knjižnice in ogrodja}
 \subsection{Namenski pogoni}
 
