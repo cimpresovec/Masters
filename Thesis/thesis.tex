@@ -11,6 +11,7 @@
 \usepackage{fancyhdr}
 \usepackage{eurosym}
 \usepackage{url}
+\usepackage{minted}
 \author{Luka Horvat}
 \title{Dobre prakse pri razvoju računalniških iger}
 
@@ -380,7 +381,7 @@ Odločiti se med pogonoma je odvisno od naših potreb za projekt. Unity licencir
 \chapter{Razvoj računalniške igre}\thispagestyle{fancy}
 \label{chapter:razvojIger}
 \section{Uporabljena orodja}
-TODO
+Opisi kako in kaj, uporabili smo Raylib v C++, LibGDX v Java in Unity Engine.
 
 \section{Načrt in planiranje}
 Ta odsek mogoče izpustimo. Mogoče prikažemo HackNPlan ali kaj podobnega?
@@ -391,7 +392,21 @@ TODO
 Ne glede na izbiro orodij za tehnično implementacijo računalniške igre, so določene metode in prakse skupne vsem. Tudi če orodje poskrbi za določene prakse je dobro, da se jih zavedamo in tako boljše razumemo delovanje naših orodij in lahko bolj učinkovito implementiramo našo igro.
 
 \subsection{Glavna zanka igre}
+Glavna zanka igre skupaj neodvisnim gibanjem od hitrosti izvajanja sta dva koncepta, ki sta specifična za igre v izdelavi programske opreme. Nekatera programska oprema se izvede in nato prikaže svoje rezultate brez kakršnihkoli vhodov, druga konstantno čaka na vhod ali dogodek od uporabnika, da proži akcije. Računalniške igre pa so konstantno v gibanju, tudi ko ne dobivajo vhoda od igralca. Če se igralec ustavi, se svet okoli njega v igri ne ustavi. Implementacija tega koncepta se imenuje glavna zanka igre. Psevdokodo preproste glavne zanke vidimo spodaj.
+\begin{listing}[ht]
+\begin{minted}[frame=lines,baselinestretch=1.2,fontsize=\footnotesize,linenos,breaklines]{c++}
+while(!shouldCloseGame)
+{
+	handleInput();
+	update();
+	render();
+}
+\end{minted}
+\vspace*{-2em}
+\end{listing}
+Kot vidimo je glavna zanka sestavljena iz treh glavnih delov: pridobitev in procesiranje vhoda od igralca, simulacija sveta igre in izris stanja na zaslon. Taka zanka se neskončno izvaja, dokler se igralec ne odloči, da igro zapre. Zagotavlja, da konstantno preverjamo vhode od uporabnika, odzovemo svet igre glede na ta vhod in nato takoj damo povratne informacije igralcu preko izrisa na zaslon. Za merjenje hitrosti izvajanja glavne zanke večinoma uporabljamo mero sličic na sekundo (angleško \textit{frames per second}), ki nam pove kolikokrat na sekundo se posodobijo informacije na zaslonu preko izrisa.
 
+V nizkonivojskih knjižicah si sami izberemo 	
 
 \subsection{Gibanje neodvisno od hitrosti izvajanja}
 
