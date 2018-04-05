@@ -393,6 +393,7 @@ Ne glede na izbiro orodij za tehnično implementacijo računalniške igre, so do
 
 \subsection{Glavna zanka igre}
 Glavna zanka igre skupaj neodvisnim gibanjem od hitrosti izvajanja sta dva koncepta, ki sta specifična za igre v izdelavi programske opreme. Nekatera programska oprema se izvede in nato prikaže svoje rezultate brez kakršnihkoli vhodov, druga konstantno čaka na vhod ali dogodek od uporabnika, da proži akcije. Računalniške igre pa so konstantno v gibanju, tudi ko ne dobivajo vhoda od igralca. Če se igralec ustavi, se svet okoli njega v igri ne ustavi. Implementacija tega koncepta se imenuje glavna zanka igre. Psevdokodo preproste glavne zanke vidimo spodaj.
+
 \begin{listing}[ht]
 \begin{minted}[frame=lines,baselinestretch=1.2,fontsize=\footnotesize,linenos,breaklines]{c++}
 while(!shouldCloseGame)
@@ -406,9 +407,42 @@ while(!shouldCloseGame)
 \end{listing}
 Kot vidimo je glavna zanka sestavljena iz treh glavnih delov: pridobitev in procesiranje vhoda od igralca, simulacija sveta igre in izris stanja na zaslon. Taka zanka se neskončno izvaja, dokler se igralec ne odloči, da igro zapre. Zagotavlja, da konstantno preverjamo vhode od uporabnika, odzovemo svet igre glede na ta vhod in nato takoj damo povratne informacije igralcu preko izrisa na zaslon. Za merjenje hitrosti izvajanja glavne zanke večinoma uporabljamo mero sličic na sekundo (angleško \textit{frames per second}), ki nam pove kolikokrat na sekundo se posodobijo informacije na zaslonu preko izrisa.
 
-V nizkonivojskih knjižicah si sami izberemo 	
-
 \subsection{Gibanje neodvisno od hitrosti izvajanja}
+Hitrost izvajanja glavne zanke igre je zelo odvisna od specifikacij, ki jih premore strojna oprema na kateri igro izvajamo. Obremenjenost opreme je tudi faktor, če poleg igre izvajamo še druge procese. Tehnologija osveževanja zaslonov lahko tudi umetno omejuje hitrost izrisovanja in posledično tudi hitrost izvajanja zanke. Dandanes igre ciljajo dve hitrosti, to sta 30 in 60 sličic na sekundo. Odvisno od tehnične zahtevnosti igre in ciljne platforme, saj konzole niso tako zmogljive kot računalniki. Ciljno hitrost najlaže dosežemo z umetnim čakanjem za izrisom. 
+
+Neodvisno od ciljne hitrosti, pa v igri prihaja do nihanj. Določene scene zahtevajo več računalniških virov in tako povečajo potrebno procesorsko moč. Takrat se hitrost izvajanja zanke upočasni. Pri osnovnem modelu glavne zanke oziroma z modelom z umetnim čakanjem bi to pomenili upočasnitev same igre. Svet bi se simuliral počasneje in igralcu bi se zazdelo, kot da vse poteka v počasnem posnetku. Da se temu izognemo uporabljamo metode, ki simulirajo igro z enako hitrostjo neodvisno od hitrosti izvajanja glavne zanke. Najbolj popularna metoda uporablja merjenje časa, ki je pretekel od prejšnje izvedbe glavne zanke. Primer psevdokode vidimo v primeru spodaj:
+
+\begin{listing}[ht]
+\begin{minted}[frame=lines,baselinestretch=1.2,fontsize=\footnotesize,linenos,breaklines]{c++}
+float previousTime = getCurrentTimeInMs();
+while(!shouldCloseGame)
+{
+	float currentTime = getCurrentTimeInMs();
+	float deltaTime = (currentTime - previousTime) / 1000.0f;
+	handleInput();
+	update(deltaTime);
+	render();
+	previousTime = currentTime;
+}
+
+void update(float deltaTime)
+{
+	//...
+	position.x += 200 * deltaTime; // Željena hitrost premikanja je 200 enot na sekundo
+	//...
+}
+\end{minted}
+\vspace*{-2em}
+\end{listing}
+Kot vidimo si izračunamo delta čas med ponovitvami. Dobra praksa je delto normalizirati (pretvoriti vrednost v interval med 0 in 1) saj jo je potem lažje uporabljati v računske namene. Delta čas podamo v metodo, kjer se izvaja simulacija in ga uporabimo pri operacijah, ki so odvisne od hitrosti izvajanja. Tako lahko dosežemo, da se premikamo z konstantno hitrostjo na sekundo, ne glede na hitrost izvajanja glavne zanke.
+
+Razvojna orodja nam ponujajo različne načine upravljanja z glavno zanko in delta časom. Pri nizkonivojskem programiranju si moramo sami ustvariti glavno zanko in se odločiti, kako se bo prožilo zaporedje dogodkov. Knjižnica Raylib nam ponuja metodo \textit{GetFrameTime()}, ki nam vrtne delta čas v sekundah. Pri tako dostopni metodi moramo paziti, da delta čas pridobimo samo enkrat v eni ponovitvi zanke. Če bi čas pridobili na več mestih, bi ta lahko bil različen in bi se objekti v naši igri simulirali z različnimi hitrostmi. Zato je ustaljena praksa, da čas pridobimo enkrat in ga nato predamo v nadaljnje metode.
+
+Ogrodje LibGDX ima točno definirano glavno zanko na katero ne moremo vplivati. Moramo implementirati vmesnik \textit{ApplicationListener}, ki nam ponuja samo eno vstopno točko v zanko, metodo \textit{render()}. Ime metode je zavajajoče, saj ni namenjena samo za izrisovanje. Uporabiti jo moremo kot telo glavne zanke in v njej implementirati simulacijo igre in izrisovanje. Procesiranje vhodov se v LibGDX dela z proženjem dogodkov, ki poteka neodvisno od metode \textit{render()}. Za pridobitev delta časa nam je podobno kot pri Raylib na voljo metoda \textit{Gdx.graphics.getDeltaTime()}.
+
+Pogon Unity ima zelo kompleksno glavno zanko razdeljeno na več delov (simulacija fizikalnega pogona, proženje dogodkov, simulacija igre, izrisovanje scene, izrisovanje uporabniškega vmesnika, ipd.). Z našimi objekti se lahko vključimo v vsak posamezen korak glavne zanke. Unity poleg simulacije igre še izvaja simulacijo fizikalnega pogona, ki se lahko izvede večkrat v eni iteraciji glavne zanke. Metodi za delo z simulacijama sta \textit{FixedUpdate()} (simulacija fizikalnega pogona) in \textit{Update()} (preostala simulacija). Za pridobitev delta časa pa nam je na voljo metoda \textit{Time.deltaTime}.
+
+%TODO MOGOCE OPISATI DETERMINISTIČEN KORAK ZA SIMULACIJOs
 
 \subsection{Upravljanje stanj v igri}
 
@@ -423,16 +457,3 @@ V nizkonivojskih knjižicah si sami izberemo
 \addcontentsline{toc}{chapter}{Literatura}
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
