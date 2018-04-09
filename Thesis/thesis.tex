@@ -445,8 +445,50 @@ Pogon Unity ima zelo kompleksno glavno zanko razdeljeno na več delov (simulacij
 %TODO MOGOCE OPISATI DETERMINISTIČEN KORAK ZA SIMULACIJOs
 
 \subsection{Upravljanje stanj v igri}
+Upravljanje stanj je mišljeno kot organizacija in prehajanje med stanji kot so začetni logotip, različni meniji igre (glavni meni, meni za izbiro stopenj, ipd.) in različnimi nivoji igre. Stanja so uporabna, saj lahko ločimo našo igro na individualne dele, ki se izvajajo neodvisno na druga stanja. Za stanja se uporablja tudi sinonim scena. Vsako ogrodje in namenski pogon ima svoj način dela s stanji, vendar so večinoma to preprosti končni avtomati, ki imajo definirane prehode med scenami in hranijo vsak svoje interno stanje. To interno stanje so potem gradniki uporabljeni v sceni igre. Med samo igro je to igralec in objekti v svetu, v meniju so gradniki grafičnega vmesnika, ki se odzivajo na dogodke, ipd.
 
-%TODOMORE
+Pri nizkonivojskih knjižnicah smo sami implementirali prehode med scenami. Za osnovo potrebujemo abstraktni razred, ki bo ogrodje za glavne metode scene (deli glavne zanke igre). Primer vidimo v spodnjem izseku:
+
+\begin{listing}[H]
+	\begin{minted}[frame=lines,baselinestretch=1.2,fontsize=\footnotesize,linenos,breaklines]{c++}
+enum GameStates {STATE_NULL, STATE_TITLE, STATE_LEVEL, STATE_EXIT};
+
+class GameState {
+	protected:
+		GameStates currentGameState = GameStates::STATE_NULL;
+		GameStates nextGameState = GameStates::STATE_NULL;
+	public:
+		virtual ~GameState();
+		virtual void handleEvents() = 0;
+		virtual void handleLogic(const float deltaTime) = 0;
+		virtual void handleRendering() = 0;
+		GameStates getNextState() const;
+		void changeGameState(const GameStates state);
+};
+\end{minted}
+\vspace*{-2em}
+\end{listing}
+Pri taki zasnovi smo nato preprosti dedovali od razreda \textit{GameState} in implementirali individualna obnašanja scen. Vsaka scena poskrbi za konstrukcijo in destrukcijo svojih objektov, med sabo pa si delijo skupne vire (kot recimo grafični in glasbeni gradniki). V glavni metodi naše aplikacije smo z uporabo polimorfizma ustvarili instanco enega stanja igre ter preprosto klicali namenske metode glavne zanke. V metodo za simulacijo igre smo podali delta čas, ki smo ga omenili v prejšnjem poglavju. Tako smo poskrbeli, da je delta čas enak skozi celotno simulacijo v enem koraku.
+\begin{listing}[H]
+\begin{minted}[frame=lines,baselinestretch=1.2,fontsize=\footnotesize,linenos,breaklines]{c++}
+std::unique_ptr<GameState> currentState = std::make_unique<LevelState>();
+
+while (currentState->getNextState() != STATE_EXIT) {
+	currentState->handleEvents();
+	currentState->handleLogic(GetFrameTime());
+	currentState->handleRendering();
+	if (currentState->getNextState() != STATE_NULL) switchGameState(currentState);
+} //...
+\end{minted}
+\vspace*{-2em}
+\end{listing}
+
+Ogrodje LibGDX nam ponuja razred \textit{Stage}, ki deluje podobno kot naš implementiran \textit{GameState} razred. Upravljanje z scenami smo morali implementirati sami, saj ogrodje nima implementiranega svojega načina. Pri tem smo upoštevali enake principe kot pri nizkonivojski knjižnici.
+
+Pogon Unity ponuja preprosto upravljanje s scenami. V urejevalniku vedno spreminjamo eno sceno in jo shranimo v datoteko s končnico \textit{unity}.  TODO.
+
+TODO Implementirati osnovne zadeve v vseh treh orodjih, nadaljevanje pisanja.
+
 \section{Specifične metode in prakse pri tehnični implementaciji}
 
 \chapter{Sklep}\thispagestyle{fancy}
