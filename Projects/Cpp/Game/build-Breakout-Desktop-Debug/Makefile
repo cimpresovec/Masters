@@ -56,14 +56,22 @@ SOURCES       = ../Breakout/Main.cpp \
 		../Breakout/BreakoutPad.cpp \
 		../Breakout/BreakoutBall.cpp \
 		../Breakout/BreakoutWall.cpp \
-		../Breakout/BreakoutBrick.cpp 
+		../Breakout/BreakoutBrick.cpp \
+		../Breakout/MainMenuState.cpp \
+		../Breakout/AssetManager.cpp \
+		../Breakout/Globals.cpp \
+		../Breakout/TitleState.cpp 
 OBJECTS       = Main.o \
 		GameState.o \
 		LevelState.o \
 		BreakoutPad.o \
 		BreakoutBall.o \
 		BreakoutWall.o \
-		BreakoutBrick.o
+		BreakoutBrick.o \
+		MainMenuState.o \
+		AssetManager.o \
+		Globals.o \
+		TitleState.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
 		/usr/lib/qt/mkspecs/common/linux.conf \
@@ -189,13 +197,22 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		BreakoutBall.hpp \
 		BreakoutWall.hpp \
 		BreakoutBrick.hpp \
-		raymath.h ../Breakout/Main.cpp \
+		raymath.h \
+		MainMenuState.h \
+		easings.h \
+		AssetManager.h \
+		Globals.h \
+		TitleState.h ../Breakout/Main.cpp \
 		../Breakout/GameState.cpp \
 		../Breakout/LevelState.cpp \
 		../Breakout/BreakoutPad.cpp \
 		../Breakout/BreakoutBall.cpp \
 		../Breakout/BreakoutWall.cpp \
-		../Breakout/BreakoutBrick.cpp
+		../Breakout/BreakoutBrick.cpp \
+		../Breakout/MainMenuState.cpp \
+		../Breakout/AssetManager.cpp \
+		../Breakout/Globals.cpp \
+		../Breakout/TitleState.cpp
 QMAKE_TARGET  = Breakout
 DESTDIR       = 
 TARGET        = Breakout
@@ -496,7 +513,9 @@ Main.o: ../Breakout/Main.cpp ../Breakout/LevelState.hpp \
 		../Breakout/BreakoutPad.hpp \
 		../Breakout/BreakoutBall.hpp \
 		../Breakout/BreakoutWall.hpp \
-		../Breakout/BreakoutBrick.hpp
+		../Breakout/BreakoutBrick.hpp \
+		../Breakout/MainMenuState.h \
+		../Breakout/AssetManager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Main.o ../Breakout/Main.cpp
 
 GameState.o: ../Breakout/GameState.cpp ../Breakout/GameState.hpp
@@ -507,25 +526,49 @@ LevelState.o: ../Breakout/LevelState.cpp ../Breakout/LevelState.hpp \
 		../Breakout/BreakoutPad.hpp \
 		../Breakout/BreakoutBall.hpp \
 		../Breakout/BreakoutWall.hpp \
-		../Breakout/BreakoutBrick.hpp
+		../Breakout/BreakoutBrick.hpp \
+		../Breakout/Globals.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LevelState.o ../Breakout/LevelState.cpp
 
-BreakoutPad.o: ../Breakout/BreakoutPad.cpp ../Breakout/BreakoutPad.hpp
+BreakoutPad.o: ../Breakout/BreakoutPad.cpp ../Breakout/BreakoutPad.hpp \
+		../Breakout/BreakoutBall.hpp \
+		../Breakout/BreakoutWall.hpp \
+		../Breakout/BreakoutBrick.hpp \
+		../Breakout/AssetManager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutPad.o ../Breakout/BreakoutPad.cpp
 
 BreakoutBall.o: ../Breakout/BreakoutBall.cpp ../Breakout/raymath.h \
 		../Breakout/BreakoutBall.hpp \
 		../Breakout/BreakoutWall.hpp \
 		../Breakout/BreakoutPad.hpp \
-		../Breakout/BreakoutBrick.hpp
+		../Breakout/BreakoutBrick.hpp \
+		../Breakout/AssetManager.h \
+		../Breakout/Globals.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutBall.o ../Breakout/BreakoutBall.cpp
 
 BreakoutWall.o: ../Breakout/BreakoutWall.cpp ../Breakout/BreakoutWall.hpp \
-		../Breakout/raymath.h
+		../Breakout/raymath.h \
+		../Breakout/easings.h \
+		../Breakout/AssetManager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutWall.o ../Breakout/BreakoutWall.cpp
 
-BreakoutBrick.o: ../Breakout/BreakoutBrick.cpp ../Breakout/BreakoutBrick.hpp
+BreakoutBrick.o: ../Breakout/BreakoutBrick.cpp ../Breakout/BreakoutBrick.hpp \
+		../Breakout/AssetManager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutBrick.o ../Breakout/BreakoutBrick.cpp
+
+MainMenuState.o: ../Breakout/MainMenuState.cpp ../Breakout/MainMenuState.h \
+		../Breakout/GameState.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainMenuState.o ../Breakout/MainMenuState.cpp
+
+AssetManager.o: ../Breakout/AssetManager.cpp ../Breakout/AssetManager.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AssetManager.o ../Breakout/AssetManager.cpp
+
+Globals.o: ../Breakout/Globals.cpp ../Breakout/Globals.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Globals.o ../Breakout/Globals.cpp
+
+TitleState.o: ../Breakout/TitleState.cpp ../Breakout/TitleState.h \
+		../Breakout/GameState.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TitleState.o ../Breakout/TitleState.cpp
 
 ####### Install
 

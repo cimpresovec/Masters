@@ -1,5 +1,7 @@
 #include "raymath.h"
 #include "BreakoutBall.hpp"
+#include "AssetManager.h"
+#include "Globals.h"
 
 BreakoutBall::BreakoutBall()
 {
@@ -9,6 +11,26 @@ BreakoutBall::BreakoutBall()
 void BreakoutBall::finishMoving()
 {
     position = expectedPosition;
+
+    this->checkOutOfBounds();
+}
+
+void BreakoutBall::checkOutOfBounds()
+{
+    if (numberOfLives < 0) return;
+
+    if (position.y > 720)
+    {
+        numberOfLives--;
+        if (numberOfLives >= 0) holding = true;
+    }
+}
+
+void BreakoutBall::playSoundEffect()
+{
+    if (soundEffectBlip) PlaySound(AssetManager::getInstance().getSound("blip"));
+    else PlaySound(AssetManager::getInstance().getSound("blop"));
+    soundEffectBlip = !soundEffectBlip;
 }
 
 void BreakoutBall::startMoving(const float deltaTime)
@@ -23,7 +45,7 @@ void BreakoutBall::checkCollisionAgainstWalls(std::vector<BreakoutWall>& walls)
     {
         if (CheckCollisionCircleRec(expectedPosition, radius, wall.getCollisionRectangle()))
         {
-            wall.applyForce(Vector2{-1, 0});
+            //wall.applyForce(Vector2{-1, 0});
             //Check collision direction by moving back on one axis and rechecking
             float previousX = expectedPosition.x;
             expectedPosition.x = position.x;
@@ -37,6 +59,8 @@ void BreakoutBall::checkCollisionAgainstWalls(std::vector<BreakoutWall>& walls)
             {
                 velocity.x = -velocity.x;
             }
+
+            this->playSoundEffect();
         }
     }
 }
@@ -63,30 +87,52 @@ void BreakoutBall::checkCollisionAgainstBricks(std::vector<BreakoutBrick>& brick
             {
                 velocity.x = -velocity.x;
             }
+
+            this->playSoundEffect();
         }
     }
 }
 
 void BreakoutBall::checkCollisionAgainstPlayer(const BreakoutPad pad)
 {
+    if (holding) return this->moveWithPad(pad);
+
     Rectangle padCollisionRectangle = pad.getCollisionRectangle();
     if (CheckCollisionCircleRec(expectedPosition, radius, padCollisionRectangle))
     {
         expectedPosition.y = position.y;
 
         //Control direction based on hit location
-        float horizontalDifference = expectedPosition.x - (padCollisionRectangle.x + padCollisionRectangle.width / 2);
+        float horizontalDifference = position.x - (padCollisionRectangle.x + padCollisionRectangle.width / 2);
         horizontalDifference /= (padCollisionRectangle.width);
 
         velocity.x = horizontalDifference * maxSpeed * 2; //Prefer horizontal over vertical movement
         velocity.y = -velocity.y;
         velocity = Vector2Scale(Vector2Normalize(velocity), maxSpeed);
-    }
 
-    //TODO Handle side bumps?
+        this->playSoundEffect();
+    }
+}
+
+void BreakoutBall::moveWithPad(const BreakoutPad pad)
+{
+    Rectangle padCollisionRectangle = pad.getCollisionRectangle();
+    expectedPosition.x = padCollisionRectangle.x + padCollisionRectangle.width / 2;
+    expectedPosition.y = padCollisionRectangle.y - radius;
+}
+
+void BreakoutBall::shoot()
+{
+    holding = false;
 }
 
 void BreakoutBall::render()
 {
-    DrawCircle(int(position.x), int(position.y), radius, RED);
+    DrawTexturePro(AssetManager::getInstance().getTexture("ball"),
+                   AssetManager::getInstance().getRectangle("ball"),
+                   Rectangle{int(position.x - radius), int(position.y - radius), int(radius * 2), int(radius * 2)},
+                   Vector2{0, 0},
+                   0,
+                   RED);
+//    DrawCircle(int(position.x), int(position.y), radius, RED);
 }

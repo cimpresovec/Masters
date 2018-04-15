@@ -7,6 +7,7 @@ enum GameStates
 {
     STATE_NULL,
     STATE_TITLE,
+    STATE_MAINMENU,
     STATE_LEVEL,
     STATE_EXIT
 };
@@ -18,6 +19,7 @@ protected:
     GameStates currentGameState = GameStates::STATE_NULL;
     GameStates nextGameState = GameStates::STATE_NULL;
 public:
+    GameState();
     virtual ~GameState();
     virtual void handleEvents() = 0;
     virtual void handleLogic(const float deltaTime) = 0;

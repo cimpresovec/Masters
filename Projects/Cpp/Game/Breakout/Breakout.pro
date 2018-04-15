@@ -12,7 +12,11 @@ SOURCES += \
     BreakoutPad.cpp \
     BreakoutBall.cpp \
     BreakoutWall.cpp \
-    BreakoutBrick.cpp
+    BreakoutBrick.cpp \
+    MainMenuState.cpp \
+    AssetManager.cpp \
+    Globals.cpp \
+    TitleState.cpp
 
 HEADERS += \
     GameState.hpp \
@@ -21,4 +25,9 @@ HEADERS += \
     BreakoutBall.hpp \
     BreakoutWall.hpp \
     BreakoutBrick.hpp \
-    raymath.h
+    raymath.h \
+    MainMenuState.h \
+    easings.h \
+    AssetManager.h \
+    Globals.h \
+    TitleState.h

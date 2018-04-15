@@ -17,6 +17,7 @@ class LevelState : public GameState
 
 public:
     LevelState();
+    LevelState(int level);
     ~LevelState() override;
     void handleEvents() override;
     void handleLogic(const float deltaTime) override;

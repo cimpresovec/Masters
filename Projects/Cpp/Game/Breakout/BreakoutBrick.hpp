@@ -7,6 +7,7 @@ class BreakoutBrick
 {
     Rectangle collisionRectangle{0, 0, 80, 30};
     bool _shouldDestroy = false;
+    Color color {};
 public:
     BreakoutBrick(const Vector2 position);
 

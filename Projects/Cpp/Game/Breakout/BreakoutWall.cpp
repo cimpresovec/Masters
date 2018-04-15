@@ -1,5 +1,8 @@
 #include "BreakoutWall.hpp"
 #include "raymath.h"
+#include "easings.h"
+#include "AssetManager.h"
+#include <iostream>
 
 BreakoutWall::BreakoutWall(const Rectangle shape)
 {
@@ -9,22 +12,16 @@ BreakoutWall::BreakoutWall(const Rectangle shape)
 
 void BreakoutWall::render()
 {
-    //Refactor into some Wiggle Singleton?
-    timer += GetFrameTime() * 10;
-    renderRectangle = collisionRectangle;
-    renderRectangle.x += int(sinf(timer) * wigglePower.x * 10);
-    DrawRectanglePro(renderRectangle, Vector2{}, 0, BLUE);
-    wigglePower.x = wigglePower.x - copysignf(1.f * GetFrameTime(), wigglePower.x);
-    if (Vector2Length(wigglePower) < 0.1f) wigglePower = Vector2{0, 0};
+    DrawTexturePro(AssetManager::getInstance().getTexture("wall"),
+                   AssetManager::getInstance().getRectangle("wall"),
+                   renderRectangle,
+                   Vector2{0, 0},
+                   0,
+                   BLUE);
+//    DrawRectanglePro(renderRectangle, Vector2{}, 0, BLUE);
 }
 
 Rectangle BreakoutWall::getCollisionRectangle()
 {
     return collisionRectangle;
-}
-
-void BreakoutWall::applyForce(const Vector2 force)
-{
-    wigglePower = force;
-    timer = 0;
 }
