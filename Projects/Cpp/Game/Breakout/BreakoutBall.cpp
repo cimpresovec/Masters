@@ -45,7 +45,6 @@ void BreakoutBall::checkCollisionAgainstWalls(std::vector<BreakoutWall>& walls)
     {
         if (CheckCollisionCircleRec(expectedPosition, radius, wall.getCollisionRectangle()))
         {
-            //wall.applyForce(Vector2{-1, 0});
             //Check collision direction by moving back on one axis and rechecking
             float previousX = expectedPosition.x;
             expectedPosition.x = position.x;
@@ -109,7 +108,7 @@ void BreakoutBall::checkCollisionAgainstPlayer(const BreakoutPad pad)
         velocity.x = horizontalDifference * maxSpeed * 2; //Prefer horizontal over vertical movement
         velocity.y = -velocity.y;
         velocity = Vector2Scale(Vector2Normalize(velocity), maxSpeed);
-
+        expectedPosition.y = padCollisionRectangle.y - radius;
         this->playSoundEffect();
     }
 }
@@ -133,6 +132,6 @@ void BreakoutBall::render()
                    Rectangle{int(position.x - radius), int(position.y - radius), int(radius * 2), int(radius * 2)},
                    Vector2{0, 0},
                    0,
-                   RED);
+                   ORANGE);
 //    DrawCircle(int(position.x), int(position.y), radius, RED);
 }

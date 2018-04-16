@@ -1,6 +1,5 @@
 package com.lukahorvat.breakout;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.assets.AssetManager;
@@ -12,14 +11,14 @@ import com.badlogic.gdx.math.Vector2;
 
 public class BreakoutPad extends InputAdapter {
 
-    private Rectangle renderRectangle;
+    private Rectangle collisionRectangle;
     private float horizontalSpeed = 500;
     private Vector2 velocity = new Vector2(0, 0);
     private boolean keyLeft = false, keyRight = false, keyShoot = false;
 
     public BreakoutPad()
     {
-        renderRectangle = new Rectangle(1280 / 2, 55, 150, 30);
+        collisionRectangle = new Rectangle(1280 / 2, 55, 150, 30);
     }
 
     @Override
@@ -58,14 +57,19 @@ public class BreakoutPad extends InputAdapter {
         if (keyLeft) velocity.x += -horizontalSpeed;
         if (keyRight) velocity.x += horizontalSpeed;
 
-        renderRectangle.x += velocity.x * deltaTime;
+        collisionRectangle.x += velocity.x * deltaTime;
 
-        renderRectangle.x = Math.min(renderRectangle.x, 1280 - renderRectangle.width);
-        renderRectangle.x = Math.max(renderRectangle.x, 0);
+        collisionRectangle.x = Math.min(collisionRectangle.x, 1280 - collisionRectangle.width);
+        collisionRectangle.x = Math.max(collisionRectangle.x, 0);
     }
 
     public void render(SpriteBatch batch, AssetManager manager) {
         batch.setColor(Color.RED);
-        batch.draw(manager.get("pad.png", Texture.class), renderRectangle.x, renderRectangle.y, renderRectangle.width, renderRectangle.height);
+        batch.draw(manager.get("pad.png", Texture.class), collisionRectangle.x, collisionRectangle.y, collisionRectangle.width, collisionRectangle.height);
+        batch.setColor(Color.WHITE);
+    }
+
+    public Rectangle getCollisionRectangle() {
+        return collisionRectangle;
     }
 }
