@@ -3,7 +3,6 @@ package com.lukahorvat.breakout;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -11,21 +10,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class LevelScreen extends InputAdapter implements Screen
+public class LevelScreen extends GameScreen
 {
-    private SpriteBatch batch;
-    private AssetManager assetManager;
-
     private BreakoutPad pad;
     private List<BreakoutWall> walls;
     private List<BreakoutBrick> bricks;
     private BreakoutBall ball;
 
 
-    public LevelScreen(AssetManager assetManager)
+    public LevelScreen(AssetManager manager, Game game)
     {
-        this.assetManager = assetManager;
-        batch = new SpriteBatch();
+        super(manager, game);
 
         //Objects
         pad = new BreakoutPad();
@@ -57,7 +52,8 @@ public class LevelScreen extends InputAdapter implements Screen
     public boolean keyDown(int keycode) {
         if (keycode == Input.Keys.ESCAPE)
         {
-            //TODO Implement transition
+            this.setNextGameScreen(GameScreens.STATE_MAINMENU);
+            return true;
         }
         return false;
     }
@@ -94,6 +90,7 @@ public class LevelScreen extends InputAdapter implements Screen
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        batch.setProjectionMatrix(camera.combined);
         batch.begin();
         pad.render(batch, assetManager);
         ball.render(batch, assetManager);
@@ -106,26 +103,8 @@ public class LevelScreen extends InputAdapter implements Screen
             brick.render(batch, assetManager);
         }
         batch.end();
-    }
 
-    @Override
-    public void resize(int width, int height) {
-
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-
+        super.render(deltaTime);
     }
 
     @Override
