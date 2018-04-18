@@ -31,6 +31,9 @@ public class MainMenuScreen extends GameScreen {
         }
         if (keycode == Input.Keys.ENTER) {
             this.setNextGameScreen(GameScreens.STATE_LEVEL);
+            currentLevel = 1;
+            numberOfLives = 3;
+            score = 0;
             return true;
         }
         return false;
@@ -41,6 +44,9 @@ public class MainMenuScreen extends GameScreen {
         if (playButton.contains(camera.unproject(new Vector3(screenX, screenY, 0)).x, camera.unproject(new Vector3(screenX, screenY, 0)).y))
         {
             setNextGameScreen(GameScreens.STATE_LEVEL);
+            currentLevel = 1;
+            numberOfLives = 3;
+            score = 0;
             return true;
         }
         if (exitButton.contains(camera.unproject(new Vector3(screenX, screenY, 0)).x, camera.unproject(new Vector3(screenX, screenY, 0)).y))

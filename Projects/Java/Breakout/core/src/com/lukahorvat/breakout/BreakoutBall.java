@@ -140,22 +140,23 @@ public class BreakoutBall extends InputAdapter {
         return false;
     }
 
-    public void finishMoving()
+    public int finishMoving(int numberOfLives)
     {
         position.set(expectedPosition);
-        this.checkOutOfBounds();
+        return this.checkOutOfBounds(numberOfLives);
     }
 
-    private void checkOutOfBounds()
+    private int checkOutOfBounds(int numberOfLives)
     {
-//        if (numberOfLives < 0) return;
+        if (numberOfLives < 0) return numberOfLives;
 
         if (position.y < 0)
         {
-//            numberOfLives--;
-//            if (numberOfLives >= 0) holding = true;
-            holding = true;
+            numberOfLives--;
+            if (numberOfLives >= 0) holding = true;
         }
+
+        return numberOfLives;
     }
 
     public void render(SpriteBatch batch, AssetManager manager) {

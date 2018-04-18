@@ -18,7 +18,7 @@ public class BreakoutPad extends InputAdapter {
 
     public BreakoutPad()
     {
-        collisionRectangle = new Rectangle(1280 / 2, 55, 150, 30);
+        collisionRectangle = new Rectangle(1280 / 2 - 75, 55, 150, 30);
     }
 
     @Override

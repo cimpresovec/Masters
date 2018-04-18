@@ -28,6 +28,11 @@ public abstract class GameScreen extends InputAdapter implements Screen {
     Viewport viewport;
     Camera camera;
 
+    //Global data
+    static int numberOfLives = 3;
+    static int score = 0;
+    static int currentLevel = 1;
+
     GameScreen(AssetManager manager, Game game)
     {
         this.assetManager = manager;
