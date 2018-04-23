@@ -7,10 +7,48 @@
       <e p="Assets/Ball" t="Include">
         <e p="BallScript.cs" t="Include" />
       </e>
-      <e p="Assets/CameraScript.cs" t="Include" />
-      <e p="Assets/LevelCreatorScript.cs" t="Include" />
+      <e p="Assets/BrickScript.cs" t="Include" />
+      <e p="Assets/BrokenVector" t="Include">
+        <e p="LowPolyShaders" t="Include">
+          <e p="Shaders" t="Include">
+            <e p="LowPolyPBRShader.shader" t="Include" />
+            <e p="LowPolyUnlitShader.shader" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Assets/GameHandler" t="Include">
+        <e p="GameHandlerScript.cs" t="Include" />
+      </e>
+      <e p="Assets/MainMenuScript.cs" t="Include" />
       <e p="Assets/Pad" t="Include">
         <e p="PadScript.cs" t="Include" />
+      </e>
+      <e p="Assets/Scripts" t="Include">
+        <e p="CameraScript.cs" t="Include" />
+        <e p="GameGlobals.cs" t="Include" />
+        <e p="LevelCreatorScript.cs" t="Include" />
+        <e p="TextUpdaterScript.cs" t="Include" />
+      </e>
+      <e p="Assets/TextMesh Pro" t="Include">
+        <e p="Resources" t="Include">
+          <e p="LineBreaking Following Characters.txt" t="Include" />
+          <e p="LineBreaking Leading Characters.txt" t="Include" />
+          <e p="Shaders" t="Include">
+            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+            <e p="TMP_Bitmap.shader" t="Include" />
+            <e p="TMP_SDF Overlay.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+            <e p="TMP_SDF-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface.shader" t="Include" />
+            <e p="TMP_SDF.shader" t="Include" />
+            <e p="TMP_Sprite.shader" t="Include" />
+            <e p="TMPro.cginc" t="Include" />
+            <e p="TMPro_Properties.cginc" t="Include" />
+            <e p="TMPro_Surface.cginc" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="Breakout.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

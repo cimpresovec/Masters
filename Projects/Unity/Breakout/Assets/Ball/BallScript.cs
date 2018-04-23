@@ -11,6 +11,7 @@ public class BallScript : MonoBehaviour
 	private Rigidbody rb;
 	private AudioSource audioSource;
 	public Transform pad;
+	public GameGlobals gameGlobals;
 
 	private bool blip = true;
 	private bool holding = true;
@@ -32,7 +33,7 @@ public class BallScript : MonoBehaviour
 	{
 		if (holding)
 		{
-			rb.MovePosition(pad.position + new Vector3(0, 0, 3));
+			rb.MovePosition(pad.position + new Vector3(0, 1.2f, 3));
 			if (shootBall)
 			{
 				holding = false;
@@ -44,24 +45,25 @@ public class BallScript : MonoBehaviour
 		{
 			if (transform.position.z < -40)
 			{
-				holding = true;
+				gameGlobals.numberOfLives--;
+				if (gameGlobals.numberOfLives >= 0)
+				{
+					holding = true;
+				}
+
 				rb.velocity = Vector3.zero;
 			}
 		}
-//		print(rb.velocity.magnitude);
 	}
+
 
 	private void OnCollisionEnter(Collision other)
 	{
 		playBounceSound();
 		if (other.gameObject.CompareTag("Brick"))
 		{
-			//Move this to other method or something
-			other.collider.attachedRigidbody.isKinematic = false;
-			other.collider.isTrigger = true;
-			other.collider.attachedRigidbody.AddForceAtPosition(-other.relativeVelocity * 10, other.contacts[0].point);
-			other.collider.attachedRigidbody.AddForce(new Vector3(0, 500, 0));
-
+			other.gameObject.GetComponent<BrickScript>().gotHit(other);
+			
 			//We want nice bounces of bricks, no weird direction changes
 			if (Math.Abs(other.contacts[0].normal.x) < Math.Abs(other.contacts[0].normal.z))
 			{
@@ -71,6 +73,7 @@ public class BallScript : MonoBehaviour
 			{
 				rb.velocity = new Vector3(other.relativeVelocity.x, 0, -other.relativeVelocity.z).normalized * maxSpeed;
 			}
+			gameGlobals.score += 10;
 			return;
 		}
 		if (!other.gameObject.CompareTag("Pad")) return;

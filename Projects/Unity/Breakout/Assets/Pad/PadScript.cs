@@ -31,6 +31,5 @@ public class PadScript : MonoBehaviour {
 		position.x = Mathf.Max(position.x, -35);
 
 		rb.MovePosition(position);
-//		transform.position = position;
 	}
 }
