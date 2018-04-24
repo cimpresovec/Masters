@@ -8,6 +8,7 @@ public class BallScript : MonoBehaviour
 
 	[SerializeField] private float maxSpeed;
 	[SerializeField] private AudioClip blipAudioClip = null, blopAudioClip = null;
+	private Vector3 velocity;
 	private Rigidbody rb;
 	private AudioSource audioSource;
 	public Transform pad;
@@ -20,6 +21,7 @@ public class BallScript : MonoBehaviour
 	private void Start () {
 		rb = GetComponent<Rigidbody>();
 		audioSource = GetComponent<AudioSource>();
+		velocity = new Vector3();
 	}
 
 	// Update is called once per frame
@@ -33,16 +35,48 @@ public class BallScript : MonoBehaviour
 	{
 		if (holding)
 		{
-			rb.MovePosition(pad.position + new Vector3(0, 1.2f, 3));
+			rb.MovePosition(pad.position + new Vector3(0, 0.2f, 3));
 			if (shootBall)
 			{
 				holding = false;
 				shootBall = false;
-				rb.velocity = new Vector3(0, 0, 1) * maxSpeed;
+				velocity = new Vector3(0, 0, 1) * maxSpeed;
 			}
 		}
 		else
 		{
+			//Movement
+			RaycastHit hit;
+			var moveVector = velocity * Time.deltaTime;
+			if (rb.SweepTest(moveVector, out hit, moveVector.magnitude))
+			{
+				playBounceSound();
+				if (Mathf.Abs(hit.normal.x) > Mathf.Abs(hit.normal.z))
+				{
+					velocity.x = -velocity.x;
+				}
+				else
+				{
+					velocity.z = -velocity.z;
+				}
+
+				//Brick handling
+				if (hit.collider.CompareTag("Brick"))
+				{
+					if (hit.collider.gameObject.GetComponent<BrickScript>().gotHit(hit))
+					{
+						gameGlobals.score += 10;	
+					}
+				}
+				
+				//Pad handling
+				if (hit.collider.CompareTag("Pad"))
+				{
+					velocity = new Vector3(hit.normal.x * 2, 0, 1).normalized * maxSpeed;
+				}
+			}
+			rb.MovePosition(rb.position + moveVector);
+			
 			if (transform.position.z < -40)
 			{
 				gameGlobals.numberOfLives--;
@@ -51,36 +85,9 @@ public class BallScript : MonoBehaviour
 					holding = true;
 				}
 
-				rb.velocity = Vector3.zero;
+				velocity = Vector3.zero;
 			}
 		}
-	}
-
-
-	private void OnCollisionEnter(Collision other)
-	{
-		playBounceSound();
-		if (other.gameObject.CompareTag("Brick"))
-		{
-			other.gameObject.GetComponent<BrickScript>().gotHit(other);
-			
-			//We want nice bounces of bricks, no weird direction changes
-			if (Math.Abs(other.contacts[0].normal.x) < Math.Abs(other.contacts[0].normal.z))
-			{
-				rb.velocity = new Vector3(-other.relativeVelocity.x, 0, other.relativeVelocity.z).normalized * maxSpeed;
-			}
-			else
-			{
-				rb.velocity = new Vector3(other.relativeVelocity.x, 0, -other.relativeVelocity.z).normalized * maxSpeed;
-			}
-			gameGlobals.score += 10;
-			return;
-		}
-		if (!other.gameObject.CompareTag("Pad")) return;
-
-		//More control of ball direction from the pad
-		ContactPoint contract = other.contacts[0];
-		rb.velocity = new Vector3(contract.normal.x * 2, 0, 1).normalized * maxSpeed;
 	}
 
 	private void playBounceSound()
