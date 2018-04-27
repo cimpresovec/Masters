@@ -8,10 +8,10 @@
 \usepackage[slovene]{babel}
 \usepackage{babelbib}
 \usepackage{titlesec}
+\usepackage{listings}
 \usepackage{fancyhdr}
 \usepackage{eurosym}
 \usepackage{url}
-\usepackage{minted}
 \author{Luka Horvat}
 \title{Dobre prakse pri razvoju računalniških iger}
 
@@ -23,6 +23,19 @@
 
 % Remove big chapter text
 \titleformat{\chapter}{\bfseries\LARGE}{\thechapter}{1em}{\LARGE\textbf}
+
+% Code listings
+\lstdefinestyle{mystyle}{
+	numbers=left,
+	breaklines=true,
+	basicstyle=\footnotesize,
+	frame=tb,
+	captionpos=b
+}
+\lstset{style=mystyle}
+\renewcommand{\lstlistingname}{Izsek kode}
+\renewcommand{\lstlistlistingname}{Seznam izsekov kode}
+%\renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}
 
 %Header/footer
 \pagestyle{fancy}
@@ -128,6 +141,9 @@ Tukaj pride sklep o potrjeni temi.
 
 %Kazalo vsebine
 \listoffigures
+
+%Kazalo kode
+\lstlistoflistings
 
 %Content
 %Uvod
@@ -383,37 +399,40 @@ Odločiti se med pogonoma je odvisno od naših potreb za projekt. Unity licencir
 \section{Uporabljena orodja}
 Opisi kako in kaj, uporabili smo Raylib v C++, LibGDX v Java in Unity Engine.
 
+\section{Končni produkt}
+Tukaj opis in slike končnega produkta v vseh treh orodjih. 
+
 \section{Načrt in planiranje}
 Ta odsek mogoče izpustimo. Mogoče prikažemo HackNPlan ali kaj podobnega?
 \section{Metode in prakse pri izdelavi grafičnih gradnikov}
-TODO
+\subsection{Teksturiranje modelov}
+Enostavno teksturiranje opis.
+\subsection{Izvoz modelov za Unity}
+Tips n tricks tukaj.
 
 \section{Osnovne metode in prakse pri tehnični implementaciji}
 Ne glede na izbiro orodij za tehnično implementacijo računalniške igre, so določene metode in prakse skupne vsem. Tudi če orodje poskrbi za določene prakse je dobro, da se jih zavedamo in tako boljše razumemo delovanje naših orodij in lahko bolj učinkovito implementiramo našo igro.
 
 \subsection{Glavna zanka igre}
-Glavna zanka igre skupaj neodvisnim gibanjem od hitrosti izvajanja sta dva koncepta, ki sta specifična za igre v izdelavi programske opreme. Nekatera programska oprema se izvede in nato prikaže svoje rezultate brez kakršnihkoli vhodov, druga konstantno čaka na vhod ali dogodek od uporabnika, da proži akcije. Računalniške igre pa so konstantno v gibanju, tudi ko ne dobivajo vhoda od igralca. Če se igralec ustavi, se svet okoli njega v igri ne ustavi. Implementacija tega koncepta se imenuje glavna zanka igre. Psevdokodo preproste glavne zanke vidimo spodaj.
+Glavna zanka igre skupaj z neodvisnim gibanjem od hitrosti izvajanja sta dva koncepta, ki sta specifična za igre v izdelavi programske opreme. Nekatera programska oprema se izvede in nato prikaže svoje rezultate brez kakršnihkoli vhodov, druga konstantno čaka na vhod ali dogodek od uporabnika, da proži akcije. Računalniške igre pa so konstantno v gibanju, tudi ko ne dobivajo vhoda od igralca. Če se igralec ustavi, se svet okoli njega v igri ne ustavi. Implementacija tega koncepta se imenuje glavna zanka igre. Psevdokodo preproste glavne zanke vidimo v izseku \ref{code:glavnaZanka}.
 
-\begin{listing}[ht]
-\begin{minted}[frame=lines,baselinestretch=1.2,fontsize=\footnotesize,linenos,breaklines]{c++}
+\begin{lstlisting}[label=code:glavnaZanka, language=C++, caption=Glavna zanka igre]
 while(!shouldCloseGame)
 {
 	handleInput();
 	update();
 	render();
 }
-\end{minted}
-\vspace*{-2em}
-\end{listing}
+\end{lstlisting}
+
 Kot vidimo je glavna zanka sestavljena iz treh glavnih delov: pridobitev in procesiranje vhoda od igralca, simulacija sveta igre in izris stanja na zaslon. Taka zanka se neskončno izvaja, dokler se igralec ne odloči, da igro zapre. Zagotavlja, da konstantno preverjamo vhode od uporabnika, odzovemo svet igre glede na ta vhod in nato takoj damo povratne informacije igralcu preko izrisa na zaslon. Za merjenje hitrosti izvajanja glavne zanke večinoma uporabljamo mero sličic na sekundo (angleško \textit{frames per second}), ki nam pove kolikokrat na sekundo se posodobijo informacije na zaslonu preko izrisa.
 
 \subsection{Gibanje neodvisno od hitrosti izvajanja}
-Hitrost izvajanja glavne zanke igre je zelo odvisna od specifikacij, ki jih premore strojna oprema na kateri igro izvajamo. Obremenjenost opreme je tudi faktor, če poleg igre izvajamo še druge procese. Tehnologija osveževanja zaslonov lahko tudi umetno omejuje hitrost izrisovanja in posledično tudi hitrost izvajanja zanke. Dandanes igre ciljajo dve hitrosti, to sta 30 in 60 sličic na sekundo. Odvisno od tehnične zahtevnosti igre in ciljne platforme, saj konzole niso tako zmogljive kot računalniki. Ciljno hitrost najlaže dosežemo z umetnim čakanjem za izrisom. 
+Hitrost izvajanja glavne zanke igre je zelo odvisna od specifikacij, ki jih premore strojna oprema na kateri igro izvajamo. Obremenjenost opreme je tudi faktor, če poleg igre izvajamo še druge procese. Tehnologija osveževanja zaslonov lahko tudi umetno omejuje hitrost izrisovanja in posledično tudi hitrost izvajanja zanke. Dandanes igre ciljajo dve hitrosti, to sta 30 ali 60 sličic na sekundo. Odvisno od tehnične zahtevnosti igre in ciljne platforme, saj konzole niso tako zmogljive kot namenski igralski računalniki. Ciljno hitrost najlaže dosežemo z umetnim čakanjem za izrisom. 
 
-Neodvisno od ciljne hitrosti, pa v igri prihaja do nihanj. Določene scene zahtevajo več računalniških virov in tako povečajo potrebno procesorsko moč. Takrat se hitrost izvajanja zanke upočasni. Pri osnovnem modelu glavne zanke oziroma z modelom z umetnim čakanjem bi to pomenili upočasnitev same igre. Svet bi se simuliral počasneje in igralcu bi se zazdelo, kot da vse poteka v počasnem posnetku. Da se temu izognemo uporabljamo metode, ki simulirajo igro z enako hitrostjo neodvisno od hitrosti izvajanja glavne zanke. Najbolj popularna metoda uporablja merjenje časa, ki je pretekel od prejšnje izvedbe glavne zanke. Primer psevdokode vidimo v primeru spodaj:
+Neodvisno od ciljne hitrosti, pa v igri prihaja do nihanj. Določene scene zahtevajo več računalniških virov in tako povečajo potrebno procesorsko moč. Takrat se hitrost izvajanja zanke upočasni. Pri osnovnem modelu glavne zanke oziroma z modelom z umetnim čakanjem bi to pomenili upočasnitev same igre. Svet bi se simuliral počasneje in igralcu bi se zazdelo, kot da vse poteka v počasnem posnetku. Da se temu izognemo uporabljamo metode, ki simulirajo igro z enako hitrostjo neodvisno od hitrosti izvajanja glavne zanke. Najbolj popularna metoda uporablja merjenje časa, ki je pretekel od prejšnje izvedbe glavne zanke. Primer psevdokode vidimo v izseku \ref{code:deltaTime}.
 
-\begin{listing}[ht]
-\begin{minted}[frame=lines,baselinestretch=1.2,fontsize=\footnotesize,linenos,breaklines]{c++}
+\begin{lstlisting}[label=code:deltaTime, language=C++, caption=Neodvisno gibanje]
 float previousTime = getCurrentTimeInMs();
 while(!shouldCloseGame)
 {
@@ -427,30 +446,24 @@ while(!shouldCloseGame)
 
 void update(float deltaTime)
 {
-	//...
-	position.x += 200 * deltaTime; // Željena hitrost premikanja je 200 enot na sekundo
-	//...
+	position.x += 200 * deltaTime; //Hitrost premikanja je 200 enot na sekundo
 }
-\end{minted}
-\vspace*{-2em}
-\end{listing}
-Kot vidimo si izračunamo delta čas med ponovitvami. Dobra praksa je delto normalizirati (pretvoriti vrednost v interval med 0 in 1) saj jo je potem lažje uporabljati v računske namene. Delta čas podamo v metodo, kjer se izvaja simulacija in ga uporabimo pri operacijah, ki so odvisne od hitrosti izvajanja. Tako lahko dosežemo, da se premikamo z konstantno hitrostjo na sekundo, ne glede na hitrost izvajanja glavne zanke.
+\end{lstlisting}
+Kot vidimo si izračunamo delta čas med ponovitvami. Dobra praksa je delto pretvoriti v sekunde saj jo je potem lažje uporabljamo v računske namene. Delta čas podamo v metodo, kjer se izvaja simulacija in ga uporabimo pri operacijah, ki so odvisne od hitrosti izvajanja. Tako lahko dosežemo, da se premikamo z konstantno hitrostjo na sekundo, ne glede na hitrost izvajanja glavne zanke.
 
 Razvojna orodja nam ponujajo različne načine upravljanja z glavno zanko in delta časom. Pri nizkonivojskem programiranju si moramo sami ustvariti glavno zanko in se odločiti, kako se bo prožilo zaporedje dogodkov. Knjižnica Raylib nam ponuja metodo \textit{GetFrameTime()}, ki nam vrtne delta čas v sekundah. Pri tako dostopni metodi moramo paziti, da delta čas pridobimo samo enkrat v eni ponovitvi zanke. Če bi čas pridobili na več mestih, bi ta lahko bil različen in bi se objekti v naši igri simulirali z različnimi hitrostmi. Zato je ustaljena praksa, da čas pridobimo enkrat in ga nato predamo v nadaljnje metode.
 
 Ogrodje LibGDX ima točno definirano glavno zanko na katero ne moremo vplivati. Moramo implementirati vmesnik \textit{ApplicationListener}, ki nam ponuja samo eno vstopno točko v zanko, metodo \textit{render()}. Ime metode je zavajajoče, saj ni namenjena samo za izrisovanje. Uporabiti jo moremo kot telo glavne zanke in v njej implementirati simulacijo igre in izrisovanje. Procesiranje vhodov se v LibGDX dela z proženjem dogodkov, ki poteka neodvisno od metode \textit{render()}. Za pridobitev delta časa nam je podobno kot pri Raylib na voljo metoda \textit{Gdx.graphics.getDeltaTime()}.
 
-Pogon Unity ima zelo kompleksno glavno zanko razdeljeno na več delov (simulacija fizikalnega pogona, proženje dogodkov, simulacija igre, izrisovanje scene, izrisovanje uporabniškega vmesnika, ipd.). Z našimi objekti se lahko vključimo v vsak posamezen korak glavne zanke. Unity poleg simulacije igre še izvaja simulacijo fizikalnega pogona, ki se lahko izvede večkrat v eni iteraciji glavne zanke. Metodi za delo z simulacijama sta \textit{FixedUpdate()} (simulacija fizikalnega pogona) in \textit{Update()} (preostala simulacija). Za pridobitev delta časa pa nam je na voljo metoda \textit{Time.deltaTime}.
+Pogon Unity ima zelo kompleksno glavno zanko razdeljeno na več delov (simulacija fizikalnega pogona, proženje dogodkov, simulacija igre, izrisovanje scene, izrisovanje uporabniškega vmesnika, ipd.). Z našimi objekti se lahko vključimo v vsak posamezen korak glavne zanke. Unity poleg simulacije igre še izvaja simulacijo fizikalnega pogona, ki se lahko izvede večkrat v eni iteraciji glavne zanke. Metodi za delo s simulacijama sta \textit{FixedUpdate()} (simulacija fizikalnega pogona) in \textit{Update()} (preostala simulacija). Za pridobitev delta časa pa nam je na voljo metoda \textit{Time.deltaTime}.
 
 %TODO MOGOCE OPISATI DETERMINISTIČEN KORAK ZA SIMULACIJOs
-
 \subsection{Upravljanje stanj v igri}
-Upravljanje stanj je mišljeno kot organizacija in prehajanje med stanji kot so začetni logotip, različni meniji igre (glavni meni, meni za izbiro stopenj, ipd.) in različnimi nivoji igre. Stanja so uporabna, saj lahko ločimo našo igro na individualne dele, ki se izvajajo neodvisno na druga stanja. Za stanja se uporablja tudi sinonim scena. Vsako ogrodje in namenski pogon ima svoj način dela s stanji, vendar so večinoma to preprosti končni avtomati, ki imajo definirane prehode med scenami in hranijo vsak svoje interno stanje. To interno stanje so potem gradniki uporabljeni v sceni igre. Med samo igro je to igralec in objekti v svetu, v meniju so gradniki grafičnega vmesnika, ki se odzivajo na dogodke, ipd.
+Upravljanje stanj je mišljeno kot organizacija in prehajanje med stanji kot so začetni logotip, različni meniji igre (glavni meni, meni za izbiro stopenj, ipd.) in različnimi nivoji igre. Stanja so uporabna, saj lahko ločimo našo igro na individualne dele, ki se izvajajo neodvisno na druga stanja. Za stanja se uporablja tudi sinonim scena. Vsako ogrodje in namenski pogon ima svoj način dela s stanji, vendar so večinoma to preprosti končni avtomati, ki imajo definirane prehode med scenami in hranijo vsak svoje interne objekte. Ti interni objekti so potem gradniki uporabljeni v sceni igre. Med samo igro je to igralec in objekti v svetu, v meniju so gradniki grafičnega vmesnika, ki se odzivajo na dogodke, ipd.
 
-Pri nizkonivojskih knjižnicah smo sami implementirali prehode med scenami. Za osnovo potrebujemo abstraktni razred, ki bo ogrodje za glavne metode scene (deli glavne zanke igre). Primer vidimo v spodnjem izseku:
+Pri nizkonivojskih knjižnicah smo sami implementirali prehode med scenami. Za osnovo potrebujemo abstraktni razred, ki bo ogrodje za glavne metode scene (deli glavne zanke igre). Primer vidimo v izseku \ref{code:stanjeIgre}.
 
-\begin{listing}[H]
-	\begin{minted}[frame=lines,baselinestretch=1.2,fontsize=\footnotesize,linenos,breaklines]{c++}
+\begin{lstlisting}[label=code:stanjeIgre, language=C++, caption=Stanje igre]
 enum GameStates {STATE_NULL, STATE_TITLE, STATE_LEVEL, STATE_EXIT};
 
 class GameState {
@@ -465,12 +478,11 @@ class GameState {
 		GameStates getNextState() const;
 		void changeGameState(const GameStates state);
 };
-\end{minted}
-\vspace*{-2em}
-\end{listing}
-Pri taki zasnovi smo nato preprosti dedovali od razreda \textit{GameState} in implementirali individualna obnašanja scen. Vsaka scena poskrbi za konstrukcijo in destrukcijo svojih objektov, med sabo pa si delijo skupne vire (kot recimo grafični in glasbeni gradniki). V glavni metodi naše aplikacije smo z uporabo polimorfizma ustvarili instanco enega stanja igre ter preprosto klicali namenske metode glavne zanke. V metodo za simulacijo igre smo podali delta čas, ki smo ga omenili v prejšnjem poglavju. Tako smo poskrbeli, da je delta čas enak skozi celotno simulacijo v enem koraku.
-\begin{listing}[H]
-\begin{minted}[frame=lines,baselinestretch=1.2,fontsize=\footnotesize,linenos,breaklines]{c++}
+\end{lstlisting}
+
+Pri taki zasnovi smo nato preprosti dedovali od razreda \textit{GameState} in implementirali individualna obnašanja scen. Vsaka scena poskrbi za konstrukcijo in destrukcijo svojih objektov, med sabo pa si delijo skupne vire (kot recimo grafični in glasbeni gradniki). V glavni metodi naše aplikacije smo z uporabo polimorfizma ustvarili instanco enega stanja igre ter preprosto klicali namenske metode glavne zanke (izsek \ref{code:uporabaStanja}). V metodo za simulacijo igre smo podali delta čas, ki smo ga omenili v prejšnjem poglavju. Tako smo poskrbeli, da je delta čas enak skozi celotno simulacijo v enem koraku.
+
+\begin{lstlisting}[label=code:uporabaStanja, language=C++, caption=Uporaba stanja igre]
 std::unique_ptr<GameState> currentState = std::make_unique<LevelState>();
 
 while (currentState->getNextState() != STATE_EXIT) {
@@ -479,15 +491,41 @@ while (currentState->getNextState() != STATE_EXIT) {
 	currentState->handleRendering();
 	if (currentState->getNextState() != STATE_NULL) switchGameState(currentState);
 } //...
-\end{minted}
-\vspace*{-2em}
-\end{listing}
+\end{lstlisting}
 
-Ogrodje LibGDX nam ponuja razred \textit{Stage}, ki deluje podobno kot naš implementiran \textit{GameState} razred. Upravljanje z scenami smo morali implementirati sami, saj ogrodje nima implementiranega svojega načina. Pri tem smo upoštevali enake principe kot pri nizkonivojski knjižnici.
+Ogrodje LibGDX nam ponuja vmesnik \textit{Screen}, ki deluje podobno kot naš implementiran \textit{GameState} razred. Upravljanje z scenami smo morali implementirati sami, saj ogrodje nima implementiranega svojega načina. Pri tem smo upoštevali enake principe kot pri nizkonivojski knjižnici. LibGDX nam edino olajša prehode med scenami, saj razred \textit{Game} ponuja metodo \textit{setScreen}, ki enostavno uniči trenutno sceno in naloži novo. Mi smo samo implementirali transformacije, kdaj se katera scena naloži.
 
-Pogon Unity ponuja preprosto upravljanje s scenami. V urejevalniku vedno spreminjamo eno sceno in jo shranimo v datoteko s končnico \textit{unity}.  TODO.
+Unity ima svoj sistem upravljanja s scenami, vendar je v ozadju zelo podoben temu v LibGDX. V grafičnem urejevalniku smo ustvarili posamezne scene in jih shranili s končnico \textit{.unity}. Vse možne scene nato naštejemo v nastavitvah naše aplikacije, nakar nam Unity ponudi singleton \textit{SceneManager} za upravljanje prehodov. Dve glavni metodi za prehode med scenami sta \textit{LoadScene} in \textit{LoadSceneAsync}. Noter podamo ime scene, pogon jo naloži in nato zamenja obstoječo sceno. Razlika med metodama je edino, da prva blokira izvajanje med nalaganjem, druga pa naloži sceno v ozadju. Privzeto se celotna obstoječa scena zamenja z novo, ponuja pa Unity nalaganje scen ene v drugo. Tako lahko naložimo več različnih scen in jih družimo v želeno celoto. Ta princip je uporaben, če imamo del scene vedno enak (statičen, recimo igralčev lik), preostanek scene pa so možne različne variacije.
 
-TODO Implementirati osnovne zadeve v vseh treh orodjih, nadaljevanje pisanja.
+\subsection{Resolucija igre}
+Zasloni, na katerih se bo naša igra prikazovala imajo različne resolucije in razmerja med horizontalno ter vertikalno dolžino. Te razlike lahko privedejo do nepričakovanih sprememb pri izrisovanju, če razlik nismo predvideli. Najhuje je, ko se del scene ne izriše, ker je resolucija igre ožja od pričakovane. Primer lahko vidimo na sliki \ref{slika:rezanje}. Z črno obrobo je prikazana resolucija zaslona oziroma okna igre, z temno rdečo pa prikazano sceno. Prvi primer prikazuje optimalno izrisovanje, primer 2 in 3 pa težave, ki nastanejo, če ne poskrbimo za različne resolucijo. Kot vidimo iz slike, določeni deli scene niso več videni na zaslonu.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm]{rezanjeResolucije}
+	\caption{Primeri izgubljenega dela scene.}
+	\label{slika:rezanje}
+\end{figure}
+
+Za reševanje teh težav nam orodja večinoma ponujajo delo s kamerami ali pogledi na sceno. Z njimi lahko krmilimo, kako se bo izrisovanje odzivalo na različne resolucije. Igro ko razvijamo večinoma zasnujemo z določeno resolucijo in razmerjem v mislih, nato pa poskrbimo za potrebna prilagajanja. Na voljo imamo več načinom: lahko se odločimo, da bomo ohranjali razmerje ali ne. Če originalnega razmerja ni potrebno ohranjati, potem lahko izrisovanje prilagodimo novi resoluciji in izris preprosto raztegnemo na uporabnikovem zaslonu. Pri tem lahko pride do popačenj, vendar vedno zapolnimo razpoložljivo resolucijo. Če hočemo ohranjati originalno razmerje, pa moramo skleniti določene kompromise. Ti kompromisi so črni oziroma prazni deli zaslona, saj če se uporabnikovo razmerje resolucij ne sklada z zasnovano potem ni mogoče popolnoma prilagoditi izrisovanja. Primera prilagajanja vidimo na sliki \ref{slika:prilagajanje}. V primeru 1 je uporabnikova resolucija ožja od zasnovane, zato smo izris prilagodili. Zaradi ohranjanja originalnega razmerja imamo na vrhu in dnu zaslona prazne dele. Primer 2 je ravno nasproten scenarij.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{prilagajanje}
+	\caption{Primeri prilagajanja izrisovanja.}
+	\label{slika:prilagajanje}
+\end{figure}
+
+Knjižnica RayLib ponuja razred \textit{Camera2D} za upravljanje z resolucijami. Podpira samo prilagajanje s ohranjanjem razmerja, saj ni mogoče spreminjati horizontalne in vertikalne povečave neodvisno, le s skupnim faktorjem preko \textit{zoom} spremenljivke. Kameri še nato postavimo izvirno velikost in pozicijo ter jo nato uporabimo pred začetkom izrisovanja s metodo \textit{Begin2dMode()}. Ko zaključimo izrisovanje uporabimo metodo \textit{End2dMode()}. Ti metodi poskrbita, da se vso izrisovanje prilagodi parametrom kamere.
+
+LibGDX ogrodje ponuja veliko bolj dovršen način upravljanja s resolucijami z uporabo razredov \textit{Camera} in \textit{Viewport}. Na voljo nam je več specializacij razreda \textit{Viewport}. \textit{StretchViewport} prilagaja resolucijo brez ohranjanja originalnega razmerja, \textit{FitViewport} ohranja razmerja, vendar pušča prazne predele. Obstaja še \textit{FillViewport}, ki podobno kot \textit{FitViewport} ohranja razmerje, vendar ne pušča praznih predelov ampak poveča izris izven zaslona, tako da določeni deli scene niso videni. Uporaba razredov je preprosta, saj jih le instanciramo z želeno originalno resolucijo nato pa podobno kot pri RayLib uporabimo metodo \textit{setProjectionMatrix} pred izrisovanjem.
+
+Unity ponuja kamera objekte za prilagajanje resolucij. Igre v Unity so vedno 3D, tudi kadar uporabljamo 2D komponente, zato kamere delujejo za 3D svet. To pomeni, da ni mogoče na enostavni način prilagajati izrisovanje z ohranjanjem originalnega razmerja. Če hočemo ohranjevati razmerje, je potrebno v izrisovanje vključiti vmesni korak, to je izrisovanje na teksturo, katero nato prilagodimo in jo prikažemo na zaslonu. Če pa nočemo ohranjevati razmerja in prilagoditi originalni izris kakršnikoli resolucijo pa enostavno nastavimo aspekt komponento kameri na želeno originalno vrednost in bo Unity avtomatsko prilagodil izris. 
+
+\subsection{Upravljanje s grafičnimi in glasbenimi gradniki}
+Singleton za assete v C++, libgdx. Kako upravlja resource unity.
+\subsection{Teksturni atlasi}
+Opis teksturnih atlasov. Slike kako zgledi. Uporaba v unity z opisom orodja za izdelavo.
 
 \section{Specifične metode in prakse pri tehnični implementaciji}
 

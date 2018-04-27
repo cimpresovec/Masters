@@ -30,6 +30,7 @@ public class LevelCreatorScript : MonoBehaviour
 			SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
 		}
 	}
+	
 
 	public void reduceTheNumberOfBricks()
 	{
