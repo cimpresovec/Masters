@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpriteAtlas
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 464429bff556846378f3d3dbb4dde706, type: 3}
+    - {fileID: 2800000, guid: 349a4b3abf80e4ed8ba35d05482970d6, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 69adcd85ac4b848df82c2e22a16d22aa, type: 3}
+  - {fileID: 21300000, guid: 349a4b3abf80e4ed8ba35d05482970d6, type: 3}
+  - {fileID: 21300000, guid: 37769ac6d0871425981300d2e13a56ee, type: 3}
+  - {fileID: 21300000, guid: afc9e2f480f2d4e5eaaa357c74bdb845, type: 3}
+  - {fileID: 21300000, guid: 4308781111bbe463c9a4665e4f7b538b, type: 3}
+  - {fileID: 21300000, guid: f365e6a010b6f4442870bb026c363e9c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - breakout
+  - logo
+  - menuFiller1
+  - menuFiller2
+  - exitButton
+  - playButton
+  m_Tag: SpriteAtlas
+  m_IsVariant: 0
