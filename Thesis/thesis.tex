@@ -397,7 +397,16 @@ Odločiti se med pogonoma je odvisno od naših potreb za projekt. Unity licencir
 \chapter{Razvoj računalniške igre}\thispagestyle{fancy}
 \label{chapter:razvojIger}
 \section{Uporabljena orodja}
-Opisi kako in kaj, uporabili smo Raylib v C++, LibGDX v Java in Unity Engine.
+V sklopu magistrskega dela smo se odločili, da izdelamo računalniško igro v treh različnih različnih orodjih za razvoj iger:
+\begin{itemize}
+	\item Knjižnica RayLib v programskem jeziku C++. Kot omenjeno je RayLib prehodna knjižnica med nizkonivojskimi in visokonivojskimi knjižnicami. Ima vso glavno funkcionalnost potrebno za razvoj vendar ji manjka olajševalna funkcionalnost, ki smo jo morali sami razvit. Tako je najbolj primerna za razvoj igre z nizkonivojskega zornega kota.
+	\item Ogrodje LibGDX v programskem jeziku Java. Je eno izmen najbolj funkcionalno polnih ogrodij, ki še ni samo za sebe namenski pogon s svojim načinom dela. Zato je odlično za prikaza razvoja, kjer se ne podrejamo načinu dela z pogonom.
+	\item Namenski pogon Unity. Najbolj popularni namenski pogon za razvoj iger je skoraj obvezno potrebno vključiti v primerjavo. Nudi ogromno funkcionalnost, nizko vstopno težavnost in preprostost za uporabo. Z Unity smo lahko prikazali enostavnost razvoja iger.
+\end{itemize}
+
+Poleg omenjenih zgornjih orodij smo še potrebovali orodja za izdelavo grafičnih in zvočnih gradnikov. Za izdelavo 2D gradnikov smo uporabili vektorsko orodje Inkscape ter izvozili slike v rastrski format. Za izdelavo 3D modelov smo uporabili Blender, saj kot omenjeno nudi vso potrebno funkcionalnost. Za izdelavo zvočnih efektov smo se poslužili orodja Bfxr ter zvoke pretvorili v ustrezni format z orodjem Audacity.
+
+Med samim razvojem smo si razgradili delo na platformi Trello, ves napredek pa smo verzionirali s sistemom Git ter naš repozitorij hranili na platformi GitHub. Vsa vsebina izdelana za potrebe magistrskega dela (koda, gradniki, projekti in magistrsko delo v Latex formatu) je na voljo na sledeči povezavi: \url{https://github.com/cimpresovec/Masters}. Vsebina uporablja MIT licenco kar pomeni, da je prosto dostopna za uporabo brez restrikcij.
 
 \section{Končni produkt}
 Tukaj opis in slike končnega produkta v vseh treh orodjih. 
