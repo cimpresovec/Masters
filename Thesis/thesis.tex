@@ -409,11 +409,28 @@ Poleg omenjenih zgornjih orodij smo še potrebovali orodja za izdelavo grafični
 Med samim razvojem smo si razgradili delo na platformi Trello, ves napredek pa smo verzionirali s sistemom Git ter naš repozitorij hranili na platformi GitHub. Vsa vsebina izdelana za potrebe magistrskega dela (koda, gradniki, projekti in magistrsko delo v Latex formatu) je na voljo na sledeči povezavi: \url{https://github.com/cimpresovec/Masters}. Vsebina uporablja MIT licenco kar pomeni, da je prosto dostopna za uporabo brez restrikcij.
 
 \section{Končni produkt}
-Tukaj opis in slike končnega produkta v vseh treh orodjih. 
+Računalniška igra, ki smo jo izdelali v sklopu magistrskega dela je klon igre Breakout. Originalna igra je izšla leta 1976 za Atari, vendar je do danes izšlo na desetine variacij igre. V igri igralec kontrolira lopar, s katerim odbija žogo v omejenem prostoru. Lopar je omejen na spodnji del zaslona in se lahko premika samo horizontalno. Z odbijanjem žoge poskuša igralec uničiti vse ovire v stopnji, od katerih se žoga odbija ko jih uničuje. Cilj je čimbolj spretno odbijati žogo, nabrati čim več pik ter napredovati skozi stopnje z uničenjem vseh ovir. Če se žoga igralcu izmuzne, potem izgubi eno življenje ter lahko poskusi znova. Odbijanje žoge od loparja je prilagojeno, da ima igralec visoko stopnjo nadzora v katero smer se bo žoga odbila.
+
+Vse verzije igre (C++, Java in Unity) so zaključene celote in vsebujejo naslednje glavne funkcionalnosti:
+\begin{itemize}
+\item Naslovni zaslon, kjer prikažemo naš logotip igre. Pri namenskem pogonu Unity smo morali še prikazati Unity logotip, saj smo uporabljali zastonjsko verzijo orodja.
+\item Glavni meni igre. V glavnem meniju prikažemo naslov igre in nekaj dodatnih slik za popestritev zaslona. Uporabnik ima nato na voljo izbrati začetek igre, ali zapustiti aplikacijo.
+\item Igralni del igre, ki je implementiran po zgornjem opisu. Z RayLib in LibGDX smo igro implementirali v 2D pogledu, kjer smo uporabili brezbarvne grafične gradnike, ki smo jih nato lahko individualno barvali med igranjem. V Unity pogonu smo igro implementirali v 3D pogledu z modeli, ki smo jih sami izdelali.
+\item Premikanje neodvisno od hitrosti izvajanja. Naše igre se obnašajo enako, neodvisno od zmogljivosti računalnika, na katerem se izvajajo.
+\item Prehode med scenami z uporabo končnih avtomatov.
+\item Upravljanje z grafičnimi in zvočnimi gradniki z direktorjem gradnikov.
+\item Prilaganje izbrani resoluciji. Neodvisno od uporabnikovega zaslona, se naše igre prilagodijo brez rezanja prikazane vsebine.
+\end{itemize}
+
+Preostale funkcionalnosti kot so na primer teksturni atlas, fizikalni pogoni, ipd. smo implementirali samo v izbranih verzijah igre, saj niso tako korenito pomembne za razvoj. Vse uporabljene prakse in metode pa smo opisali v sledečih poglavjih magistrskega dela.
+
+TODO SLIKE SEM pa gor
 
 \section{Načrt in planiranje}
 Ta odsek mogoče izpustimo. Mogoče prikažemo HackNPlan ali kaj podobnega?
 \section{Metode in prakse pri izdelavi grafičnih gradnikov}
+\subsection{Barvno neodvisni slikovni gradniki}
+Tinting etc.
 \subsection{Teksturiranje modelov}
 Enostavno teksturiranje opis.
 \subsection{Izvoz modelov za Unity}
