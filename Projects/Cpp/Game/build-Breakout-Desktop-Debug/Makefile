@@ -515,7 +515,9 @@ Main.o: ../Breakout/Main.cpp ../Breakout/LevelState.hpp \
 		../Breakout/BreakoutWall.hpp \
 		../Breakout/BreakoutBrick.hpp \
 		../Breakout/MainMenuState.h \
-		../Breakout/AssetManager.h
+		../Breakout/TitleState.h \
+		../Breakout/AssetManager.h \
+		../Breakout/Globals.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Main.o ../Breakout/Main.cpp
 
 GameState.o: ../Breakout/GameState.cpp ../Breakout/GameState.hpp
@@ -557,7 +559,9 @@ BreakoutBrick.o: ../Breakout/BreakoutBrick.cpp ../Breakout/BreakoutBrick.hpp \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BreakoutBrick.o ../Breakout/BreakoutBrick.cpp
 
 MainMenuState.o: ../Breakout/MainMenuState.cpp ../Breakout/MainMenuState.h \
-		../Breakout/GameState.hpp
+		../Breakout/GameState.hpp \
+		../Breakout/AssetManager.h \
+		../Breakout/Globals.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainMenuState.o ../Breakout/MainMenuState.cpp
 
 AssetManager.o: ../Breakout/AssetManager.cpp ../Breakout/AssetManager.h
@@ -567,7 +571,9 @@ Globals.o: ../Breakout/Globals.cpp ../Breakout/Globals.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Globals.o ../Breakout/Globals.cpp
 
 TitleState.o: ../Breakout/TitleState.cpp ../Breakout/TitleState.h \
-		../Breakout/GameState.hpp
+		../Breakout/GameState.hpp \
+		../Breakout/AssetManager.h \
+		../Breakout/easings.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TitleState.o ../Breakout/TitleState.cpp
 
 ####### Install

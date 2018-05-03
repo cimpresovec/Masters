@@ -413,9 +413,33 @@ Računalniška igra, ki smo jo izdelali v sklopu magistrskega dela je klon igre 
 
 Vse verzije igre (C++, Java in Unity) so zaključene celote in vsebujejo naslednje glavne funkcionalnosti:
 \begin{itemize}
-\item Naslovni zaslon, kjer prikažemo naš logotip igre. Pri namenskem pogonu Unity smo morali še prikazati Unity logotip, saj smo uporabljali zastonjsko verzijo orodja.
-\item Glavni meni igre. V glavnem meniju prikažemo naslov igre in nekaj dodatnih slik za popestritev zaslona. Uporabnik ima nato na voljo izbrati začetek igre, ali zapustiti aplikacijo.
-\item Igralni del igre, ki je implementiran po zgornjem opisu. Z RayLib in LibGDX smo igro implementirali v 2D pogledu, kjer smo uporabili brezbarvne grafične gradnike, ki smo jih nato lahko individualno barvali med igranjem. V Unity pogonu smo igro implementirali v 3D pogledu z modeli, ki smo jih sami izdelali.
+\item Naslovni zaslon, kjer prikažemo naš logotip igre. Pri namenskem pogonu Unity smo morali še prikazati Unity logotip, saj smo uporabljali zastonjsko verzijo orodja. Zaslon lahko vidimo na sliki \ref{slika:naslovniZaslon}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{titleScreen}
+	\caption{Naslovni zaslon. Levo v RayLib in LibGDX, desno v Unity.}
+	\label{slika:naslovniZaslon}
+\end{figure}
+\item Glavni meni igre viden na sliki \ref{slika:mainMenu}. V glavnem meniju prikažemo naslov igre in nekaj dodatnih slik za popestritev zaslona. Uporabnik ima nato na voljo izbrati začetek igre, ali zapustiti aplikacijo.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{mainMenu}
+	\caption{Glavni meni igre}
+	\label{slika:mainMenu}
+\end{figure}
+\item Igralni del igre, ki je implementiran po zgornjem opisu. Z RayLib in LibGDX smo igro implementirali v 2D pogledu, kjer smo uporabili brezbarvne grafične gradnike, ki smo jih nato lahko individualno barvali med igranjem. V Unity pogonu smo igro implementirali v 3D pogledu z modeli, ki smo jih sami izdelali. Oba pogleda lahko vidimo na slikah \ref{slika:2dGame} in \ref{slika:3dGame}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{2dGame}
+	\caption{2D variacija igre.}
+	\label{slika:2dGame}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{3dGame}
+	\caption{3D variacija igre.}
+	\label{slika:3dGame}
+\end{figure}
 \item Premikanje neodvisno od hitrosti izvajanja. Naše igre se obnašajo enako, neodvisno od zmogljivosti računalnika, na katerem se izvajajo.
 \item Prehode med scenami z uporabo končnih avtomatov.
 \item Upravljanje z grafičnimi in zvočnimi gradniki z direktorjem gradnikov.
@@ -424,13 +448,9 @@ Vse verzije igre (C++, Java in Unity) so zaključene celote in vsebujejo nasledn
 
 Preostale funkcionalnosti kot so na primer teksturni atlas, fizikalni pogoni, ipd. smo implementirali samo v izbranih verzijah igre, saj niso tako korenito pomembne za razvoj. Vse uporabljene prakse in metode pa smo opisali v sledečih poglavjih magistrskega dela.
 
-TODO SLIKE SEM pa gor
-
-\section{Načrt in planiranje}
-Ta odsek mogoče izpustimo. Mogoče prikažemo HackNPlan ali kaj podobnega?
 \section{Metode in prakse pri izdelavi grafičnih gradnikov}
 \subsection{Barvno neodvisni slikovni gradniki}
-Tinting etc.
+
 \subsection{Teksturiranje modelov}
 Enostavno teksturiranje opis.
 \subsection{Izvoz modelov za Unity}
