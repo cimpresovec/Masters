@@ -450,9 +450,35 @@ Preostale funkcionalnosti kot so na primer teksturni atlas, fizikalni pogoni, ip
 
 \section{Metode in prakse pri izdelavi grafičnih gradnikov}
 \subsection{Barvno neodvisni slikovni gradniki}
+Izdelavo 2D gradnikov si lahko olajšamo z omejitvijo barv, tako da uporabljamo samo sivine. Take slike so potem neodvisne od barve in jim lahko programsko izberemo barvo med igro. S tem si prihranimo čas, če se določeni objekti med samo razlikujejo samo po barvah (npr. preprosti nasprotniki, ovire v igri, ipd.). Spremembo barve v igri pa dosežemo z metodami za niansiranje.
 
-\subsection{Teksturiranje modelov}
-Enostavno teksturiranje opis.
+V naši igri so vsi gradniki v 2D pogledu igre izdelani z to metodo. V sliki \ref{slika:grayscaleSprites} vidimo izdelane gradnike (od spodaj: lopar, ovira, žoga in desno zid) in v sliki \ref{slika:2dGame} vidimo končno uporabo v igri. Ovire v igri tvorijo lepo barvno paleto v resnici pa je uporabljen samo en grafični gradnik. Sprememba barve loparju in žogi je tudi trivialna, saj ni potrebno gradnika znova barvati v izbranem orodju. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm]{grayscaleSprites}
+	\caption{2D sivinski gradniki}
+	\label{slika:grayscaleSprites}
+\end{figure}
+
+Vsako orodje ponuja metode za niansiranje slik. Velikokrat izbrano barvo podamo kar v izrisovalno metodo. V RayLib nam metoda \textit{DrawTexturePro} ponudi šesti parameter, kamor vnesemo izbrano barvo. Primer lahko vidimo v izseku kode \ref{code:assetManager}. Če bi uporabljali barvno sliko, potem podamo v metodo belo barvo in s tem ne vplivamo na barvno nianso našega gradnika. V LibGDX niansiranje kontroliramo izven izrisovanje individualne slike. Razred \textit{SpriteBatch}, ki ga uporabljamo za izrisovanje ponuja metodo \textit{setColor(color)}, s katero izberemo nianso za vse nadaljnje izrise. Poskrbeti moramo le, da po uporabi spet nianso postavimo na belo in s tem ne pokvarimo preostalega izrisovanja.
+
+Unity nam ponuja dva načina za niansiranje barv izrisovanja. Neodvisno ali izrisujemo 2D ali 3D gradnike potrebujemo material, ki določa lastnosti izrisovanja. Ena izmed lastnosti je niansa barve. Težava pri tej metodi je, da hočemo zaradi optimizacije uporabljati čimmanj različnih materialov, ki pa so potrebni, da individualno nastavljamo nianse. Tukaj se moramo odločiti, ali je bolj pomembno hitrost izrisovanja ali niansiranje sivinskih gradnikov. Malo število nians oz. materialov ne predstavlja velikega napora za Unity vendar se moramo zavedati mogočih posledic pri množični uporabi. Drugi način niansiranja je možen samo za 2D gradnike in je neodvisen od materialov. \textit{Sprite Rendered} komponenta, ki se uporablja za izrisovanje 2D gradnikov ponuja lastnost nianse slike, ki jo lahko uporabimo za naše namene. To lastnost lahko uporabljamo brez vpliva na zmogljivost vendar smo omejeni samo na 2D slike.
+
+\subsection{Teksturiranje modelov z barvnimi paletami}
+Teksturiranje modelov je obsežen proces, ki zahteva več korakov. Najprej je potrebno površino modela mapirat na 2D sliko brez vidnih deformacij nato pa na to sliko narisati želeno teksturo. S tem postopkom dobimo za vsak model svojo teksturo, ki jo uporabimo pri izrisovanju. Pri kompleksnih modelih je tak postopek zaželen, ko pa izdelujemo preprostejše modele (angleško low poly) hočemo ploskve modela preprosto obarvati z izbrano barvo. Takrat je prej omenjen postopek zamuden in potraten, obenem pa zaradi individualnih tekstur za vsak model izgubimo na zmogljivosti izrisovanja. Zato lahko pri preprostih modelih uporabimo metodo teksturiranja z barvnimi paletami.
+
+Metoda za teksturo uporablja barvno paleto z naborom barv za vse naše modele. Tako lahko uporabimo samo eno teksturo za vse naše modele. Mapiranje modelov pri tej metodi je zelo preprosto, saj moramo individualne poligone modela mapirat v območje izbrane barve v teksturi. Na sliki \ref{slika:texturePalette} vidimo, da ni potrebno točno mapirati poligon, saj nam večji del teksture predstavlja izbrano barvo. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm]{texturePalette}
+	\caption{UV mapiranje preprostih modelov}
+	\label{slika:texturePalette}
+\end{figure}
+
+S to metodo smo izdelali vse modele za našo igro. V pogonu Unity smo rabili samo en material za izrisovanje vseh modelov, zato je ta metoda tudi zelo performančna. Obenem metoda nudi dve veliki prednosti za spreminjanje barv med igro. Ker uporabljamo sliko barvne palete lahko to enostavno zamenjamo z drugo in tako preprosto zamenjamo barve na modelu ali celo na celotni sceni, če vsi modeli uporabljajo isto paleto. Tako lahko z enostavno menjavo dodamo večjo raznolikost našim stopnjam. Druga prednost te metode pa je lažje individualno menjavanje barv na modelu. Pri standardnem mapiranju, se skoraj nikoli programsko ne spreminjajo UV lokacije ogljišč, saj je mapiranje specifično za ta model. S to metodo je mogoče zaznati ogljišča, ki se nahajajo na izbrani barvi v teksturi in jih premestiti na drugo barvo. Tako lahko izbranemu objektu spremenimo izbrane barve. Je pa to menjavanje omejeno na vse poligone enake barve v modelu saj ni mogoče spremeniti barve samo enemu poligonu.
+
 \subsection{Izvoz modelov za Unity}
 Tips n tricks tukaj.
 
