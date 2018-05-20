@@ -629,6 +629,12 @@ Unity urejevalnik omogoča še lažjo podporo teksturnim atlasom. Potrebno nam j
 Uporaba teksturnih atlasov v Raylib in LibGDX zahteva dodatno delo za razliko od Unity pogona. Raylib nam ne ponuja nobene funkcionalnosti za podporo atlasov, tako da je potrebno implementirati uvoz ustvarjene datoteke z informacijami o atlasu. LibGDX pa ponuja potrebno funkcionalnost za delo z atlasom, ki so ustvarjeni z njihovim orodjem. Razred \textit{TextureAltas} nam omogoča branje ustvarjenih .atlas datotek nakar nam ponuja metode kot so \textit{findRegion(name)} in \textit{createSprite(name)}, da pridobimo ustrezne podatke za želeno izvorno sliko. Te informacije nato uporabimo pri izrisovanju podobno, kot da bi izrisovali posamezne slike. 
 
 \section{Specifične metode in prakse pri tehnični implementaciji}
+\subsection{Fizikalni pogoni}
+Za realistično simulacijo fizikalnih objektov potrebujemo fizikalni pogon. Kot že omenjeno sta najbolj popularna pogona za 2D simulacijo Box2D in Chimpmunk. Za 3D simulacijo pa so med bolj znanimi Bullet, Physix in Havoc. Neodvisno od pogona pa pri vseh srečamo iste koncepte, prakse in gradnike, ki jih je potrebno razumeti za uporabo le-tega. Zato smo najbolj pomembne sklope pogonov opisali v našem delu:
+\begin{itemize}
+	\item \textbf{Simulacijski svet}.  Vsa simulacija se dogaja v tako imenovanem simulacijskem svetu. Ta je odgovoren za vsa telesa v simulaciji in nadzira dogajanje simulacije. Večinoma uporabljamo samo en simulacijski svet saj interakcije med svetovi niso podprete. Svet se ne simulira samostojno in brez naše interakcije obstoji na miru. Zato obstajajo specifične metode s katerimi simulacijo poženemo naprej za določen čas. Klicanje teh metod vežemo na glavno zanko igre v simulacijski del zanke. S svetovi tudi krmilimo glavne parametre fizikalne simulacije kot so smer in moč gravitacije ter število iteracij pri reševanju trkov.
+	\item \textbf{Toga telesa (angleško rigid body)}.
+\end{itemize}
 
 \chapter{Sklep}\thispagestyle{fancy}
 
