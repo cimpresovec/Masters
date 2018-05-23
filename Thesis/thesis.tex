@@ -127,7 +127,7 @@ Tukaj pride sklep o potrjeni temi.
 \cleardoublepage
 
 %Povzetek v angleškem jeziku
-\chapter*{Dobre prakse pri razvoju računalniških iger}\thispagestyle{fancy}
+\chapter*{Good practices for computer game development}\thispagestyle{fancy}
 \textbf{Key words:} word 1
 
 \textbf{UDK:} 123
@@ -642,8 +642,34 @@ Za realistično simulacijo fizikalnih objektov potrebujemo fizikalni pogon. Kot 
 	Telesa lahko premikamo po svetu tudi z direktnim nastavljanjem lokacije. To ni realistično premikanje s pomočjo sil zato lahko pride do nerealističnih odzivov drugih teles, če pride do trkov. Direktnemu premikanju se je zato najboljše izogniti in uporabljati sile in impulze. V realnem svetu se vse premika s pomočjo le-teh zato si lahko prihranimo neznane težave pri simulaciji z izogibanjem direktnega premikanja. Je pa ta metoda potrebna za posebne načine premikanja v igrah kot na primer teleportiranje. Podobno kot direktno nastavljanje lokacije ni priporočeno direktno nastavljati hitrosti gibanja, smeri gibanja in rotacijsko hitrost saj pride do enakih težav pri simulaciji.
 	\item \textbf{Sklepi (angleško joint)}. Telesa lahko v svetu med samo povezujemo s sklepi. Ti predstavljajo zgibe, vrvi (elastične, toge), zvare, ipd. Z njimi lahko ustvarimo kompleksnejše objekte v naši simulaciji kot je na primer veriga za kolo ali tank, gugalnice, ipd.  Pri kreiranju sklepov vedno definiramo točki iz obeh teles ter lastnost, ki definirali ali telesi med seboj razrešujeta trke. Recimo, če imamo v 2d simulaciji pritrjena kolesa na vozilo jih ni mogoče pritrditi brez prekrivanja s šasijo zato izklopimo trke med njima.
 	\item \textbf{Senzorji ali sprožilci}. Toga telesa lahko označimo kot sprožilce ali senzorje (odvisno on fizikalnega pogona) kar vpliva na njihovo obnašanje v simulacijskem svetu. Taka telesa so fizikalno pravilno simulirana v prostoru vendar se na trke z drugimi telesi ne odzivajo (druga telesa se tudi ne odzovejo na trke). Vseeno pa nam ob prekrivanju z drugimi telesi sprožijo metode s katerimi nam dajo vedeti podrobne informacije o trku. Taka telesa so zelo uporabna za delovanje logike v naših igrah saj lahko z njimi modeliramo vidno območje kamere, gravitacijska polja, prihode in izhode na določeno območje, ipd. Senzorje velikokrat podredimo pravim togim telesom s sklepi saj tako dosežemo, da se premikajo skladno z njimi (npr. vidno polje človeka).
-	\item \textbf{Metanje žarkov (angleško ray casting)}. 
+	\item \textbf{Metanje žarkov (angleško ray casting)}. Metanje žarkov je metoda s katero preverimo ali obstaja kaka konstrukcija (posledično tudi togo telo) v izbrani smeri. Rezultat meta pa je informacija o zadetem telesu, lokaciji zadetka, normali ipd. Najbolj preprosti testi uporabljajo uporabljajo žarke, možna pa je tudi uporaba celotnih konstrukcij, ki jih \textit{vržemo} v prostor in zaznavamo trke. Metoda se uporablja za podobne namene kot senzorji (simuliranje vidnega polja ipd.). Senzorji so bolj vizualni saj so vedno prisotni in je lažje z njimi delati v pogonih, pri čemer se metanje žarkov izvaja iz programske kode.
 \end{itemize}
+
+Poleg zgoraj naštetih glavnih konceptov podpirajo fizikalni pogoni še veliko druge funkcionalnosti kot je filtriranje trkov, fizične plasti, povratni klici, itd. Vsaka implementacija se malo razlikuje od drugih in ima svoj način dela vendar osnovni koncepti ostajajo enaki. Pri delu s fizikalnimi pogoni ne smemo pozabiti, da se vsa simulacija dogaja v simulacijskem svetu in ni avtomatsko vezana na izrisovanje objektov na zaslon. Za izrisovanje moramo poskrbeti sami in paziti na to, da so izrisani objekti enakih oblik kot konstrukcije togih teles saj drugače pride do neskladij med izrisanim in simuliranim svetom.
+
+RayLib nima vgrajene funkcionalnosti za fizikalni pogon, zato lahko uporabimo poljubnega in ga integriramo z našo igro. LibGDX ponuja Box2D integracijo v svojem ogrodju in nam olajša delo z pogonom, vendar še vedno moramo sami poskrbeti za usklajevanje simuliranih teles z našimi objekti v igri. Za razhroščevanje nam LibGDX ponuja izrisovanje fizikalnega sveta s preprostimi oblikami in barvami, vendar funkcionalnost ni uporabna za končni produkt. Primer vidimo na sliki \ref{slika:box2dDebug}. Potrebno je tudi poudariti, da smo omejeni na 2D fizikalne simulacije če uporabljamo Box2D.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm]{box2dDebug}
+	\caption{Izrisovanje fizikalnih teles za potrebe razhroščevanja. Vir \cite{box2dTank}}
+	\label{slika:box2dDebug}
+\end{figure}
+
+Unity podpira dva fizikalna pogona. Za 2D simulacijo ima integriran in razširjen Box2D, za 3D simulacija pa modificiran PhysX. Uporaba fizikalnega pogona v Unity je zelo preprosta, saj našim objektov v igri dodamo komponento \textit{togo telo}. Unity v večini primerov poskrbi, da se konstrukcija sklada z izrisanim objektom in ponuja vizualno urejanje konstrukcije, če je to potrebno. Na sliki \ref{slika:unityRigidbody} vidimo primer dela z fizikalnim pogonom. Žoga vidna na levi prikazuje svojo konstrukcijo v zeleni barvi. Na desni pa vidimo komponente igralnega objekta, za fizikalno simulacijo sta pomembna \textit{Konstrukcija krogle} () in \textit{RigidBody} (togo telo). Komponentam lahko nastavimo lastnosti konstrukcije in telesa, ki smo jih omenili zgoraj. V kodi lahko sledimo trkom v metodah \textit{OnTriggerEnter()} in \textit{OnCollissionEnter()}, ki nam podajo vse potrebne informacije o trkih, nakar lahko mi dodamo svoje kodo odvisno na dogajanje.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm]{unityRigidbody}
+	\caption{Urejanje konstrukcije in togega telesa na igralnem objektu}
+	\label{slika:unityRigidbody}
+\end{figure}
+
+\subsection{Umetna inteligenca v igrah}
+Na kratko samo, potem pa pathfinding.
+
+\subsection{Unity ProBuilder}
+Malo o tool
 
 \chapter{Sklep}\thispagestyle{fancy}
 
