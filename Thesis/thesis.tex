@@ -9,6 +9,7 @@
 \usepackage{babelbib}
 \usepackage{titlesec}
 \usepackage{listings}
+\usepackage{pdfpages}
 \usepackage{fancyhdr}
 \usepackage{eurosym}
 \usepackage{url}
@@ -665,17 +666,43 @@ Unity podpira dva fizikalna pogona. Za 2D simulacijo ima integriran in razširje
 	\label{slika:unityRigidbody}
 \end{figure}
 
-\subsection{Umetna inteligenca v igrah}
-Na kratko samo, potem pa pathfinding.
+\subsection{Inteligenca v igrah}
+Izraz inteligenca se v igrah uporablja za obnašanje vseh objektov, ki se odzivajo na svet in igralčeve akcije. Primeri inteligentnega obnašanja so: nasprotniki v igrah (se skrivajo za ovirami, poskusijo napasti igralci z različnih smeri, se odzvati na igralčeve napade ipd.), prebivalci sveta (sledijo vsakodnevni življenjski rutini in se odzivajo na igralčeve akcije kot je nasilje ali kraja), ipd. Z inteligenco poskusijo razvijalci obogatiti navidezni svet igre. Vendar uporabljena inteligenca v igrah (v komercialnih večjih igrah) ni umetna inteligenca, ki se uporablja na drugih področjih računalništva (ne deterministične metode). Metode nevronskih mrež in genetskih algoritmov ne doprinesejo še rezultatov, ki bi igro naredile bolj zanimivo kot pa namenske metode \textit{umetne inteligence} v igrah. V akademskih poljih se veliko raziskuje vključevanja ne determinističnih metod umetne inteligence v igre (v klasičnih igrah kot so šah in go) vendar veliki studii še niso prestopili te meje. 
+
+V igrah se tako uporabljajo deterministične metode, na katere lahko razvijalci sami vplivajo in jih priredijo za čim boljšo izkušnjo. Uporaba odločitvenih dreves, končnih avtomatov, mehke logike, iskanja poti in fiksno napisanih obnašanj je stalnica inteligence v igrah. Pri razvoju kompetentnih nasprotnikov igralcu te metode niso vedno dovolj zato se uporabi goljufanje. Pri strateških igrah težji nasprotniki začnejo z več surovin, lahko neskončno hitro izvajajo akcije in vedno vedo, kaj počne igralec in kje ima svojo vojsko.
+
+Inteligenca v igrah je zelo široko področje, v našem delu smo zato opisali eno izmed bolj uporabljenih metod iskanje poti. Ta se uporablja skoraj pri vseh naprednejših inteligencah v igri, ali je za navigiranja po svetu ali iskanju igralca. Obenem smo kot zanimivost dodali članek kot prilogo magistrskemu delu, kjer smo uporabili genetski algoritem in poskusili prilagajati obnašanje nasprotnikov glede na igralca.
+
+\subsubsection{Algoritem A*}
+
+A* in njegove variante so najbolj uporabljeni algoritmi iskanja poti v igrah. Ker deluje na grafih je uporaben za 2D in 3D igre. Razvijalci izdelajo grafe glede na stopnjo s čimmanj vozlišči, ki so nato uporabljeni v algoritmu. Algoritem A* je namenjen iskanju poti iz ene točke v drugo in bazira na Dijkstrov algoritmu. Dijkstrov algoritem je metoda iskanja v globino po grafu, kjer se upoštevajo stroški prehoda med vozlišči in tako prioritetno raziskuje najbolj obetavne poti. Tako dobimo usmerjen graf po katerem lahko najbolj optimalno pridemo v katerokoli vozlišče. A* doda dve pomembni spremembi. Prva je to, da takoj ko najdemo zaključno vozlišče končamo iskanje in s tem preprečimo nepotrebno računanje, saj nas samo zanima pod do cilja in ne celoten graf. Druga bolj pomembna sprememba pa je uvedba hevristike pri računanju prioritete vozlišč za raziskovanje. Prioriteta vozlišč pri Dijksta je odvisna od cene navigacije od začetnega vozlišča do trenutnega vozlišča. Pri A* tej prioriteti dodamo še ocenjeno razdaljo do končnega vozlišča. Ta razdalja je velikokrat kar evklidska razdalja po prostoru, neodvisno od ovir. Tako algoritem najprej raziskuje vozlišča, ki imajo do sedaj najmanjšo ceno od začetka poti in najmanjšo ocenjeno razdaljo do konca poti. 
+
+Z zgoraj navedenimi sprememba izrazito izboljšamo hitrost iskanja poti po grafu, saj nas zanima samo pot do izbranega cilja. Pri igrah je zelo pomembna optimizacija grafov, saj je od tega odvisno hitrost delovanja algoritma. Grafe moramo prilagoditi stopnjam in obenem namenu uporabe. Če nas zanima samo najhitrejša navigacija po sobah v stavbi potem postavimo samo eno vozlišče v vsako sobo in vrata. Če pa hočemo, da se nasprotnik pametno premika po sobi, pa moramo vključiti vozlišča glede na ovire po prostoru.
+
+V programskih knjižnicah kot je RayLib moremo sami implementirati celotno rešitev iskanja poti, saj nam knjižnica ne ponuja nobene pomožne funkcionalnosti. LibGDX pa ponuja večji nabor funkcionalnosti za potrebe inteligence v igrah v paketu gdxAI v katerem je tudi vključen A*. Ogrodje nam ponuja razrede za lažjo izgradnjo grafov in potem same algoritme. Poleg A* so na voljo še končni avtomati in odločitvena drevesa.
+
+\subsubsection{Iskanje poti v Unity}
+
+Unity ponuja širok spekter funkcionalnosti za iskanje poti po prostoru s pomočjo algoritma A*. 
 
 \subsection{Unity ProBuilder}
-Malo o tool
+Malo o tool 
 
 \chapter{Sklep}\thispagestyle{fancy}
 
 \cleardoublepage
+\addcontentsline{toc}{chapter}{Literatura}
 \bibliographystyle{plain}
 \bibliography{thesis}
-\addcontentsline{toc}{chapter}{Literatura}
+
+%priloga
+\fancypagestyle{priloga}{%
+	\fancyhf{}
+	\fancyhead[L]{Priloga A}
+	\renewcommand{\headrulewidth}{1pt}
+	\fancyfoot[LE, RO]{\thepage}
+}
+\addcontentsline{toc}{chapter}{Priloga A}
+\includepdf[pages=-,scale=0.9,pagecommand={\thispagestyle{priloga}}]{LukaHorvatGenetski.pdf}
 
 \end{document}
