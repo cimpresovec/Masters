@@ -675,15 +675,30 @@ Inteligenca v igrah je zelo široko področje, v našem delu smo zato opisali en
 
 \subsubsection{Algoritem A*}
 
-A* in njegove variante so najbolj uporabljeni algoritmi iskanja poti v igrah. Ker deluje na grafih je uporaben za 2D in 3D igre. Razvijalci izdelajo grafe glede na stopnjo s čimmanj vozlišči, ki so nato uporabljeni v algoritmu. Algoritem A* je namenjen iskanju poti iz ene točke v drugo in bazira na Dijkstrov algoritmu. Dijkstrov algoritem je metoda iskanja v globino po grafu, kjer se upoštevajo stroški prehoda med vozlišči in tako prioritetno raziskuje najbolj obetavne poti. Tako dobimo usmerjen graf po katerem lahko najbolj optimalno pridemo v katerokoli vozlišče. A* doda dve pomembni spremembi. Prva je to, da takoj ko najdemo zaključno vozlišče končamo iskanje in s tem preprečimo nepotrebno računanje, saj nas samo zanima pod do cilja in ne celoten graf. Druga bolj pomembna sprememba pa je uvedba hevristike pri računanju prioritete vozlišč za raziskovanje. Prioriteta vozlišč pri Dijksta je odvisna od cene navigacije od začetnega vozlišča do trenutnega vozlišča. Pri A* tej prioriteti dodamo še ocenjeno razdaljo do končnega vozlišča. Ta razdalja je velikokrat kar evklidska razdalja po prostoru, neodvisno od ovir. Tako algoritem najprej raziskuje vozlišča, ki imajo do sedaj najmanjšo ceno od začetka poti in najmanjšo ocenjeno razdaljo do konca poti. 
+A* in njegove variante so najbolj uporabljeni algoritmi iskanja najkrajše poti v igrah. Ker deluje na grafih je uporaben za 2D in 3D igre. Razvijalci izdelajo grafe glede na stopnjo s čimmanj vozlišči, ki so nato uporabljeni v algoritmu. Algoritem A* je namenjen iskanju poti iz ene točke v drugo in bazira na Dijkstrov algoritmu. Dijkstrov algoritem je metoda iskanja v globino po grafu, kjer se upoštevajo stroški prehoda med vozlišči in tako prioritetno raziskuje najbolj obetavne poti. Tako dobimo usmerjen graf po katerem lahko najbolj optimalno pridemo v katerokoli vozlišče. A* doda dve pomembni spremembi. Prva je to, da takoj ko najdemo zaključno vozlišče končamo iskanje in s tem preprečimo nepotrebno računanje, saj nas samo zanima pod do cilja in ne celoten graf. Druga bolj pomembna sprememba pa je uvedba hevristike pri računanju prioritete vozlišč za raziskovanje. Prioriteta vozlišč pri Dijksta je odvisna od cene navigacije od začetnega vozlišča do trenutnega vozlišča. Pri A* tej prioriteti dodamo še ocenjeno razdaljo do končnega vozlišča. Ta razdalja je velikokrat kar evklidska razdalja po prostoru, neodvisno od ovir. Tako algoritem najprej raziskuje vozlišča, ki imajo do sedaj najmanjšo ceno od začetka poti in najmanjšo ocenjeno razdaljo do konca poti. 
 
 Z zgoraj navedenimi sprememba izrazito izboljšamo hitrost iskanja poti po grafu, saj nas zanima samo pot do izbranega cilja. Pri igrah je zelo pomembna optimizacija grafov, saj je od tega odvisno hitrost delovanja algoritma. Grafe moramo prilagoditi stopnjam in obenem namenu uporabe. Če nas zanima samo najhitrejša navigacija po sobah v stavbi potem postavimo samo eno vozlišče v vsako sobo in vrata. Če pa hočemo, da se nasprotnik pametno premika po sobi, pa moramo vključiti vozlišča glede na ovire po prostoru.
 
-V programskih knjižnicah kot je RayLib moremo sami implementirati celotno rešitev iskanja poti, saj nam knjižnica ne ponuja nobene pomožne funkcionalnosti. LibGDX pa ponuja večji nabor funkcionalnosti za potrebe inteligence v igrah v paketu gdxAI v katerem je tudi vključen A*. Ogrodje nam ponuja razrede za lažjo izgradnjo grafov in potem same algoritme. Poleg A* so na voljo še končni avtomati in odločitvena drevesa.
+V programskih knjižnicah kot je RayLib moremo sami implementirati celotno rešitev iskanja poti, saj nam knjižnica ne ponuja nobene pomožne funkcionalnosti. LibGDX pa ponuja večji nabor funkcionalnosti za potrebe inteligence v igrah v paketu gdxAI v katerem je tudi vključen A*. Ogrodje nam ponuja razrede za lažjo izgradnjo grafov in metode za preprosti klic algoritma. Poleg A* so na voljo še končni avtomati in odločitvena drevesa.
 
 \subsubsection{Iskanje poti v Unity}
 
-Unity ponuja širok spekter funkcionalnosti za iskanje poti po prostoru s pomočjo algoritma A*. 
+Unity ponuja širok spekter funkcionalnosti za iskanje poti. V ozadju implementira algoritem A*, vendar glavna prednost pogona je vsa dodatna funkcionalnost lažjo uporabo. Iskanje poti v Unity uporablja štiri glavne komponente \cite{navmesh}:
+\begin{itemize}
+	\item \textbf{Navigacijska mreža (NavMesh)}. Predstavlja teren po katerem se lahko premikajo objekti v naši igri. S pomočjo te komponente in algoritma za iskanje poti nam pogon išče optimalno pot iz točke A v točko B. Navigacijsko mrežo nam pogon ustvari sam iz objektov, ki jih označimo kot teren. Na sliki \ref{slika:navmesh} vidimo primer izdelave navigacijske mreže (obarvane z modro barvo). S parametri določimo parametre mreže (višina in širina agenta, maksimalni naklon, dolžina možnega skoka in padca) nakar nam Unity ustvari mrežo na našem terenu (obarvan z belo barvo).
+	\item \textbf{Agent navigacijske mreža (NavMesh Agent)}. Agenti so akterji, ki se premikajo po navigacijski mreži iz točke v točko. Obenem se izogibajo drugim agentom in oviram. Agenti tako v igrah predstavljajo ljudi in avte v mestih, premikajoče vojske ipd.
+	\item \textbf{Povezave mrež (Off-Mesh link)}. Če uporabljamo več navigacijskih mrež oziroma se v naših mrežah nahajajo luknje potem lahko z uporabo povezav določimo bližnjice, ki jih lahko uporabijo agenti. Recimo agent lahko preskoči prepad ali skoči v globino, če so razdalje v mejah njegovih sposobnosti. Take bližnjice so vidne na sliki \ref{slika:navmesh}, predstavljene s povezanimi krogi.
+	\item \textbf{Ovira navigacijske mreže (NavMesh Obstacle)}. Ovire so dinamični objekti, ki vplivajo na premike in navigacijo agentov. Če se ovira kotali proti agentu, se bo ta poskusil le-tej izogniti in nadaljevati pot. Statična ovira spremeni samo navigacijsko mrežo, saj prekine prehodne dele in s tem spremeni navigacijo vseh agentov. 
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm]{navmesh}
+	\caption{Avtomatska izgradnja navigacijske mreže v Unity.}
+	\label{slika:navmesh}
+\end{figure}
+
+Uporaba navigacijskih komponent se proži iz kode na agentih navigacijske mreže. Agentu nastavimo lastnost \textit{destination} na vektor v prostoru, preostanek pa uredi pogon Unity. Dostop do poti po navigacijski mreži je na voljo preko lastnosti \textit{path} ali metode \textit{CalculatePath()}. Tako pridobimo vse točke navigacije po prostoru, katere lahko uporabimo za svojo logiko ali jih spremenimo in agentu nastavimo poljubno pot, saj nočemo vedno uporabiti najkrajše možne poti. 
 
 \subsection{Unity ProBuilder}
 Malo o tool 
