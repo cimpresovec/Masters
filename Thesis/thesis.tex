@@ -701,7 +701,26 @@ Unity ponuja širok spekter funkcionalnosti za iskanje poti. V ozadju implementi
 Uporaba navigacijskih komponent se proži iz kode na agentih navigacijske mreže. Agentu nastavimo lastnost \textit{destination} na vektor v prostoru, preostanek pa uredi pogon Unity. Dostop do poti po navigacijski mreži je na voljo preko lastnosti \textit{path} ali metode \textit{CalculatePath()}. Tako pridobimo vse točke navigacije po prostoru, katere lahko uporabimo za svojo logiko ali jih spremenimo in agentu nastavimo poljubno pot, saj nočemo vedno uporabiti najkrajše možne poti. 
 
 \subsection{Unity ProBuilder}
-Malo o tool 
+Izdelava grafičnih gradnikov za nivoje in objekte v igri predstavlja večji del razvoja 3D iger. Večinoma se za to uporabljajo zunanja modelirna orodja kot so Blender in Maya vendar obstajajo alternativne rešitve za sam namenski pogon Unity. ProBuilder je izmed teh alternativ, ki v urejevalnik preko vtičnika doda širok nabor funkcionalnosti. Vtičnik je bil v preteklosti plačljiv, vendar so ga kupili Unity Technologies in ga integrirali v urejevalnik brez dodatnih licenc. Glavna prednost modeliranja v samem Unity urejevalniku je hitrejša iteracija gradnikov med razvojem. Pri eksternih orodjih je za vsako spremembo potrebno model naložiti v orodju, ga popraviti in potem izvoziti za uporabo v projektu. Z ProBuilder pa iteriramo na samih gradnikih v orodju, kjer razvijamo igro celo med tem, ko se igra izvaja v urejevalniku.
+
+Glavne funkcionalnosti ProBuilder-ja so:
+\begin{itemize}
+\item \textbf{Modeliranje.} Vse pomembne funkcije za delo z modeli so podprete. Lahko ustvarimo različne oblike osnovnih modelov (kocka, cilinder, krogla, stopnice, lok, ipd.), urejanje oglišč, robov in ploskev, glajenje, triangulacija, ekstrahiranje, razdeljevanje ploskev, ipd.
+\item \textbf{Teksturiranje.} Izdelanim modelom lahko projeciramo UV koordinate in jih prirejamo po teksturi. Mogoče je tudi vizualno premikati teksturo po samem modelu v urejevalniku, da v trenutku vidimo končni rezultat.
+\item \textbf{Barvanje oglišč.} Alternativa oziroma pomoč teksturiranju je barvanje posameznih oglišč. Z barvo oglišč lahko brez teksture izdelamo končni model ali pa vplivamo na teksturo, ki bo prekrivala model na pobarvanih ogliščih. S tem lahko z eno teksturo na različnih modelih dosežemo variacije v odtenkih, kar skrajša potrebno delo.
+\item \textbf{Integracija z drugo funkcionalnostjo pogona.} Izdelani modeli imajo avtomatsko pravilne konstrukcije za fizikalni pogon. Obenem je možno urejati navigacijske mreže za potrebe iskanja poti na izdelanih modelih.
+\end{itemize}
+
+Izdelane modele lahko tudi izvozimo za urejanje v eksternih orodjih. Urejanje v pogonu se veliko uporablja pri prototipiranju igre, kjer uporabljamo preproste oblike in se ukvarjamo z postavitvami in oblikami stopenj. Po prototipu se velikokrat modeli izvozijo v eksternih program za podrobnejšo obdelavo. Odvisno od grafičnega stila igre pa lahko vse izdelamo z ProBuilder-jem. 
+
+Na sliki \ref{slika:probuilder} lahko vidimo uporabo vtičnika za izdelavo nivoja v igri. Na desni strani imamo na voljo različne funkcije za delo z modelom, v pogledu na levi pa urejamo posamezne ploskve v urejevalniku.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm]{probuilder}
+	\caption{Izdelava scene z ProBuilder vtičnikom v Unity}
+	\label{slika:probuilder}
+\end{figure}
 
 \chapter{Sklep}\thispagestyle{fancy}
 
