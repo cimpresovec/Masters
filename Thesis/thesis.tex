@@ -119,7 +119,7 @@ Tukaj pride sklep o potrjeni temi.
 %Povzetek v slovenskem jeziku
 \chapter*{Dobre prakse pri razvoju računalniških iger}\thispagestyle{fancy}
 \setcounter{page}{1}
-\textbf{Ključne besede:} beseda1
+\textbf{Ključne besede:} račualniška igra, metode, prakse, RayLib, LibGDX, Unity
 
 \textbf{UDK:} 123
 
@@ -129,7 +129,7 @@ Tukaj pride sklep o potrjeni temi.
 
 %Povzetek v angleškem jeziku
 \chapter*{Good practices for computer game development}\thispagestyle{fancy}
-\textbf{Key words:} word 1
+\textbf{Key words:} computer game, practices, RayLib, LibGDX, Unity
 
 \textbf{UDK:} 123
 
@@ -480,9 +480,6 @@ Metoda za teksturo uporablja barvno paleto z naborom barv za vse naše modele. T
 
 S to metodo smo izdelali vse modele za našo igro. V pogonu Unity smo rabili samo en material za izrisovanje vseh modelov, zato je ta metoda tudi zelo performančna. Obenem metoda nudi dve veliki prednosti za spreminjanje barv med igro. Ker uporabljamo sliko barvne palete lahko to enostavno zamenjamo z drugo in tako preprosto zamenjamo barve na modelu ali celo na celotni sceni, če vsi modeli uporabljajo isto paleto. Tako lahko z enostavno menjavo dodamo večjo raznolikost našim stopnjam. Druga prednost te metode pa je lažje individualno menjavanje barv na modelu. Pri standardnem mapiranju, se skoraj nikoli programsko ne spreminjajo UV lokacije ogljišč, saj je mapiranje specifično za ta model. S to metodo je mogoče zaznati ogljišča, ki se nahajajo na izbrani barvi v teksturi in jih premestiti na drugo barvo. Tako lahko izbranemu objektu spremenimo izbrane barve. Je pa to menjavanje omejeno na vse poligone enake barve v modelu saj ni mogoče spremeniti barve samo enemu poligonu.
 
-\subsection{Izvoz modelov za Unity}
-Tips n tricks tukaj.
-
 \section{Osnovne metode in prakse pri tehnični implementaciji}
 Ne glede na izbiro orodij za tehnično implementacijo računalniške igre, so določene metode in prakse skupne vsem. Tudi če orodje poskrbi za določene prakse je dobro, da se jih zavedamo in tako boljše razumemo delovanje naših orodij in lahko bolj učinkovito implementiramo našo igro.
 
@@ -530,7 +527,6 @@ Ogrodje LibGDX ima točno definirano glavno zanko na katero ne moremo vplivati. 
 
 Pogon Unity ima zelo kompleksno glavno zanko razdeljeno na več delov (simulacija fizikalnega pogona, proženje dogodkov, simulacija igre, izrisovanje scene, izrisovanje uporabniškega vmesnika, ipd.). Z našimi objekti se lahko vključimo v vsak posamezen korak glavne zanke. Unity poleg simulacije igre še izvaja simulacijo fizikalnega pogona, ki se lahko izvede večkrat v eni iteraciji glavne zanke. Metodi za delo s simulacijama sta \textit{FixedUpdate()} (simulacija fizikalnega pogona) in \textit{Update()} (preostala simulacija). Za pridobitev delta časa pa nam je na voljo metoda \textit{Time.deltaTime}.
 
-%TODO MOGOCE OPISATI DETERMINISTIČEN KORAK ZA SIMULACIJOs
 \subsection{Upravljanje stanj v igri}
 Upravljanje stanj je mišljeno kot organizacija in prehajanje med stanji kot so začetni logotip, različni meniji igre (glavni meni, meni za izbiro stopenj, ipd.) in različnimi nivoji igre. Stanja so uporabna, saj lahko ločimo našo igro na individualne dele, ki se izvajajo neodvisno na druga stanja. Za stanja se uporablja tudi sinonim scena. Vsako ogrodje in namenski pogon ima svoj način dela s stanji, vendar so večinoma to preprosti končni avtomati, ki imajo definirane prehode med scenami in hranijo vsak svoje interne objekte. Ti interni objekti so potem gradniki uporabljeni v sceni igre. Med samo igro je to igralec in objekti v svetu, v meniju so gradniki grafičnega vmesnika, ki se odzivajo na dogodke, ipd.
 
@@ -733,7 +729,9 @@ Ogrodje LibGDX se je izkazalo kot vrhunec potrebne funkcionalnosti za razvoj ige
 
 Namenski pogon Unity ponuja vse kaj potrebujemo za razvoj računalniških iger od malih individualnih projektov do komercialnih iger večjih studiov. Pogon ponuja preprosto uporabo z vizualnih urejevalnikom, veliko skupnostjo polno navodil in pomoči in najnovejšo tehnologijo za potrebe razvoja. Obenem je med vsemi opisanimi orodji najpreprostejši za uporabo za novince, večinoma zaradi manjše potrebe znanja programiranja in večjim poudarkom na vizualno delo. Največjo slabost pogona vidimo v večji končni velikosti iger (pri manjših projektih se to hitro pozna) in načinom dela ter arhitekturo projekta, ki ga vsili z njegovo uporabo. Pogon priporočamo vsem, ki jim ni problem se prilagoditi na način dela z pogonom ter tistim, ki nimajo izkušenj z izdelavo iger. Nadaljnji razvoj pogona zgleda obetaven, saj se razvijalci trudijo korenito izboljšati največje slabosti pogona v bližnji prihodnosti.
 
+Z implementiranimi igrami smo predstavili najbolj pomembne prakse in metode v treh različnih orodjih. Obenem smo primerjali ponujene možnosti za implementacijo med orodjih in metode opisali v magistrskem delu. Implementirana igra je implementacija arkadne igre Breakout vendar to ni bil namen dela, ampak uporabljeni postopki, ki so neodvisni od projekta. Z kompleksnejšo igro bi lahko predstavili več naprednih praks, ki pa jih nismo obdelali v sklopu magistrskega dela.
 
+Uspešno smo predstavili ves potreben nabor orodij in praks, ki so potrebna za izdelavo računalniške igre. Obdelali smo le najbolj pogosto uporabljene metode in tri glavna orodja za tehnično implementacijo. V nadaljnjih delih bi se lahko osredotočili na bolj napredne sklope razvoja iger kot so igre za več igralcev, proceduralne metode v igrah ipd. Obenem bi lahko pokrili še preostala večja orodja na trgu kot so Unreal Engine in zanimive ogleda vredne projekte kot je Godot. Vsekakor mislimo, da smo pokrili potrebno področje, ki bo posameznika popeljala v svet razvoja računalniških iger.
 
 \cleardoublepage
 \addcontentsline{toc}{chapter}{Literatura}
