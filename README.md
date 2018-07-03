@@ -13,7 +13,6 @@ Folder breakdown
 # Dependencies
 * Thesis
     * texlive (core,most,lang)
-    * minted (for code formatting)
 * Cpp projects
     * gcc (>7.3.x)
     * qmake
@@ -23,7 +22,7 @@ Folder breakdown
 
 # Installation / build
 ## Thesis
-The following command should be used:
+The following command should be used to build the PDF file:
 ```bash
 pdflatex -synctex=1 -interaction=nonstopmode --shell-escape thesis.tex
 
@@ -33,11 +32,20 @@ pdflatex -synctex=1 -interaction=nonstopmode --shell-escape thesis.tex
 
 pdflatex -synctex=1 -interaction=nonstopmode --shell-escape thesis.tex
 ```
-## Cpp projects
-TODO
+## Cpp project
+QMake was used in order to build the project. QtCreator IDE is recommended for easier building of the project. Open the Breakout.pro file in QtCreator and you are good to go. RayLib library is required to installed systemwide. It can be build and installed from the official GitHub page (https://github.com/raysan5/raylib).
 
-## Java projects
-Open the project in JetBrains IDEA and just run.
+## Java project
+Open the project in JetBrains IDEA. Latest JDK and JRE is required.
+
+## Unity project
+Open the project in the Unity editor. Version 2018.1 was used.
 
 # Software used to create this thesis
-TODO
+Tex live
+TexStudio
+JabRef
+QtCreator
+JetBrains IDEA
+Unity
+Visual Studio Code
