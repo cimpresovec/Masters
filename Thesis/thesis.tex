@@ -125,7 +125,7 @@
 \setcounter{page}{1}
 \textbf{Ključne besede:} računalniška igra, metode, prakse, RayLib, LibGDX, Unity
 
-\textbf{UDK:} Koda
+\textbf{UDK:} 004.388.4:004.42(043.2)
 
 \textbf{Povzetek}\newline
 \textit{Magistrsko delo predstavi metode in prakse, potrebne za razvoj računalniških iger. Najprej opišemo orodja, ki so nam na voljo od samega začetka koncipiranja do konca razvoja. Zatem se posvetimo tehnični implementaciji in dokumentaciji ustaljenih metod ter praks v treh orodjih: RayLib, LibGDX in pogon Unity. Za potrebo demonstracij opisanih metod implementiramo igro Breakout v vseh treh orodjih in končni izdelek tudi opišemo.}
@@ -135,7 +135,7 @@
 \chapter*{Good practices for computer game development}\thispagestyle{fancy}
 \textbf{Key words:} computer game, practices, RayLib, LibGDX, Unity
 
-\textbf{UDK:} Koda
+\textbf{UDK:} 004.388.4:004.42(043.2)
 
 \textbf{Abstract:}\newline
 \textit{The thesis focuses on demonstrating good practices required for game development. We first introduce the different tools that are available to us from the start of development till the end. After that, we focus on the technical implementation and documentation of the standard practices using three different tools: RayLib, LibGDX and Unity engine. For the purpose of demonstrating the documented practices, we also implement the game Breakout in all three tools and document the final product in the end.}
@@ -150,6 +150,35 @@
 %Kazalo kode
 \lstlistoflistings
 
+%Seznam kratic
+\chapter*{Seznam uporabljenih simbolov in kratic}\thispagestyle{fancy}
+\begin{itemize}
+	\item 2D - dva dimenzionalno
+	\item 3D - tri dimenzionalno
+	\item SGC - Slovenian Games Conference
+	\item SDK - Software Development Kit
+	\item SVN - Apache Subversion
+	\item LMMS - Linux MultiMedia Studio
+	\item SDL - Simple DirectMedia Layer
+	\item GLFW - Graphics Library Framework
+	\item BMP - Bitmap
+	\item GIF - Graphics Interchange Format
+	\item JPEG - Joint Photographic Experts Group
+	\item PNG - Portable Network Graphics
+	\item SVG - Scalable Vector Graphics
+	\item FLAC - Free Lossless Audio Codec
+	\item MIDI - Musical Instrument Digital Interface
+	\item SOIL - Simple OpenGL Image Library
+	\item TTF - TrueType Font
+	\item TCP - Transmission Control Protocol
+	\item UDP - User Datagram Protocol
+	\item RTF - Rich Text Format
+	\item VR - Virtual Reality
+	\item XNA - XNA's not acronymed
+	\item JS - JavaScript
+	\item MIT - Massachusetts Institute of Technology
+	\item GUI - Graphical User Interface
+\end{itemize}
 %Content
 %Uvod
 \chapter{Uvod}\thispagestyle{fancy}
@@ -170,26 +199,26 @@ V tem poglavju smo opisali osnovno problematiko razvoja igre, kot so sodelujoče
 \label{sec:opis_problema}
 Razvoj računalniških iger je proces razvoja programske opreme. Obenem je kreativen proces, v katerem sodeluje širok spekter ljudi iz različnih panog. Glavne vloge v tem procesu so \cite{rogers2014level}:
 \begin{itemize}
-	\item \textbf{Programer:} je odgovoren za tehnično implementacijo računalniške igre. Odvisno od velikosti projekta in končnega cilja uporablja obstoječe namenske pogone za razvoj računalniških iger (npr. Unity ali Unreal Engine) ali implementira \textit{"in-house"} pogon za to specifično igro. Tukaj pridejo v poštev različna znanja iz 2D in 3D grafike, fizike, umetne inteligence, uporabniških vmesnikov, računalniških mrež ipd. Obenem je potreben še ves spekter računalniškega znanja, ki se navezuje na principe, specifične za računalniške igre.
-	\item \textbf{Umetnik:} je odgovoren za izdelavo vseh grafičnih gradnikov. Določeni umetniki izrisujejo samo konceptne slike in z oblikovalcem poskusijo definirati končni cilj igre, kako bo videz igre, kakšni bodo glavni liki ipd. Preostali umetniki pripravljajo gradnike, ki se nato uporabijo v sami računalniški igri. To so lahko grafični gradniki za menije, 3D modeli objektov, teksture za omenjene modele, vizualni efekti, animacije ipd.
-	\item \textbf{Oblikovalec:} je odgovoren za koncipiranje in definiranje računalniške igre. Išče in definira ideje, ki so in bodo pomembne za igro. Pomembna vrlina je, da je zmožen te ideje dobro predstaviti preostali ekipi, da jo ta potem uresniči. Določeni oblikovalci se lahko osredotočijo na specifične dele igre, kot so stopnje v igri in določeni sistemi (npr. sistem bojevanja).
+	\item \textbf{Programer (angl. \textit{programmer}):} je odgovoren za tehnično implementacijo računalniške igre. Odvisno od velikosti projekta in končnega cilja uporablja obstoječe namenske pogone za razvoj računalniških iger (npr. Unity ali Unreal Engine) ali implementira \textit{"in-house"} pogon za to specifično igro. Tukaj pridejo v poštev različna znanja iz 2D in 3D grafike, fizike, umetne inteligence, uporabniških vmesnikov, računalniških mrež ipd. Obenem je potreben še ves spekter računalniškega znanja, ki se navezuje na principe, specifične za računalniške igre.
+	\item \textbf{Umetnik (angl. \textit{artist}):} je odgovoren za izdelavo vseh grafičnih gradnikov. Določeni umetniki izrisujejo samo konceptne slike in z oblikovalcem poskusijo definirati končni cilj igre, kako bo videz igre, kakšni bodo glavni liki ipd. Preostali umetniki pripravljajo gradnike, ki se nato uporabijo v sami računalniški igri. To so lahko grafični gradniki za menije, 3D modeli objektov, teksture za omenjene modele, vizualni efekti, animacije ipd.
+	\item \textbf{Oblikovalec (angl. \textit{designer}):} je odgovoren za koncipiranje in definiranje računalniške igre. Išče in definira ideje, ki so in bodo pomembne za igro. Pomembna vrlina je, da je zmožen te ideje dobro predstaviti preostali ekipi, da jo ta potem uresniči. Določeni oblikovalci se lahko osredotočijo na specifične dele igre, kot so stopnje v igri in določeni sistemi (npr. sistem bojevanja).
 	Specifična panoga oblikovalca je tudi pisatelj, ki je odgovoren za zgodbo v igri. Včasih je sama zgodba rdeča nit in je glavna gonilna sila za nastanek igre, drugič pa se zgodba komaj oblikuje skozi nastanek končnega produkta.
-	\item \textbf{Skladatelj in oblikovalec zvoka:} je odgovoren za vse zvočne gradnike igre. Skladatelji pripravljajo glasbo v igri. Dandanes pri večjih projektih sodelujejo tudi celotni orkestri. Oblikovalec zvoka pa je odgovoren za različne krajše zvoke, ki se prožijo ob določenih akcijah (npr. streli orožij).
-	\item \textbf{Preizkuševalec:} testira produkt skozi vse faze razvoja in daje povratne informacije drugim razvijalcem za izboljšanje produkta. Zagotavlja kakovost igre, da bo ta izšla brez hujših napak.
+	\item \textbf{Skladatelj in oblikovalec zvoka (angl. \textit{composer and sound designer}):} je odgovoren za vse zvočne gradnike igre. Skladatelji pripravljajo glasbo v igri. Dandanes pri večjih projektih sodelujejo tudi celotni orkestri. Oblikovalec zvoka pa je odgovoren za različne krajše zvoke, ki se prožijo ob določenih akcijah (npr. streli orožij).
+	\item \textbf{Preizkuševalec (angl. \textit{tester}):} testira produkt skozi vse faze razvoja in daje povratne informacije drugim razvijalcem za izboljšanje produkta. Zagotavlja kakovost igre, da bo ta izšla brez hujših napak.
 \end{itemize}
-Poleg naštetih, je na področju izdajanja igre še veliko drugih vlog, kot so vodenje ekipe, marketinga ipd., vendar so zgoraj naštete najbolj pomembne pri samem razvoju igre. Znanja, ki jih te vloge premorejo, so pomembna za razvoj vsake igre. Če gre za večji projekt, potem je za posamezno vlogo potrebnih več ljudi. Dandanes pri velikih podjetjih pri razvoju iger sodeluje preko sto ljudi. Na trgu pa obstaja tudi velika scena individualnih razvijalcev (angl. \textit{indie developer}), ki sami premorejo vsa potrebna znanja za razvoj in tako uresničijo svoje projekte. 
+Poleg naštetih, je na področju izdajanja igre še veliko drugih vlog, kot so vodenje ekipe, marketinga ipd., vendar so zgoraj naštete najbolj pomembne pri samem razvoju igre. Znanja, ki jih te vloge premorejo, so pomembna za razvoj vsake igre. Če gre za večji projekt, potem je za posamezno vlogo potrebnih več ljudi. Dandanes pri velikih podjetjih pri razvoju iger sodeluje preko sto ljudi. Na trgu pa obstaja tudi velika scena individualnih razvijalcev (angl. \textit{indie developer}), ki sami nastopijo v večini vlog in tako uresničijo svoje projekte. 
 
 V tem magistrskem delu smo se posvetili individualnemu razvoju računalniške igre in praksam, ki temu pristopu najbolj ustrezajo. Kot posamezni razvijalec je potrebno uporabiti znanja iz različnih panog, zato smo s tem delom poskusili zaobjeti prakse, ki bi ta proces olajšale. V delu smo našteli in opisali različna orodja ter procese za vsak korak v razvoju. Glavni koraki razvoja so sledeči: koncipiranje in definiranje igre, planiranje in vodenje dela, tehnični razvoj igre (pri tem pride v poštev izdelava grafičnih in zvočnih gradnikov ter implementacija), oglaševanje in viri občinstva ter na koncu izdaja igre.
 
 \section{Koncipiranje igre}
-V prvem koraku razvoja igre je potrebno definirati, kaj želimo ustvariti. Lahko, da ima nekdo svojo sanjsko idejo, ki jo hoče uresničiti. Drugim se nenadoma prikrade ideja, ki jo potem razvijejo v delujoč produkt. Velikokrat pa je potrebno vložiti delo, da definiramo originalno idejo igre. Studii, katerim je razvoj iger glavni vir prihodka, se ne morejo zanašati na naključne ideje. Obenem je izvirna in dobro premišljena ideja pomembna, če hočemo kot individualna oseba razviti svojo igro, saj je trg danes zelo nasičen in je prvi vtis zelo pomemben. Spodaj smo našteli nekaj načinov, kako spodbuditi ustvarjalnost in poiskati novo idejo za igro \cite{rogers2014level}: 
+V prvem koraku razvoja igre je potrebno definirati, kaj želimo ustvariti. Ta korak opravlja oblikovalec igre. Lahko, da ima svojo sanjsko idejo, ki jo hoče uresničiti. Drugim se nenadoma prikrade ideja, ki jo potem razvijejo v delujoč produkt. Velikokrat pa je potrebno vložiti delo, da definiramo originalno idejo igre. Studii, katerim je razvoj iger glavni vir prihodka, se ne morejo zanašati na naključne ideje. Obenem je izvirna in dobro premišljena ideja pomembna, če hočemo kot individualna oseba razviti svojo igro, saj je trg danes zelo nasičen in je prvi vtis zelo pomemben. Spodaj smo našteli nekaj načinov, kako spodbuditi ustvarjalnost in poiskati novo idejo za igro \cite{rogers2014level}: 
 \begin{itemize}
 	\item \textbf{Igranje obstoječe (slabe) igre.} Igre konstantno gradijo na idejah in mehanikah obstoječih iger. Dodajajo se novi koncepti in pravila, ki iz starih idej zgradijo nove izkušnje. Za vsako komercialno igro se lahko našteje ducat drugih, ki so služile kot navdih in podlaga za njo. Tako je dober način za iskanje idej igranje že obstoječih iger. Še boljše je igranje slabih iger in razmislek, kaj bi spremenili, da bi izkušnjo izboljšali. Tako iteriramo na obstoječih rešitvah, da definiramo nekaj boljšega.
 	\item \textbf{Branje tematike izven osebnega zanimanja.} Razširjanje osebnega obzorja, znanja in izkušenj je vedno dober vir novih idej. Velikokrat je pri igrah problem, da so si preveč podobne. Dandanes se zelo pogosto dogaja, da vsi poskusijo kopirati idejo iz nove, uspešne igre. Zato je pomembno, da raziščemo tematike, ki jih ne poznamo najbolje in poskusimo tam najti nove ideje.
 	\item \textbf{Udeleževanje konferenc in predavanj.} Konference so vedno polne različnih ljudi z novimi idejami. V takem okolju hitro najdemo inspiracijo, ki jo lahko izkoristimo za razvoj nove igre.
 	\item \textbf{Viharjenje možganov (angl. \textit{brainstorming})}. Uveljavljena praksa iskanja novih idej. Pomembno je, da zberemo ljudi iz različnih področij in se držimo glavnega pravila: poudarek je na količini idej, ki se ne obsojajo \cite{osborn1953applied}. Tako poskusimo raziskati čim več idej, ki so lahko prvotno neprimerne in na teh nato gradimo vedno boljše rešitve.
 \end{itemize}
-Pri iskanju idej je pomembno, da se zavedamo svojih omejitev. Če smo posameznik, ki hoče uresničiti svojo prvo igro, potem je priporočljivo, da začnemo s preprostimi idejami. Take igre lahko potem uresničimo in postopoma povečujemo obsežnost naslednjih iger. Veliko posameznikov namreč začne s preveč ambicioznimi idejami, ko pa je potrebno projekt dejansko uresničiti, pa pride do komplikacij in pogosto do preliminarne zaključitve projekta.
+Pri iskanju idej je pomembno, da se zavedamo svojih omejitev. Če smo posameznik, ki hoče uresničiti svojo prvo igro, potem je priporočljivo, da začnemo s preprostimi idejami. Take igre lahko potem uresničimo in postopoma povečujemo obsežnost naslednjih iger. Veliko posameznikov namreč začne s preveč ambicioznimi idejami, ko pa je potrebno projekt dejansko uresničiti, pa pride do komplikacij in pogosto do preliminarne zaključitve projekta \cite{ambitious1}\cite{ambitious2}\cite{ambitious3}.
 \section{Potek razvoja igre}
 Razvoj igre skoraj vedno poteka po določenih korakih, neodvisno od ideje. Glavni mejniki procesa so \cite{jainGameDevelopmentCycle}:
 \begin{figure}[h]
@@ -253,7 +282,7 @@ Trello je produkt pod okriljem podjetja Atlassian, ki med drugim nudi storitve, 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=10cm]{trelloBoardDemo}
+	\includegraphics[width=14cm]{trelloBoardDemo}
 	\caption{Primer table Trello.}.
 	\label{slika:trelloDemo}
 	\vspace*{-2em}
@@ -371,16 +400,15 @@ Težko je določiti mejo med nizkonivojskimi in visokonivojskimi knjižnicami oz
 
 Najprej smo v tem poglavju opisali še dve knjižnici, ki nista še popolnoma v tej kategoriji visokonivojskih knjižnic, vendar ponujata dovolj velik sklop funkcionalnosti, da ju ne moremo uvrstiti v našo definicijo čiste nizkonivojske knjižnice:
 \begin{enumerate}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=12cm]{raylib_architecture}
+		\caption{Arhitektura knjižnice Raylib. Vir \cite{raylib}}
+		\label{slika:raylib}
+	\end{figure}
 	\item \textbf{Raylib}. Je odprtokodna C knjižnica, ki ponuja večji del funkcionalnosti za razvoj računalniške igre. Zgrajena je na osnovi GLFW in ima svoj sistem za delanje z okni ter vhodnimi napravami. Podpira branje in risanje slik različnih formatov, branje in risanje računalniških pisav, nalaganje 3D modelov in izrisovanje, sistem za materiale za modele, podporo senčilnikov (angl. \textit{shader}), predvajanje glasbe in zvokov, VR izrisovanje ipd. Knjižnica je nekako kombinacija vseh SDL knjižnic, vendar z nadgrajeno funkcionalnostjo. Ena večjih funkcionalnosti, ki manjka, je komunikacija preko mreže. Ponuja še dodatne individualne knjižnice, ki dodajo funkcionalnost za delo s preprostimi grafičnimi vmesniki, fizikalnim pogonom in animacijami. Te dodatne razširitvene knjižnice ne ponujajo kompletne funkcionalnosti, ki bi jih dobili z drugimi knjižnicami, zato nam tukaj manjka določen del funkcionalnosti. Knjižnica je zamišljena na način, da ne predvideva specifičnega načina programiranja, zato jo lahko uporabimo na svoj način \cite{raylib}. Arhitekturo knjižnice vidimo na sliki \ref{slika:raylib}.
 	\item \textbf{SFML}. SFML je odprtokodna C++ knjižnica, ki ponuja bolj omejen sklop funkcionalnosti kot Raylib. Ima svojo zasnovo za delo s platformo in ne uporablja SDL ali GLFW. Podpira bolj osnovne funkcionalnosti, kot je izrisovanje, delanje z zvokom, vhodnimi napravami, računalniškimi pisavami, slikami in komunikacijo preko mreže. Nima napredne funkcionalnosti kot 3D izrisovanje, materiale, senčilnike ipd. Obenem ne ponuja nobenih razširitvenih knjižnic, s katerimi bi lahko dodali tako funkcionalnost \cite{sfml}. 
 \end{enumerate}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=12cm]{raylib_architecture}
-	\caption{Arhitektura knjižnice Raylib. Vir \cite{raylib}}
-	\label{slika:raylib}
-\end{figure}
 
 Sledijo ogrodja, ki sodijo v kategorijo visokonivojskih knjižnic in ogrodij. To so ogrodja, ki so zgrajena z namenom izdelave računalniških iger in tako ponujajo vso funkcionalnost, ki bi jo rabili. Imajo svoj način uporabe, vendar nam s tem olajšajo delo, ki je potrebno za uresničitev naših ciljev.
 
@@ -417,7 +445,7 @@ Poleg zgoraj omenjenih orodij smo potrebovali še orodja za izdelavo grafičnih 
 Med samim razvojem smo si razgradili delo na platformi Trello, ves napredek pa smo verzionirali s sistemom Git ter naš repozitorij hranili na platformi GitHub. Vsa vsebina, izdelana za potrebe magistrskega dela (koda, gradniki, projekti in magistrsko delo v Latex formatu), je na voljo na sledeči povezavi: \url{https://github.com/cimpresovec/Masters}. Vsebina uporablja MIT licenco, kar pomeni, da je prosto dostopna za uporabo brez omejitev.
 
 \section{Igra Breakout}
-Računalniška igra, ki smo jo izdelali v sklopu magistrskega dela je klon igre Breakout. Originalna igra je izšla leta 1976 za Atari, vendar je do danes izšlo na desetine variacij igre. V igri igralec nadzira lopar, s katerim odbija žogo v omejenem prostoru. Lopar je omejen na spodnji del zaslona in se lahko premika samo horizontalno. Z odbijanjem žoge poskuša igralec uničiti vse ovire v stopnji, od katerih se žoga odbija, ko jih uničuje. Cilj je čim bolj spretno odbijati žogo, nabrati čim več pik ter napredovati skozi stopnje z uničenjem vseh ovir. Če se žoga igralcu izmuzne, izgubi eno življenje ter lahko poskusi znova. Odbijanje žoge od loparja je prilagojeno tako, da ima igralec visoko stopnjo nadzora nad tem, v katero smer se bo odbila žoga.
+Računalniška igra, ki smo jo izdelali v sklopu magistrskega dela je klon igre Breakout. Cilj izdelave je bila tehnična izvedba, saj smo z implementacijo klona preskočili fazo načrtovanja. Originalna igra je izšla leta 1976 za Atari, vendar je do danes izšlo na desetine variacij igre. V igri igralec nadzira lopar, s katerim odbija žogo v omejenem prostoru. Lopar je omejen na spodnji del zaslona in se lahko premika samo horizontalno. Z odbijanjem žoge poskuša igralec uničiti vse ovire v stopnji, od katerih se žoga odbija, ko jih uničuje. Cilj je čim bolj spretno odbijati žogo, nabrati čim več pik ter napredovati skozi stopnje z uničenjem vseh ovir. Če se žoga igralcu izmuzne, izgubi eno življenje ter lahko poskusi znova. Odbijanje žoge od loparja je prilagojeno tako, da ima igralec visoko stopnjo nadzora nad tem, v katero smer se bo odbila žoga.
 
 Vse verzije igre (C++, Java in Unity) so zaključene celote in vsebujejo naslednje glavne funkcionalnosti:
 \begin{itemize}
@@ -755,7 +783,7 @@ Namenski pogon Unity ponuja vse, kar potrebujemo za razvoj računalniških iger 
 Kot omenjeno so vsi projekti na voljo na GitHub repozitoriju na naslednji povezavi: \url{https://github.com/cimpresovec/Masters}. Projekt ima MIT licenco in vsebuje vso vsebino, izdelano za potrebe tega magistrskega dela.
 
 \chapter{Sklep}\thispagestyle{fancy}
-V magistrskem delu smo predstavili potreben nabor orodij, postopkov in metod za celovito izdelavo računalniške igre. Kot demonstracijo teh orodij smo implementirali računalniško igro v C++ z RayLib, Javi z LibGDX in v pogonu Unity. Obenem smo izdelali potrebne grafične gradnike z orodjema Inkscape za 2D grafiko in orodjem Blender za 3D grafiko. Zvočne gradnike smo izdelali z orodjem BFXR.
+V magistrskem delu smo predstavili potreben nabor orodij, postopkov in metod za izdelavo računalniške igre. Kot demonstracijo teh orodij smo implementirali računalniško igro v C++ z RayLib, Javi z LibGDX in v pogonu Unity. Obenem smo izdelali potrebne grafične gradnike z orodjema Inkscape za 2D grafiko in orodjem Blender za 3D grafiko. Zvočne gradnike smo izdelali z orodjem BFXR.
 
 Grafični gradniki so preprostih oblik, vendar služijo svojemu namenu za predstavitev posameznih objektov. Največjo pomanjkljivost gradnikov vidimo v 3D modelih, saj nismo imeli dovolj izkušenj za izdelavo bolj podrobnih in kakovostnih modelov. Potrebne modele bi bilo možno pridobiti s spleta, vendar smo za potrebe magistrskega dela sami preučili metode in izdelali gradnike. Pri zvočnih gradnikih nismo sami izdelali glasbe, ampak smo s spleta pridobili javno dostopno skladbo za igro. Pri tem je bila največja težava poznavanje potrebne glasbene teorije in izkušnje, ki so potrebne za izdelavo takih gradnikov.
 
